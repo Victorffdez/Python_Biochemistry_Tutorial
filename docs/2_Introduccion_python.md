@@ -15,10 +15,8 @@ Las principales características de Python son las siguientes:
 * Interpretado. El código no se compila. 
 * Dinámicamente tipado y fuertemente tipado. Esto significa que el tipo de los objetos se decide en tiempo de ejecución, y que el tipo de valor no cambia repentinamente.
 
-### *Ventajas y desventajas*
 
-![imagen_nube](C:\Users\victo\Downloads\wordcloud.png)
-
+![alt text](imagen_nube.png "Title")
 
 ## **Instalación**
 
