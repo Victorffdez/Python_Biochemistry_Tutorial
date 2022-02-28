@@ -7,7 +7,7 @@ edit_uri: ""
 
 nav:
     - Inicio: index.md
-    - Conceptos básicos: 2_Conceptos_basicos.md
+    - Introducción a Python: 2_Introduccion_python.md
     - PyCharm: 3_Pycharm.md
     - Variables, objetos atómicos y operadores: 4_Variables.md
     - Estructuras de datos: 5_EstructurasDatos.md
