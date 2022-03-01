@@ -64,12 +64,20 @@ extra:
   generator: false #Elimina spam de mkdocs al final del documento
 
 copyright: Copyright © 2021-2022 Víctor J. Fernández. Todos los derechos reservados.
-markdown_extensions:  #Extensión necesaria para redimensionar imagenes fácilmente.
+markdown_extensions:  #Extensiones necesarias para editar imagenes, tablas...
   - attr_list
   - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.critic #Nos permite modificar el formato de texto, incluyendo por ej el subrayado.
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
 
 
 

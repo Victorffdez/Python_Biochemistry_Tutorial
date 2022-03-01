@@ -10,10 +10,10 @@ A diferencia de otros lenguajes como Java o .NET, se trata de un lenguaje interp
 ## **Características**
 Las principales características de Python son las siguientes:
 
-* Multiparadigma.
-* Multiplataforma. Se puede encontrar un intérprete de Python para los principales sistemas operativos (Windows, Linux y Mac OS), utilizándose el mismo código en cada una de las plataformas.
-* Interpretado. El código no se compila. 
-* Dinámicamente tipado y fuertemente tipado. Esto significa que el tipo de los objetos se decide en tiempo de ejecución, y que el tipo de valor no cambia repentinamente.
+* ^^Multiparadigma^^.
+* ^^Multiplataforma^^. Se puede encontrar un intérprete de Python para los principales sistemas operativos (Windows, Linux y MacOS), utilizándose el mismo código en cada una de las plataformas.
+* ^^Interpretado^^. El código no se compila. 
+* ^^Dinámicamente tipado y fuertemente tipado^^. Esto significa que el tipo de los objetos se decide en tiempo de ejecución, y que el tipo de valor no cambia repentinamente.
 
 <figure markdown>
 
@@ -26,7 +26,9 @@ Como se ha comentado, Python presenta soporte multiplataforma, y su instalación
 
 Python permite tener instaladas distintas versiones, por ejemplo, *Python 3.9* y *Python 3.10*. Al no tener conocimientos avanzados, se recomienda tener instalada únicamente una versión de Python, la más reciente (*3.10*). En concreto, la última versión de Python disponible es la *3.10.2*, lanzada el día 14 de enero de 2022. 
 
-* **Enlace**: página oficial para la descarga de [Python 3.10.2](https://www.python.org/downloads/)
+!!! info "ENLACE PYTHON 3.10.2"
+
+    El siguiente enlace le redirige a la página oficial de Python para la descarga de [Python 3.10.2](https://www.python.org/downloads/)
 
 
 <center>
