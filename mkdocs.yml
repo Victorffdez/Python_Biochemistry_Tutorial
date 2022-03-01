@@ -64,6 +64,13 @@ extra:
   generator: false #Elimina spam de mkdocs al final del documento
 
 copyright: Copyright © 2021-2022 Víctor J. Fernández. Todos los derechos reservados.
+markdown_extensions:  #Extensión necesaria para redimensionar imagenes fácilmente.
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+
 
 
 

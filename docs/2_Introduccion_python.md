@@ -15,8 +15,11 @@ Las principales características de Python son las siguientes:
 * Interpretado. El código no se compila. 
 * Dinámicamente tipado y fuertemente tipado. Esto significa que el tipo de los objetos se decide en tiempo de ejecución, y que el tipo de valor no cambia repentinamente.
 
+<figure markdown>
 
-![alt text](imagen_nube.png "Title")
+  ![nube](imagen_nube.png){ width="500" height="300" }
+
+</figure>
 
 ## **Instalación**
 Como se ha comentado, Python presenta soporte multiplataforma, y su instalación es muy similar en Windows y MacOs. En una distribución estándar Linux dispone por defecto del interprete Python.  
@@ -32,12 +35,12 @@ Python permite tener instaladas distintas versiones, por ejemplo, *Python 3.9* y
 
 1. Una vez descargado el instalador, inicie la instalación (haciendo doble click).
 2. En la primera pantalla, se pueden modificar las opciones de instalación en el cuadro *Customize installation*. El usuario puede utilizarlo, pero en principio no va a ser necesario. Sí será útil seleccionar la opción *Add Python 3.10 to PATH*, fundamental para usar la línea de comandos para ejecutar programas. Una vez seleccionado, siga adelante mediante la opción *Install Now*.
-3. A continuación, se realiza la instalación. Sea paciente, puede durar unos cuantos minutos.
-4. Finalmente cierre el programa de instalación en la opción *Close*. 
+3. A continuación, se realiza la instalación. Puede durar unos cuantos minutos.
+4. Finalmente cierre el programa de instalación en la opción *Close*. ¡Ya tiene descargado Python! :smile: 
+
 
 ## **Primer programa: Hola Mundo**
 
-![illo](imagen_nube.png){: style="height:150px;width:150px"}
 
 
 
