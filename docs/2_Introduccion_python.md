@@ -147,7 +147,11 @@ PyCharm es un IDE muy popular desarrollado por la compañía *Jetbrains*, constr
 
 </figure>
 
+!!! cite "Enlaces de interés"
 
+    * [**Documentación de Python 3.10.2**](https://docs.python.org/es/3/index.html)
+    * [**Comandos Linux vs Windows**](https://networknuts.files.wordpress.com/2013/12/commands-win-linux-networknuts.png)
+    * [**Editores de texto e IDE**](https://realpython.com/python-ides-code-editors-guide/)
 
 
 
