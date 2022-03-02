@@ -22,7 +22,7 @@ Las principales características de Python son las siguientes:
 </figure>
 
 ## **Instalación**
-Como se ha comentado, Python presenta soporte multiplataforma, y su instalación es muy similar en Windows y MacOs. En una distribución estándar Linux dispone por defecto del interprete Python.  
+Como se ha comentado, Python presenta soporte multiplataforma, y su instalación es muy similar en Windows y MacOs. Python viene instalado en la mayoría de los sistemas MacOs, pero muy probablemente se trate de una versión desfasada, por lo que conviene instalar la versión más reciente. En una distribución estándar Linux dispone por defecto de Python.  
 
 Python permite tener instaladas distintas versiones, por ejemplo, *Python 3.9* y *Python 3.10*. Al no tener conocimientos avanzados, se recomienda tener instalada únicamente una versión de Python, la más reciente (*3.10*). En concreto, la última versión de Python disponible es la *3.10.2*, lanzada el día 14 de enero de 2022. 
 
@@ -31,9 +31,9 @@ Python permite tener instaladas distintas versiones, por ejemplo, *Python 3.9* y
     El siguiente enlace le redirige a la página oficial de Python para la descarga de [Python 3.10.2](https://www.python.org/downloads/)
 
 
-<center>
-**ETAPAS**
-</center>
+
+### ***Etapas***
+
 
 1. Una vez descargado el instalador, inicie la instalación (haciendo doble click).
 2. En la primera pantalla, se pueden modificar las opciones de instalación en el cuadro *Customize installation*. El usuario puede utilizarlo, pero en principio no va a ser necesario. Sí será útil seleccionar la opción *Add Python 3.10 to PATH*, fundamental para usar la línea de comandos para ejecutar programas. Una vez seleccionado, siga adelante mediante la opción *Install Now*.
@@ -41,8 +41,33 @@ Python permite tener instaladas distintas versiones, por ejemplo, *Python 3.9* y
 4. Finalmente cierre el programa de instalación en la opción *Close*. ¡Ya tiene descargado Python! :smile: 
 
 
-## **Primer programa**
-Para comprobar que se ha instalado correctamente Python en su ordenador, vamos a ejecutar un programa simple: *Hola Mundo*.
+### ***Ejecutar Python en el terminal***
+Una vez instalado Python, para comprobar que se ha realizado correctamente, vamos a ejecutarlo desde la terminal.
+
+1. Abrir una sesión de terminal.
+    * Buscar *terminal* en el buscador de Windows o Cortana.
+    * Abrir el menú Inicio - Ejecutar - cmd. 
+2. Escribir *python* en minúscula. Deberia aparecer por pantalla un mensaje similar:
+<figure markdown>
+
+  ![terminal](python_terminal.png){ width="700" height="400" }
+   
+</figure>
+
+Una vez abierto, Python nos permite realizar diferentes acciones: desde realizar operaciones matemáticas hasta mostrar mensajes por pantalla.
+``` py 
+>>> print("¡Es un placer conocerte!")
+¡Es un placer conocerte!
+>>>
+```
+
+## **Ejecutar programas de Python desde el terminal**
+En el siguiente punto se verán los posibles editores de texto, donde se ejecutarán la mayoría de los programas. A veces, puede resultar útil ejecutar programas desde el terminal, como en aquellos casos en los que una limitación de memoria RAM hagan que desee ejecutar un programa sin tener que abrir el editor (que implica mayor consumo).
+
+Para esto, es fundamental que conozca el directorio en el que se almacena dicho programa. A continuación, se muestra un ejemplo de una ejecución desde el terminal, creando previamente tanto el directorio como el archivo de texto a ejecutar. 
+
+### ***Hello World***
+Vamos a ejecutar un programa simple: *Hola Mundo*.
 Este programa se suele usar de forma genérica en informática como introducción al estudio de un lenguaje de programación determinado. 
 
 Hay que crear en un directorio determinado, como puede ser *Python_Projects*, recomendándose practicar este tutorial siempre en el mismo directorio. Dentro de este directorio crearemos un archivo de texto plano denominado ***hola_mundo.py***, como se muestra a continuación:
@@ -58,8 +83,7 @@ print("Hola Mundo!!!")
 Una vez creado el programa, vamos a ejecutarlo en la terminal. La ejecución es similar en todos los sistemas operativos: se debe acceder desde la terminal al directorio que contiene el programa, y una vez allí ejecutarlo. A continuación se pone de ejemplo la ejecución en Windows:
 
 1. Abrir la terminal.
-    * Buscar *terminal* en el buscador de Windows o Cortana.
-    * Abrir el menú Inicio - Ejecutar - cmd. 
+
 2. Utilizar el comando ***cd*** (permite cambiar de directorio) hasta entrar en el directorio en el que se encuentra el archivo.
 <figure markdown>
 
@@ -85,8 +109,17 @@ A continuación se muestran algunos de los comandos básicos más importantes qu
 | `chdir`       | `pwd`              | Visualizar su posición actual  |
 | `cd ruta`  | `cd ruta`             | Cambiar de directorio |
 
+## **Editores de texto e IDE**
+Para escribir, leer y editar código de la manera más eficiente posible, se necesita un editor de texto o un entorno de desarrollo integrado (IDE, *Integrated development environment*). 
 
+Un IDE no deja de ser un editor de texto, pero que incluye otra serie de herramientas que le permiten examinar el código mientras se introduce y aprender sobre el mismo. Utilizar un IDE puede parecer abrumador para un principiante al comienzo, pero una vez se aconstumbre le será mucho más fácil escribir y leer código. Si se trabaja en un equipo que posea pocos recursos, un editor de texto simple puede ser mejor opción.
 
+^^**SUBLIME TEXT**^^
 
+^^**VISUAL STUDIO CODE (VSC)**^^
+
+^^**JUPYTER NOTEBOOK**^^
+
+^^**PYCHARM**^^
 
 
