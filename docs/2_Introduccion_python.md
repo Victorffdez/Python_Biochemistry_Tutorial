@@ -114,9 +114,31 @@ Para escribir, leer y editar código de la manera más eficiente posible, se nec
 
 Un IDE no deja de ser un editor de texto, pero que incluye otra serie de herramientas que le permiten examinar el código mientras se introduce y aprender sobre el mismo. Utilizar un IDE puede parecer abrumador para un principiante al comienzo, pero una vez se aconstumbre le será mucho más fácil escribir y leer código. Si se trabaja en un equipo que posea pocos recursos, un editor de texto simple puede ser mejor opción.
 
-^^**SUBLIME TEXT**^^
+^^**SUBLIME TEXT**^^ 
 
-^^**VISUAL STUDIO CODE (VSC)**^^
+Sublime Text es un editor de texto avanzado que soporta multitud de lenguajes, como C, C++, HTML o LaTex. Es un programa de pago, la licencia individual cuesta unos 69$ aunque se puede descargar una versión de prueba que tiene tiempo ilimitado. No es una herramienta visual, sino un editor de texto clásico, destacando por su rapidez en la ejecución y su tamaño (7 Mbytes).  
+
+<figure markdown>
+
+  ![sublime](sublimetext.png){ width="150" height="100" }
+   <figcaption> Logo de Sublime Text </figcaption>
+
+</figure>
+
+^^**VISUAL STUDIO CODE (VS Code)**^^
+
+Editor de texto que actúa de forma muy similar a un IDE. Desarrollado por Microsoft, este editor soporta el uso eficiente de un depurador, ofrece distintas herramientas de compleción de código e integra compatibilidad con control de versiones. Es uno de los más utilizados por la comunidad. 
+
+<figure markdown>
+
+  ![visualstudio](visualstudio.png){ width="150" height="100" }
+   <figcaption> Logo de VS Code </figcaption>
+
+</figure>
+
+
+
+
 
 ^^**JUPYTER NOTEBOOK**^^
 
