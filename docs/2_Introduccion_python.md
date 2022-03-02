@@ -45,14 +45,14 @@ Python permite tener instaladas distintas versiones, por ejemplo, *Python 3.9* y
 Para comprobar que se ha instalado correctamente Python en su ordenador, vamos a ejecutar un programa simple: *Hola Mundo*.
 Este programa se suele usar de forma genérica en informática como introducción al estudio de un lenguaje de programación determinado. 
 
-Hay que crear en un directorio determinado, como puede ser *Python_Projects*. Dentro de este directorio crearemos un archivo denominado ***hola_mundo.py***, como se muestra a continuación:
+Hay que crear en un directorio determinado, como puede ser *Python_Projects*, recomendándose practicar este tutorial siempre en el mismo directorio. Dentro de este directorio crearemos un archivo de texto plano denominado ***hola_mundo.py***, como se muestra a continuación:
 ``` py title="hola_mundo.py"
 print("Hola Mundo!!!")
 ```
 
 !!! note "Nombres de Archivos"
 
-    Como se puede observar, el nombre del archivo es *hola_mundo* y no *hola_mundo*. En general, se recomienda que los archivos de programa estén escritos de forma clara y utilizando guiones bajos para separar números o palabras. El nombre del archivo debe ser representetativo del programa que codifica.
+    Como se puede observar, el nombre del archivo es *hola_mundo* y no *hola mundo*. En general, se recomienda que los archivos de programa estén escritos de forma clara y utilizando guiones bajos para separar números o palabras. El nombre del archivo debe ser representetativo del programa que codifica.
 
 
 Una vez creado el programa, vamos a ejecutarlo en la terminal. La ejecución es similar en todos los sistemas operativos: se debe acceder desde la terminal al directorio que contiene el programa, y una vez allí ejecutarlo. A continuación se pone de ejemplo la ejecución en Windows:
@@ -64,7 +64,7 @@ Una vez creado el programa, vamos a ejecutarlo en la terminal. La ejecución es 
 <figure markdown>
 
   ![terminal](terminal_uno.png){ width="500" height="300" }
-   <figcaption>Se puede observar la ruta hasta el archivo: *C:\Users\victo\PycharmProjects\pythonProject\APUNTES* </figcaption>
+   <figcaption>Se puede observar la ruta hasta el archivo: *C:\Users\victo\PycharmProjects\pythonProject\* </figcaption>
 </figure>
 
 Se ha utilizado el comando ***dir*** para visualizar el contenido de ese directorio (comando similar a *ls* en Linux y MacOs).  Por último, ejecutamos el programa: ***python hola_mundo.py***
@@ -72,6 +72,21 @@ Se ha utilizado el comando ***dir*** para visualizar el contenido de ese directo
 
   ![holamundo](terminal_holamundo.png){ width="500" height="300" }
 </figure>
+
+A continuación se muestran algunos de los comandos básicos más importantes que pueden resultarle útiles a la hora de trabajar en la consola.
+
+| WINDOWS      | LINUX             |      FUNCIÓN     | 
+| :---------: | :----------------: |:---------: |
+| `copy`       | `cp`             | Copiar un archivo |
+| `move`       | `mv`              | Mover un archivo  |
+| `dir`    | `ls`             | Lista de archivos |
+| `del`       | `mv`              | Borrar archivos  |
+| `md`    | `mkdir`             | Crear un directorio |
+| `chdir`       | `pwd`              | Visualizar su posición actual  |
+| `cd ruta`  | `cd ruta`             | Cambiar de directorio |
+
+
+
 
 
 
