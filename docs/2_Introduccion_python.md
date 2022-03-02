@@ -131,8 +131,19 @@ Editor de texto que actúa de forma muy similar a un IDE. Desarrollado por Micro
 
 <figure markdown>
 
-  ![visualstudio](visualstudio.png){ width="150" height="100" }
+  ![visualstudio](visualstudio.png){ width="140" height="100" }
    <figcaption> Logo de VS Code </figcaption>
+
+</figure>
+
+^^**PYCHARM**^^
+
+PyCharm es un IDE muy popular desarrollado por la compañía *Jetbrains*, construído específicamente para programar en el lenguaje Python. La versión gratuita se denomina *PyCharm Community Edition*, y contiene una gran cantidad de herramientas y opciones disponibles. Integra un depurador que ayuda a resolver errores, autocompletado en la sintáxis, herramientas de prueba y debug; así como una terminal y consola Python, lo que lo convierte en uno de los mejores editores posibles.
+
+<figure markdown>
+
+  ![pycharm](logopycharm.png){ width="150" height="100" }
+   <figcaption> Logo de PyCharm </figcaption>
 
 </figure>
 
@@ -140,8 +151,7 @@ Editor de texto que actúa de forma muy similar a un IDE. Desarrollado por Micro
 
 
 
-^^**JUPYTER NOTEBOOK**^^
 
-^^**PYCHARM**^^
+
 
 
