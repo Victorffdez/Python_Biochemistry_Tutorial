@@ -1,7 +1,7 @@
 <center>
 # **Tutorial de programación en Python orientado al estudiante de Bioquímica**
 
-**En el siguiente enlace puede acceder al Trabajo de Fin de Grado_(URL PDF)_**
+**En el siguiente enlace puede acceder al Trabajo de Fin de Grado _(URL PDF)_**
 </center>
 ## **Contexto docente**
 
