@@ -34,15 +34,15 @@ Python permite tener instaladas distintas versiones, por ejemplo, *Python 3.9* y
 
 En primer lugar, abra la terminal.
 
-   * Ctrl + Alt + T
+   * Ctrl + Alt + T.
    * Buscar *terminal* en el tablero o Dash.
 
 Para comprobar la versión, se proponen tres formas diferentes:
 ```
-python -V
+$ python -V
 ```
 ```
-python --version
+$ python --version
 ```
 La última opción sería ejecutar *python3* en la terminal, que producirá una salida como esta:
 ```
@@ -52,7 +52,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-Una vez comprobada la versión, si desea instalar la versión más reciente, utilizaremos un paquete llamada ^^*deadsnakes*^^, que actualizará el listado de paquetes disponibles de Python más recientes. Para salir del intérprete de Python, pulse *Control-D* o escriba el comando *exit()*. Introduzca posteriormente los siguientes comandos:
+Una vez comprobada la versión, si desea instalar la versión más reciente, utilizaremos un paquete llamado ^^*deadsnakes*^^, que actualizará el listado de paquetes disponibles de Python más recientes. Para salir del intérprete de Python, pulse *Control-D* o escriba el comando *exit()*. Introduzca posteriormente los siguientes comandos:
 
 ```
 $ sudo add-apt-repository ppa:deadsnakes/ppa
@@ -80,10 +80,10 @@ En primer lugar, abra una ventana del terminal:
 
 Para comprobar la versión, se proponen tres formas diferentes:
 ```
-python -V
+$ python -V
 ```
 ```
-python --version
+$ python --version
 ```
 La última opción sería ejecutar *python* en la terminal, que producirá una salida como esta:
 ```
