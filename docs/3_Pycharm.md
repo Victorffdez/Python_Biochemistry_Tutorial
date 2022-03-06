@@ -27,7 +27,7 @@ Una vez instalado, al iniciar el programa aparece una ventana de bienvenida que 
 <figure markdown>
 
   ![newproject](createproject.png){ width="700" height="400" }
-   
+    <figcaption>Se puede observar la ruta hasta el archivo: *C:\Users\victo\PycharmProjects\pythonProject\* </figcaption>
 </figure>
 
  - En la parte superior le asigna un nombre y ubicación al nuevo proyecto.
@@ -39,4 +39,24 @@ Una vez instalado, al iniciar el programa aparece una ventana de bienvenida que 
   ![interfazpython](interfaz.png){ width="700" height="400" }
    
 </figure>
+
+## **Herramientas**
+Como se puede observar en la imagen anterior, la interfaz se compone de un diseño básico, formado principalmente por los siguientes elementos:
+   
+   * **Editor**. La mayor parte de la interfaz estará ocupada por el archivo que desee editar, en el caso de la imagen se observa el código del archivo *main.py*. 
+   * **Archivos del proyecto**. A la izquierda de la pantalla, encontrará los directorios y archivos que componen el proyecto que acaba de crear. Esta ventana es realmente útil, ya que a parte de poder organizar de forma fácil los archivos que crea, haciendo click derecho en el archivo puede realizar diferentes acciones.
+
+<figure markdown>
+
+  ![opciones](algunasopciones.png){ width="250" height="100" }
+
+</figure>
+
+!!! note "Lista desplegable"
+
+    Destacan la posibilidad de crear, mover, ejecutar (*run*), depurar (*debug*) y eliminar archivos. Observe además que en este caso el proyecto contiene un directorio (*venv*), que contiene un único archivo (*main.py*). 
+
+
+   * **Barra de herramientas**. Aquí, hablar punto a punto de la barra de herramientas de arriba. Pensar si hablar de Git aquí. 
+   * **Desplegable de abajo**. Por último, mencionar el terminal, python console y paquetes. Aquí hablar de los paquetes disponibles, Anaconda y eso.
 
