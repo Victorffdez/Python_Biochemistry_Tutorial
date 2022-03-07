@@ -57,6 +57,59 @@ Como se puede observar en la imagen anterior, la interfaz se compone de un dise�
     Destacan la posibilidad de crear, mover, ejecutar (*run*), depurar (*debug*) y eliminar archivos. Observe además que en este caso el proyecto contiene un directorio (*venv*), que contiene un único archivo (*main.py*). 
 
 
-   * **Barra de herramientas**. Aquí, hablar punto a punto de la barra de herramientas de arriba. Pensar si hablar de Git aquí. 
+   * **Barra de menús**. Situada en la parte superior de la interfaz, los diferentes menús que la componen ofrecen una amplia gama de herramientas.
+   * *File*. Permite crear, abrir, guardar y cerrar proyectos o archivos de diferente tipo, modificar las opciones del IDE o cambiar las propiedades del archivo entre otras opciones.
+
+<figure markdown>
+
+  ![file](filee.png){ width="700" height="400" }
+
+</figure>
+
+   * *Edit*. Incluye las opciones generales de copiar, cortar, pegar, deshacer, buscar, limpiar, etc. Destacan además las opciones de unir, ordenar o duplicar las líneas de código seleccionadas o todo el código.
+
+<figure markdown>
+
+  ![file](edit.png){ width="700" height="400" }
+
+</figure>
+
+   * *View*. Orientado principalmente a la configuración del entorno, pudiendo seleccionar los elementos que desea que se muestren u oculten en su interfaz. Además es muy útil poder ver los archivos recientes, así como un historial de las últimas modificaciones en esos archivos. 
+
+<figure markdown>
+
+  ![file](view.png){ width="700" height="400" }
+
+</figure>
+
+   * *Navigate*. Distintas opciones de navegación en el código. 
+
+<figure markdown>
+
+  ![file](navigate.png){ width="700" height="400" }
+
+</figure>
+
+   * *Code*. Opciones dirigidas principalmente a la escritura/lectura de código, como la inspección y análisis del código, o mover líneas, elementos y enunciados. 
+
+<figure markdown>
+
+  ![file](code.png){ width="700" height="400" }
+
+</figure>
+
+   * *Refactor*.
+
+   * *Run*.
+
+   * *Tools*.
+
+   * *VCS*.
+
+   * *Window*.
+
+   * *Help*.
+
+
    * **Desplegable de abajo**. Por último, mencionar el terminal, python console y paquetes. Aquí hablar de los paquetes disponibles, Anaconda y eso.
 
