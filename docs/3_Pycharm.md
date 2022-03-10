@@ -58,7 +58,7 @@ Como se puede observar en la imagen anterior, la interfaz se compone de un dise�
 
 
    * **^^Barra de menús^^**. Situada en la parte superior de la interfaz, los diferentes menús que la componen ofrecen una amplia gama de herramientas.
-   * ***File***. Permite crear, abrir, guardar y cerrar proyectos o archivos de diferente tipo, modificar las opciones del IDE o cambiar las propiedades del archivo entre otras opciones.
+   * ***File***. Permite crear, abrir, guardar y cerrar proyectos o archivos de diferente tipo, modificar las opciones del IDE, activar el modo ahorro de energía o cambiar las propiedades del archivo entre otras opciones.
 
 <figure markdown>
 
@@ -82,7 +82,7 @@ Como se puede observar en la imagen anterior, la interfaz se compone de un dise�
 
 </figure>
 
-   * ***Navigate***. Distintas opciones de navegación en el código. 
+   * ***Navigate***. Distintas opciones de navegación en el código, como la navegación a una línea de código específica, buscar un elemento en el proyecto, encontrar una ruta de archivo... 
 
 <figure markdown>
 
