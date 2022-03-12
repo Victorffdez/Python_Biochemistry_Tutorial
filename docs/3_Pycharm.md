@@ -43,8 +43,8 @@ Una vez instalado, al iniciar el programa aparece una ventana de bienvenida que 
 ## **Herramientas**
 Como se puede observar en la imagen anterior, la interfaz se compone de un diseño básico, formado principalmente por los siguientes elementos:
    
-   * **^^Editor^^**. La mayor parte de la interfaz estará ocupada por el archivo que desee editar, en el caso de la imagen se observa el código del archivo *main.py*. 
-   * **^^Archivos del proyecto^^**. A la izquierda de la pantalla, encontrará los directorios y archivos que componen el proyecto que acaba de crear. Esta ventana es realmente útil, ya que a parte de poder organizar de forma fácil los archivos que crea, haciendo click derecho en el archivo puede realizar diferentes acciones.
+   * **^^EDITOR^^**. La mayor parte de la interfaz estará ocupada por el archivo que desee editar, en el caso de la imagen se observa el código del archivo *main.py*. 
+   * **^^PROYECTO^^**. A la izquierda de la pantalla, encontrará los directorios y archivos que componen el proyecto que acaba de crear. Esta ventana es realmente útil, ya que a parte de poder organizar de forma fácil los archivos que crea, haciendo click derecho en el archivo puede realizar diferentes acciones.
 
 <figure markdown>
 
@@ -57,7 +57,7 @@ Como se puede observar en la imagen anterior, la interfaz se compone de un dise�
     Destacan la posibilidad de crear, mover, ejecutar (*run*), depurar (*debug*) y eliminar archivos. Observe además que en este caso el proyecto contiene un directorio (*venv*), que contiene un único archivo (*main.py*). 
 
 
-   * **^^Barra de menús^^**. Situada en la parte superior de la interfaz, los diferentes menús que la componen ofrecen una amplia gama de herramientas.
+   * **^^BARRA DE MENÚS^^**. Situada en la parte superior de la interfaz, los diferentes menús que la componen ofrecen una amplia gama de herramientas.
    * ***File***. Permite crear, abrir, guardar y cerrar proyectos o archivos de diferente tipo, modificar las opciones del IDE, activar el modo ahorro de energía o cambiar las propiedades del archivo entre otras opciones.
 
 <figure markdown>
@@ -168,5 +168,51 @@ Entendido esto, ya solo queda decir que en esta ventana encontraremos todo lo ne
 
 </figure>
 
-   * **Desplegable de abajo**. Por último, mencionar el terminal, python console y paquetes. Aquí hablar de los paquetes disponibles, Anaconda y eso.
+   * **^^VENTANAS INFERIORES^^**. En la zona inferior de la pantalla, puede encontrar una serie de paneles que serán muy importantes durante el uso de PyCharm. Estas herramientas las puede encontrar también en ** *View* > *Tool Windows* **. 
 
+<figure markdown>
+
+  ![opciones](ultimasopciones.png){ width="650" height="350" }
+
+</figure>
+
+   * ***TODO***. La mayoría de los programadores ponen comentarios *TODO* en su código, para rastrear los problemas que ven, las ideas que tienen, o algo que queda por hacer, como un carpintero que construye una casa y escribe una medida en el marco. 
+
+     En esta ventana podremos seleccionar si deseamos ver todos los comentarios *TODO* del proyecto o solo los del archivo actual. Además podremos navegar entre los distintos elementos *TODO* con las opciones de la izquierda: seleccionar el anterior/siguiente *TODO*, filtrar los distintos elementos o seleccionar cómo agrupar estos items *TODO*.  
+
+<figure markdown>
+
+  ![todo](TODO.png){ width="550" height="250" }
+
+</figure>
+
+!!! note "TODO"
+
+    Para escribir en su código un comentario *TODO*, simplemente tendrá que escribir ***#todo*** seguido del comentario. 
+
+   * ***Problems***. Esta ventana muestra los problemas que PyCharm detecta en su proyecto. La pestaña *Current File* enumera los problemas de código encontrados en el archivo actual, donde puede seleccionarlos para saltar directamente a la línea donde se encuentra; y la pestaña *Project Errors* mostrará todo el conjunto de errores en su proyecto.
+
+     Tenga en cuenta que en la mayoría de las ocasiones, el propio IDE le va a proporcionar posibles soluciones al problema detectado. 
+
+<figure markdown>
+
+  ![problems](problems.png){ width="550" height="250" }
+
+</figure>
+
+   * ***Terminal***. PyCharm incluye un emulador de terminal integrado para trabajar con el shell de línea de comandos desde dentro del IDE. Como se puede observar, en este caso el emulador se ejecuta con Windows PowerShell. 
+
+     El terminal será fundamental para ejecutar comandos de Git, cambiar permisos de archivos o realizar otras tareas de líneas de comandos desde el propio entorno. 
+
+<figure markdown>
+
+  ![termianl](terminal.png){ width="550" height="250" }
+
+</figure>
+
+   * ***Python Packages***.
+   * ***Python Console***. PyCharm incluye en la interfaz una consola de Python propia, siendo una forma rápida de ejecutar comandos o probar código sin crear un archivo.
+
+!!! cite "Enlaces de interés"
+
+    * [**Documentación de Python 3.10.2**](https://docs.python.org/es/3/index.html)
