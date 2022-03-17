@@ -64,7 +64,7 @@ $ sudo apt install python3.10
     Si no ha conseguido actualizar Python, compruebe previamente que la lista de paquetes disponibles está actualizada. Introduzca en el terminal *$ sudo apt update*. 
 
 
-Estos comandos deberían instalar la última versión de Pyhton en su sistema. Para asegurarse que cuando ejecuta Python lo hace en la versión 3.10, aconstrúmbase a ejecutarlo de la siguiente forma.
+Estos comandos deberían instalar la última versión de Pyhton en su sistema. Para asegurarse que cuando ejecuta Python lo hace en la versión 3.10, acostúmbrese a ejecutarlo de la siguiente forma.
 
 ```
 $ python3.10
@@ -108,7 +108,7 @@ Asegúrese de utilizar este comando para que se ejecute la versión de Python qu
 1. Una vez descargado el instalador, inicie la instalación (haciendo doble click).
 2. En la primera pantalla, se pueden modificar las opciones de instalación en el cuadro *Customize installation*. El usuario puede utilizarlo, pero en principio no va a ser necesario. Sí será útil seleccionar la opción *Add Python 3.10 to PATH*, fundamental para usar la línea de comandos para ejecutar programas. Una vez seleccionado, siga adelante mediante la opción *Install Now*.
 3. A continuación, se realiza la instalación. Puede durar unos cuantos minutos.
-4. Finalmente cierre el programa de instalación en la opción *Close*. ¡Ya tiene descargado Python! :smile: 
+4. Finalmente cierre el programa de instalación en la opción *Close*. ¡Ya tiene descargado Python! :smile: ***MJ: instalado? ***
 
 
 #### ***Ejecutar Python en el terminal***
@@ -117,7 +117,7 @@ Una vez instalado Python, para comprobar que se ha realizado correctamente, vamo
 1. Abrir una sesión de terminal.
     * Buscar *terminal* en el buscador de Windows o Cortana.
     * Abrir el menú Inicio - Ejecutar - cmd. 
-2. Escribir *python* en minúscula. Deberia aparecer por pantalla un mensaje similar:
+2. Escribir *python* en minúscula. Debería aparecer por pantalla un mensaje similar:
 <figure markdown>
 
   ![terminal](python_terminal.png){ width="700" height="400" }
@@ -187,7 +187,7 @@ Un IDE no deja de ser un editor de texto, pero que incluye otra serie de herrami
 
 ^^**[SUBLIME TEXT](https://www.sublimetext.com/)**^^ 
 
-Sublime Text es un editor de texto avanzado que soporta multitud de lenguajes, como C, C++, HTML o LaTex. Es un programa de pago, la licencia individual cuesta unos 69$ aunque se puede descargar una versión de prueba que tiene tiempo ilimitado. No es una herramienta visual, sino un editor de texto clásico, destacando por su rapidez en la ejecución y su tamaño (7 Mbytes).  
+Sublime Text es un editor de texto avanzado que soporta multitud de lenguajes, como C, C++, HTML o LaTex. Es un programa de pago, la licencia individual cuesta unos 69$ aunque se puede descargar una versión de prueba que tiene tiempo ilimitado. No es una herramienta visual, sino un editor de texto clásico, destacando por su rapidez en la ejecución y su tamaño (7 MBytes).  
 
 <figure markdown>
 
@@ -207,7 +207,7 @@ Editor de texto que actúa de forma muy similar a un IDE. Desarrollado por Micro
 
 ^^**[PYCHARM](https://www.jetbrains.com/es-es/pycharm/)**^^
 
-PyCharm es un IDE muy popular desarrollado por la compañía *Jetbrains*, construído específicamente para programar en el lenguaje Python. La versión gratuita se denomina *PyCharm Community Edition*, y contiene una gran cantidad de herramientas y opciones disponibles. Integra un depurador que ayuda a resolver errores, autocompletado en la sintáxis, herramientas de prueba y debug; así como una terminal y consola Python, lo que lo convierte en uno de los mejores editores posibles.
+PyCharm es un IDE muy popular desarrollado por la compañía *Jetbrains*, construido específicamente para programar en el lenguaje Python. La versión gratuita se denomina *PyCharm Community Edition*, y contiene una gran cantidad de herramientas y opciones disponibles. Integra un depurador que ayuda a resolver errores, autocompletado en la sintaxis, herramientas de prueba y debug; así como una terminal y consola Python, lo que lo convierte en uno de los mejores editores posibles.
 
 <figure markdown>
 

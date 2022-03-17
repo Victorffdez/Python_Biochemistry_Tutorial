@@ -1,8 +1,8 @@
 PyCharm es el IDE más popular utilizado para Python. Este capítulo le dará una introducción a PyCharm y explicará sus características, entre las que destacan:
 
- * ^^Asistencia inteligente a Python^^. Proporciona una finalización e inspección de código inteligente, así como indicaciones de errores y refactorización de código automática.
+ * ^^Asistencia inteligente a Python^^. Proporciona una finalización e inspección de código inteligente, así como indicaciones de errores y refactorización de código automática. ***MJ: ¿qué quiere decir finalización?***
  * ^^Depuración avanzada^^. 
- * ^^Herramientas científicas^^. Compatible con *Anaconda* y varios paquetes científicos como *matplotlib* y *Numpy*. 
+ * ^^Herramientas científicas^^. Compatible con *Anaconda* y varios paquetes científicos como *matplotlib* y *Numpy*. ***MJ: ¿tiene algo especial para esos paquetes?***
  * ^^Visualización de Git en Editor^^.
  * ^^Desarrollo multitecnología^^. Compatible con JavaScript, SQL y HTML/CSS entre otros.
 
@@ -44,7 +44,7 @@ Una vez instalado, al iniciar el programa aparece una ventana de bienvenida que 
 Como se puede observar en la imagen anterior, la interfaz se compone de un diseño básico, formado principalmente por los siguientes elementos:
    
    * **^^EDITOR^^**. La mayor parte de la interfaz estará ocupada por el archivo que desee editar, en el caso de la imagen se observa el código del archivo *main.py*. 
-   * **^^PROYECTO^^**. A la izquierda de la pantalla, encontrará los directorios y archivos que componen el proyecto que acaba de crear. Esta ventana es realmente útil, ya que a parte de poder organizar de forma fácil los archivos que crea, haciendo click derecho en el archivo puede realizar diferentes acciones.
+   * **^^PROYECTO^^**. A la izquierda de la pantalla, encontrará los directorios y archivos que componen el proyecto que acaba de crear. Esta ventana es realmente útil, ya que, a parte de poder organizar de forma fácil los archivos que crea, puede realizar diferentes acciones haciendo click derecho en el archivo.
 
 <figure markdown>
 
@@ -54,7 +54,7 @@ Como se puede observar en la imagen anterior, la interfaz se compone de un dise�
 
 !!! note "Lista desplegable"
 
-    Destacan la posibilidad de crear, mover, ejecutar (*run*), depurar (*debug*) y eliminar archivos. Observe además que en este caso el proyecto contiene un directorio (*venv*), que contiene un único archivo (*main.py*). 
+    Destaca la posibilidad de crear, mover, ejecutar (*run*), depurar (*debug*) y eliminar archivos. Observe además que en este caso el proyecto contiene un directorio (*venv*), que contiene un único archivo (*main.py*). 
 
 
    * **^^BARRA DE MENÚS^^**. Situada en la parte superior de la interfaz, los diferentes menús que la componen ofrecen una amplia gama de herramientas.
@@ -127,9 +127,9 @@ Como se puede observar en la imagen anterior, la interfaz se compone de un dise�
 
 </figure>
 
-   * ***VCS***. Antes de explicar qué permite esta ventana, hay que entender una serie de conceptos:
+   * ***VCS***. Antes de explicar qué permite esta ventana, hay que entender una serie de conceptos: ***MJ: considera poner link en la palabra GitHub ***
      * ^^¿Qué es Git?^^ ^^¿Y GitHub?^^.  **GitHub** es un servicio basado en la nube que aloja un sistema de control de versiones (VCS) llamado **Git**. Este permite a los desarrolladores colaborar y realizar cambios en proyectos compartidos, a la vez que mantienen un seguimiento detallado de su progreso. Todos los usuarios de GitHub pueden rastrear y gestionar los cambios que se realizan en el código fuente en tiempo real, a la vez que tienen acceso a todas las demás funciones de Git. 
-     * ^^¿Es importante que conozca GitHub?^^. Como bioquímico interesado en la bioinformática, es muy importante que se familiarice con esta plataforma, ya que hay miles de repositorios disponibles con programas que le pueden resultar útiles, gracias a una gran red de bioinformáticos que comparten sus trabajos y se ayudan mutuamente. 
+     * ^^¿Es importante que conozca GitHub?^^. Como bioquímico interesado en la bioinformática, es muy importante que se familiarice con esta plataforma, ya que hay miles de repositorios disponibles con programas que le pueden resultar útiles, gracias a una gran red de bioinformáticos que comparten sus trabajos y se ayudan mutuamente. ***MJ: más info: https://aulasoftwarelibre.github.io/taller-de-git/github/ ***
      
 <figure markdown>
 
