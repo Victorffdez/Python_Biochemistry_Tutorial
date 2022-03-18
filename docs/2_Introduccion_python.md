@@ -108,7 +108,7 @@ Asegúrese de utilizar este comando para que se ejecute la versión de Python qu
 1. Una vez descargado el instalador, inicie la instalación (haciendo doble click).
 2. En la primera pantalla, se pueden modificar las opciones de instalación en el cuadro *Customize installation*. El usuario puede utilizarlo, pero en principio no va a ser necesario. Sí será útil seleccionar la opción *Add Python 3.10 to PATH*, fundamental para usar la línea de comandos para ejecutar programas. Una vez seleccionado, siga adelante mediante la opción *Install Now*.
 3. A continuación, se realiza la instalación. Puede durar unos cuantos minutos.
-4. Finalmente cierre el programa de instalación en la opción *Close*. ¡Ya tiene descargado Python! :smile: ***MJ: instalado? ***
+4. Finalmente cierre el programa de instalación en la opción *Close*. ¡Ya tiene instalado Python! :smile: 
 
 
 #### ***Ejecutar Python en el terminal***

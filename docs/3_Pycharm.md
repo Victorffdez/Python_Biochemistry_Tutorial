@@ -1,9 +1,8 @@
 PyCharm es el IDE más popular utilizado para Python. Este capítulo le dará una introducción a PyCharm y explicará sus características, entre las que destacan:
 
- * ^^Asistencia inteligente a Python^^. Proporciona una finalización e inspección de código inteligente, así como indicaciones de errores y refactorización de código automática. ***MJ: ¿qué quiere decir finalización?***
+ * ^^Asistencia inteligente a Python^^. Proporciona una finalización e inspección de código inteligente, así como indicaciones de errores y refactorización de código automática. 
  * ^^Depuración avanzada^^. 
- * ^^Herramientas científicas^^. Compatible con *Anaconda* y varios paquetes científicos como *matplotlib* y *Numpy*. ***MJ: ¿tiene algo especial para esos paquetes?***
- * ^^Visualización de Git en Editor^^.
+  * ^^Visualización de Git en Editor^^.
  * ^^Desarrollo multitecnología^^. Compatible con JavaScript, SQL y HTML/CSS entre otros.
 
 ## **Instalación**
@@ -43,7 +42,7 @@ Una vez instalado, al iniciar el programa aparece una ventana de bienvenida que 
 ## **Herramientas**
 Como se puede observar en la imagen anterior, la interfaz se compone de un diseño básico, formado principalmente por los siguientes elementos:
    
-   * **^^EDITOR^^**. La mayor parte de la interfaz estará ocupada por el archivo que desee editar, en el caso de la imagen se observa el código del archivo *main.py*. 
+   * **^^EDITOR^^**.La mayor parte de la interfaz estará ocupada por el archivo que desee editar, en el caso de la imagen se observa el código del archivo *main.py*.
    * **^^PROYECTO^^**. A la izquierda de la pantalla, encontrará los directorios y archivos que componen el proyecto que acaba de crear. Esta ventana es realmente útil, ya que, a parte de poder organizar de forma fácil los archivos que crea, puede realizar diferentes acciones haciendo click derecho en el archivo.
 
 <figure markdown>
@@ -127,9 +126,9 @@ Como se puede observar en la imagen anterior, la interfaz se compone de un dise�
 
 </figure>
 
-   * ***VCS***. Antes de explicar qué permite esta ventana, hay que entender una serie de conceptos: ***MJ: considera poner link en la palabra GitHub ***
-     * ^^¿Qué es Git?^^ ^^¿Y GitHub?^^.  **GitHub** es un servicio basado en la nube que aloja un sistema de control de versiones (VCS) llamado **Git**. Este permite a los desarrolladores colaborar y realizar cambios en proyectos compartidos, a la vez que mantienen un seguimiento detallado de su progreso. Todos los usuarios de GitHub pueden rastrear y gestionar los cambios que se realizan en el código fuente en tiempo real, a la vez que tienen acceso a todas las demás funciones de Git. 
-     * ^^¿Es importante que conozca GitHub?^^. Como bioquímico interesado en la bioinformática, es muy importante que se familiarice con esta plataforma, ya que hay miles de repositorios disponibles con programas que le pueden resultar útiles, gracias a una gran red de bioinformáticos que comparten sus trabajos y se ayudan mutuamente. ***MJ: más info: https://aulasoftwarelibre.github.io/taller-de-git/github/ ***
+   * ***VCS***. Antes de explicar qué permite esta ventana, hay que entender una serie de conceptos: 
+     * ^^¿Qué es Git?^^ ^^¿Y GitHub?^^.  [**GitHub**](https://aulasoftwarelibre.github.io/taller-de-git/github/) es un servicio basado en la nube que aloja un sistema de control de versiones (VCS) llamado [**Git**](https://aulasoftwarelibre.github.io/taller-de-git/introduccion/). Este permite a los desarrolladores colaborar y realizar cambios en proyectos compartidos, a la vez que mantienen un seguimiento detallado de su progreso. Todos los usuarios de GitHub pueden rastrear y gestionar los cambios que se realizan en el código fuente en tiempo real, a la vez que tienen acceso a todas las demás funciones de Git. 
+     * ^^¿Es importante que conozca GitHub?^^. Como bioquímico interesado en la bioinformática, es muy importante que se familiarice con esta plataforma, ya que hay miles de repositorios disponibles con programas que le pueden resultar útiles, gracias a una gran red de bioinformáticos que comparten sus trabajos y se ayudan mutuamente. 
      
 <figure markdown>
 
@@ -210,9 +209,39 @@ Entendido esto, ya solo queda decir que en esta ventana encontraremos todo lo ne
 
 </figure>
 
-   * ***Python Packages***.
+   * ***Python Packages***. Pycharm admite la instalación, desinstalación y actualización de paquetes de Python. De forma predeterminada, Pycharm hace uso del administrador de [paquetes pip](https://pip.pypa.io/en/stable/#) para lo mismo. 
+     
+     Esto también se puede realizar desde: ***File > Settings > Project > python interpreter.***
+
+<figure markdown>
+
+  ![paquetes](paquetes.png){ width="500" height="200" }
+
+</figure>
+
+!!! info "pip"
+
+    Pip *(Package Installer for Python)* es un sistema de gestión de paquetes utilizado para instalar y administrar paquetes en Python. Una ventaja importante de pip es la facilidad de su interfaz de línea de comandos, el cual permite instalar paquetes de software de Python fácilmente desde solo una orden:
+     ```
+     $ pip install nombre-paquete
+     ```
+Por tanto, como PyCharm utiliza el administrador de paquetes pip, simplifica en gran medida el manejo de paquetes. Puede utilizar el navegador para buscar e instalar paquetes genéricos, o bien instalar paquetes específicos:
+
+* Importándolos desde tu propio ordenador (utilizando la ruta al directorio del paquete o archivo).
+* Desde el Sistema de Control de Versiones (utilizando ruta a un repositorio de Git).
+
+<figure markdown>
+
+  ![paquetes](paquetes_instalacion.png){ width="450" height="200" }
+
+</figure>
+
    * ***Python Console***. PyCharm incluye en la interfaz una consola de Python propia, siendo una forma rápida de ejecutar comandos o probar código sin crear un archivo.
 
 !!! cite "Enlaces de interés"
 
-    * [**Documentación de Python 3.10.2**](https://docs.python.org/es/3/index.html)
+    * [**Aprenda PyCharm: tutorial de consejos y trucos rápidos.**](https://www.jetbrains.com/es-es/pycharm/learn/)
+    * [**Índice de elementos del menú.**](https://www.jetbrains.com/help/pycharm/index-of-menu-items.html#ToolsMenu)
+    * [**Git vs GitHub: What's the difference?**](https://www.youtube.com/watch?v=wpISo9TNjfU)
+    * [**Instalar, desinstalar y actualizar paquetes.**](https://www.jetbrains.com/help/pycharm/installing-uninstalling-and-upgrading-packages.html)
+
