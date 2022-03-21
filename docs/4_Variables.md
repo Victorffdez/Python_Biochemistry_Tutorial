@@ -98,16 +98,113 @@ En este caso la variable *fecha_actual* está almacenando una cadena formada por
 En este caso la variable *fecha_actual* está almacenando una lista. Este tipo de elemento se verá más adelante.
 
 #### *Datos numéricos*
-Secuencia de dígitos (pueden incluir el - para negativos y el . para decimales) que representan números.
+Secuencia de dígitos que representan números, pudiendo incluir el - para negativos y el . para decimales. El tipo de datos de número se divide en los siguientes cinco tipos de datos en Python:
 
+* **Entero.** No son más que números enteros, y pueden ser de diferentes tipos: positivo, negativo, cero y largo.
+* **Entero largo.** El sufijo L se usa para la representación de enteros largos en Python, y estos se utilizan para almacenar números grandes sin perder precisión.
+``` py 
+>>> variable = 10000000L
+```
+
+* **Octales y hexadecimales.** Para representar el número octal que tiene base 8 en Python, agregue un 0 previamente para que el intérprete de Python pueda reconocer que el valor esté en base 8 y no en base 10. Para representar el número hexadecimal, agregue 0x. 
+``` py 
+>>> variable = 014
+>>> variable
+12  #Python devuelve por salida el valor en base decimal
+```
+
+* **Números de punto flotante.** Simbolizan los números reales que se escriben con un punto decimal que divide las partes entera y decimal. Los números de punto flotante también pueden venir con notación científica con E o e, indicando la potencia de 10.* 
+``` py 
+>>> variable = 7.9e2 #Esto es igual a 7.9 * 10**2
+```
+
+* **Números complejos.** Los números complejos tienen la forma 'a + bj', donde a es el valor flotante de la parte real y b es el valor flotante de la parte imaginaria, y j representa la raíz cuadrada de −1. 
+``` py 
+>>> variable = 5 + 3j
+```
+
+!!! info "Conversión entre tipos de números"
+
+    Hay algunas funciones integradas de Python que nos permiten convertir números explícitamente de un tipo a otro. Un ejemplo es ***int ()***. 
+     ``` py
+     >>> valor = 1.5
+     >>> valor = int (valor)
+     >>> valor
+     1
+     ```
+    En el siguiente enlace puede encontrar más información sobre las [funciones de conversión](https://en.wikibooks.org/wiki/Python_Programming/Numbers).
 
 #### *Cadenas de caracteres*
-Secuencia de caracteres alfanuméricos que representan texto. Se escriben entre comillas simples o dobles.
+Las cadenas de caracteres son secuencias que contienen caracteres encerrados entre comillas, simples o dobles. También podemos usar comillas triples, pero generalmente las comillas triples se usan para crear cadenas de documentos o cadenas de varias líneas.
+``` py 
+>>> cadena1 = 'bioquimica'
+>>> cadena2 = "cromosoma"
+```
+En Python, se puede acceder individualmente a los caracteres de la cadena, desde ambas direcciones: hacia adelante y hacia atrás. Hacia adelante comienza desde 0, 1, 2... ; mientras que hacia atrás comienza desde −1, −2...
+``` py 
+>>> cadena1 = 'bioquimica'
+>>> cadena1[1]
+i
+>>> cadena1[-2]
+c
+```
+
+A continuación se muestran algunas de las funciones disponibles para trabajar con cadenas:
+
+* *^^Función len()^^*. Función que devuelve la longitud de la cadena.
+``` py 
+>>> cadena = 'espermatozoide'
+>>> len(cadena)
+14
+```
+* *^^Mostrar parte de la cadena^^*. A continuación se muestra sintaxis para imprimir por pantalla parte de la cadena, ya sea el principio, final o una parte intermedia.
+``` py 
+>>> cadena = 'espermatozoide'
+>>> cadena[2:6]
+perma
+>>> cadena[:6]
+esperma
+>>> cadena[6:]
+atozoide
+```
+
+* *^^Cadena inversa^^*. No hay ninguna función integrada para invertir una cadena en Python, pero la forma más fácil es usar un segmento que comienza al final de la cadena y va hacia atrás.
+``` py 
+>>> cadena = 'espermatozoide' [::-1]
+>>> cadena
+ediozotamrepse
+```
+
+* *^^Concatenar cadenas^^*. El operador + se usa para agregar una cadena a otra cadena.
+``` py 
+>>> cadena_1 = 'La hemoglobina' 
+>>> cadena_2 = 'es una proteina'
+>>> cadena_final = cadena_1 + cadena_2
+>>> cadena_final
+La hemoglobina es una proteina
+```
+
+* *^^Reemplazar elementos^^*. El método *replace()* reemplazará un elemento específico con otro.
+``` py 
+>>> cadena_1 = 'AAATTGGCCAA' 
+>>> cadena_final = cadena_1.replace("A", "T")
+>>> cadena_final
+TTTTTGGCCTT
+```
+!!! info "Otras funciones"
+
+    En el siguiente enlace puede encontrar más funciones disponibles para trabajar con [cadenas](https://docs.python.org/2.5/lib/string-methods.html). Es importante que se familiarice con estas, ya que será importante a la hora de trabajar con secuencias de ADN, ya sea reemplazando, contando, o identificando nucléotidos por ejemplo.
 
 #### *Booleanos*
-Contiene únicamente dos elementos True y False que representan los valores lógicos verdadero y falso respectivamente.
-
-
+Contiene únicamente dos elementos, True y False, que representan los valores lógicos verdadero y falso respectivamente. Por este motivo también se denominan **lógicos**. Todos los otros valores son interpretados por defecto a True.
+``` py 
+>>> False == False
+False
+>>> 0 == False
+True
+>>> None == False
+False
+```
 
 ### ***Alcance de las variables***
 Las variables en Python son ^^locales^^ por defecto. Esto quiere decir que las variables definidas y utilizadas en el bloque de código de una función, solo tienen existencia dentro de la misma, y no interfieren con otras variables del resto del código.
@@ -159,22 +256,66 @@ También se conocen como **operadores de comparación** porque comparan los valo
 | `<=`    | `Menor o igual que`             | Si el valor del operando izquierdo es menor o igual que el del operando derecho, devuelve verdadero |
 | `>=`       | `Mayor o igual que`              | Si el valor del operando izquierdo es mayor o igual que el del operando derecho, devuelve verdadero  |
 
+``` py title="EJEMPLOS"
+>>> 7 == 9
+False
+>>> 5*2 != 30/2
+True
+>>> "genoma" == "genoma"
+True
+>>> 5**2 <= 15
+False
+```
+
 ### ***De Asignación***
 Los operadores de asignación se utilizan para asignar valores a las variables de Python . La asignación a veces se realiza directamente y, a veces, el operador primero realiza algún tipo de operación matemática y luego asigna el valor al operando.
 
 | OPERADOR      | NOMBRE             |      FUNCIÓN     | 
 | :---------: | :----------------: |:---------: |
-| `=`       | `Asignación`             | Asigna a la variable del lado izquierdo cualquier variable o resultado del lado derecho. |
+| `=`       | `Asignación`             | Asigna a la variable del lado izquierdo cualquier variable o resultado del lado derecho |
 | `+=`       | `Sumar y asignar`              | Realiza la suma y luego el resultado se asigna al operando de la izquierda  |
-| `-=`    | `Restar y asignar`             | Realiza la resta y luego el resultado se asigna al operando de la izquierda. |
-| `*=`       | `Multiplicar y asignar`              | Realiza la multiplicación y luego el resultado se asigna al operando de la izquierda.  |
-| `/=`    | `Dividir y asignar`             | Realiza la división y luego el resultado se asigna al operando de la izquierda. |
-| `%=`       | `Módulo y asignar`              | Realiza el módulo y luego el resultado se asigna al operando de la izquierda.  |
-| `**=`       | `Exponente y asignar`              | Realiza exponente, y luego el resultado se asigna al operando de la izquierda.  |
-| `//=`       | `División entera y asignar`              | Realiza la división de piso y luego el resultado se asigna al operando de la izquierda.  |
+| `-=`    | `Restar y asignar`             | Realiza la resta y luego el resultado se asigna al operando de la izquierda |
+| `*=`       | `Multiplicar y asignar`              | Realiza la multiplicación y luego el resultado se asigna al operando de la izquierda  |
+| `/=`    | `Dividir y asignar`             | Realiza la división y luego el resultado se asigna al operando de la izquierda |
+| `%=`       | `Módulo y asignar`              | Realiza el módulo y luego el resultado se asigna al operando de la izquierda  |
+| `**=`       | `Exponente y asignar`              | Realiza exponente, y luego el resultado se asigna al operando de la izquierda  |
+| `//=`       | `División entera y asignar`              | Realiza la división de piso y luego el resultado se asigna al operando de la izquierda  |
 
+``` py title="EJEMPLOS"
+>>> x = 5
+>>> x += 10
+>>> x
+15
+>>> y = 5
+>>> y *= 20
+>>> y
+100
+```
 
 ### ***Lógicos***
+Los operadores lógicos se utilizan principalmente para declaraciones condicionales. Hay tres tipos de operadores lógicos: ***AND, OR y NOT.***
 
+| OPERADOR      | NOMBRE             |      FUNCIÓN     | 
+| :---------: | :----------------: |:---------: |
+| `AND`       | `Logical AND`             | Devuelve TRUE cuando ambas expresiones son verdaderas, de lo contrario FALSE |
+| `OR`       | `Logical OR`              | Devuelve TRUE si al menos una condición es verdadera, de lo contrario FALSE  |
+| `NOT`    | `Logical NOT`             | Devuelve TRUE cuando la expresión no es verdadera |
 
-## **Ejemplos y ejercicios**
+``` py title="EJEMPLOS"
+>>> (2<1) and (2<3)
+False
+>>> (2<1) or (2<3)
+True
+>>> not (5>4)
+False
+>>> not (5 != 5*1)
+True
+```
+
+## **Ejercicios**
+LOREM IMPSUM
+
+!!! cite "Enlaces de interés"
+
+    * [**Aprenda PyCharm: tutorial de consejos y trucos rápidos.**](https://www.jetbrains.com/es-es/pycharm/learn/)
+    * [**Índice de elementos del menú.**](https://www.jetbrains.com/help/pycharm/index-of-menu-items.html#ToolsMenu)

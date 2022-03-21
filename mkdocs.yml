@@ -9,7 +9,7 @@ nav:
     - Inicio: index.md
     - Introducción a Python: 2_Introduccion_python.md
     - PyCharm: 3_Pycharm.md
-    - Variables, objetos atómicos y operadores: 4_Variables.md
+    - Variables y operadores: 4_Variables.md
     - Estructuras de datos: 5_EstructurasDatos.md
     - Estructuras de control: 6_EstructurasControl.md
     - Funciones: 7_Funciones.md
