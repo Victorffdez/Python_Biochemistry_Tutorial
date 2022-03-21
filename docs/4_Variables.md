@@ -1,2 +1,180 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis metus eget est mollis ornare sed eget dolor. Cras sagittis ornare metus, et iaculis erat maximus nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultrices posuere varius. Suspendisse pharetra arcu non ligula pellentesque sodales. Cras et lectus libero. Integer eleifend elementum nibh, sed vehicula mi laoreet et. Curabitur at fringilla purus. Aliquam vestibulum lobortis pretium. Nullam arcu nulla, finibus eu ullamcorper eget, euismod eu quam. Quisque aliquet tincidunt rhoncus. Donec turpis dui, pretium a tristique et, hendrerit ac ligula. Donec ipsum mi, imperdiet auctor dignissim nec, mollis nec dolor. Proin a dignissim libero.
+## **Variables y constantes**
+El concepto de **^^variable^^** hace referencia a un nombre simbólico o identificador que se asocia a un dato que se almacena en la memoria principal del ordenador, y se utiliza de forma habitual en programación para guardar distintos tipos de datos y operar con ellos posteriormente. 
 
+* **Variables auxiliares**. También se llaman variables temporales. Son las que necesitamos para realizar algo de manera temporal, y seguramente esa variable no la necesites una vez ha cumplido su objetivo. 
+* **Variables acumulativas**. Sirven para almacenar un número y sus valores consecutivos. Suelen utilizarse en bucles como *for* y *while*.
+
+Una **^^constante^^** es un tipo de variable la cual no puede ser cambiada. Por tanto, es un valor que no puede ser alterado/modificado durante la ejecución de un programa, únicamente puede ser leído. 
+
+### ***Nombrar y usar variables***
+Cuando utilizamos variables en Python, tenemos que seguir una serie de normas y directrices. Algunas de estas directrices únicamente se emplean para que el código sea fácil de leer y entender, adquiriendo universalidad; mientras que romper algunas reglas provocará errores durante la ejecución del código.
+
+* Los nombres de variable solo pueden contener **letras, números y guiones bajos**. No pueden empezar por un número, pero sí por una letra o guion. 
+       
+     _Ej_. Puede llamar a un variable *variable1* pero no *1variable*. 
+    
+* Los **guiones bajos** pueden servir para separar las palabras, ya que los espacios no están permitidos.
+
+    _Ej_. Puede llamar a una variable *primera_variable* pero no *primera variable*.
+
+* Los **nombres** de variable deben ser **cortos** pero descriptivos.
+
+* No use **palabras** que Python tiene **reservadas** para un propósito concreto como *print, return o finally*.
+
+!!! note "**Palabras reservadas**"
+
+     Puede verificar si una palabra esta reservada utilizando el módulo integrado ***keyword***.
+    ``` py
+        >>> import keyword
+        >>> keyword.iskeyword ("print")
+        True
+        >>> keyword.iskeyword ("fecha")
+        False
+    ```
+
+### ***¿Cómo escribir una variable?***
+Para asignar un valor a una variable se utiliza el operador de igualdad (=). A la izquierda de la igualdad se escribe el nombre de la variable y a la derecha el valor que se quiere dar a la variable.
+
+``` py
+>>> edad_paciente = 41
+>>> obj_estudio = "proteína"
+```
+
+Para visualizar el valor de una variable, basta con escribir su nombre:
+
+``` py
+>>> edad_paciente = 41
+>>> edad_paciente
+41
+>>>
+```
+
+Podemos asignar un solo valor a múltiples variables de la siguiente manera:
+``` py
+>>> x = y = z = 5
+```
+
+Además, podemos asignar múltiples valores a múltiples variables de la siguiente manera:
+
+``` py
+>>> a, b, c = 5, 'abcde', 9
+```
+
+!!! info "del"
+
+    La instrucción ***del*** borra completamente una variable.
+     ``` py
+     >>> x = 5
+     >>> x
+     5
+     >>> del x
+     >>> x
+     ERROR
+     ```
+
+### ***Tipos de variables***
+La información que se guarda en una variable puede ser de muchos tipos:
+
+* **Números** (enteros, decimales, imaginarios, en notación científica, en base decimal o en otras bases, etc.)
+* **Cadenas de texto** (una sola letra o más letras, del juego de caracteres ASCII o Unicode, etc)
+* **Conjuntos de números o texto** (matrices, listas, tuplas, etc.)
+* **Estructuras más complicadas** (punteros, diccionarios, etc.)
+
+Aunque se definan de forma similar, para Python no es lo mismo un número entero, un número decimal o una cadena ya que, por ejemplo, dos números se pueden multiplicar pero dos cadenas no (aunque una cadena sí que se puede multiplicar por un número). A continuación puede ver ejemplos de estas diferencias.
+
+``` py
+>>> fecha_actual = 2022
+```
+En este caso la variable *fecha_actual* está almacenando un número entero.
+
+``` py
+>>> fecha_actual = "2022"
+```
+En este caso la variable *fecha_actual* está almacenando una cadena formada por cuatro letras.
+
+``` py
+>>> fecha_actual = ["marzo", 2022]
+```
+En este caso la variable *fecha_actual* está almacenando una lista. Este tipo de elemento se verá más adelante.
+
+#### *Datos numéricos*
+Secuencia de dígitos (pueden incluir el - para negativos y el . para decimales) que representan números.
+
+
+#### *Cadenas de caracteres*
+Secuencia de caracteres alfanuméricos que representan texto. Se escriben entre comillas simples o dobles.
+
+#### *Booleanos*
+Contiene únicamente dos elementos True y False que representan los valores lógicos verdadero y falso respectivamente.
+
+
+
+### ***Alcance de las variables***
+Las variables en Python son ^^locales^^ por defecto. Esto quiere decir que las variables definidas y utilizadas en el bloque de código de una función, solo tienen existencia dentro de la misma, y no interfieren con otras variables del resto del código.
+
+En caso de que sea conveniente o necesario, una variable local puede convertirse en una variable global declarándola explícitamente como tal con la [**sentencia global**](https://docs.python.org/3/reference/simple_stmts.html#the-global-statement).
+
+## **Operadores**
+En Python, tenemos un conjunto de símbolos especiales que realizan varios tipos de operaciones, como operaciones lógicas, operaciones matemáticas y más. Estos símbolos se denominan **operadores**. Los valores sobre los que los operadores realizan sus respectivas operaciones se conocen como **operandos**.
+
+### ***Aritméticos***
+Los operadores aritméticos se utilizan para realizar varias operaciones matemáticas simples como sumas, restas y multiplicaciones.  
+
+| OPERADOR      | NOMBRE             |      FUNCIÓN     | 
+| :---------: | :----------------: |:---------: |
+| `+`       | `Suma`             | Este operador suma los valores de los datos numéricos |
+| `-`       | `Resta`              | Este operador resta los valores de los datos numéricos  |
+| `*`    | `Multiplicación`             | Este operador multiplica los valores de los datos numéricos |
+| `/`       | `División`              | Este operador divide los valores de los datos numéricos. El resultado es un número real  |
+| `**`    | `Exponente`             | Este operador calcula el exponente entre los valores de los datos numéricos |
+| `%`       | `Módulo`              | Este operador devuelve el resto de la división entre los dos operandos  |
+| `//`  | `División entera`             | Este operador devuelve la parte entera del cociente de la división entre dos operandos  |
+
+El orden de precedencia de ejecución de los operadores aritméticos es:
+
+1. Exponente: **
+2. Multiplicación, División, División entera, Módulo: *, /, //, % 
+3. Suma, Resta: +, -
+
+``` py title="EJEMPLOS"
+>>> 5 * 6
+30
+>>> 8 / 3
+2.66667
+>>> 8 // 3
+2
+>>> 7 % 2
+1
+```
+
+### ***Relacionales***
+También se conocen como **operadores de comparación** porque comparan los valores en ambos lados del operador. Después de la comparación, devuelve el valor booleano, es decir, verdadero o falso. 
+
+| OPERADOR      | NOMBRE             |      FUNCIÓN     | 
+| :---------: | :----------------: |:---------: |
+| `==`       | `Igual a`             | Si los dos operandos comparados son iguales, devuelve verdadero |
+| `!=`       | `No igual a`              | Si los dos operandos comparados no son iguales, devuelve verdadero  |
+| `<`    | `Menor que`             | Si el valor del operando izquierdo es menor que el del operando derecho, devuelve verdadero |
+| `>`       | `Mayor que`              | Si el valor del operando izquierdo es mayor que el del operando derecho, devuelve verdadero  |
+| `<=`    | `Menor o igual que`             | Si el valor del operando izquierdo es menor o igual que el del operando derecho, devuelve verdadero |
+| `>=`       | `Mayor o igual que`              | Si el valor del operando izquierdo es mayor o igual que el del operando derecho, devuelve verdadero  |
+
+### ***De Asignación***
+Los operadores de asignación se utilizan para asignar valores a las variables de Python . La asignación a veces se realiza directamente y, a veces, el operador primero realiza algún tipo de operación matemática y luego asigna el valor al operando.
+
+| OPERADOR      | NOMBRE             |      FUNCIÓN     | 
+| :---------: | :----------------: |:---------: |
+| `=`       | `Asignación`             | Asigna a la variable del lado izquierdo cualquier variable o resultado del lado derecho. |
+| `+=`       | `Sumar y asignar`              | Realiza la suma y luego el resultado se asigna al operando de la izquierda  |
+| `-=`    | `Restar y asignar`             | Realiza la resta y luego el resultado se asigna al operando de la izquierda. |
+| `*=`       | `Multiplicar y asignar`              | Realiza la multiplicación y luego el resultado se asigna al operando de la izquierda.  |
+| `/=`    | `Dividir y asignar`             | Realiza la división y luego el resultado se asigna al operando de la izquierda. |
+| `%=`       | `Módulo y asignar`              | Realiza el módulo y luego el resultado se asigna al operando de la izquierda.  |
+| `**=`       | `Exponente y asignar`              | Realiza exponente, y luego el resultado se asigna al operando de la izquierda.  |
+| `//=`       | `División entera y asignar`              | Realiza la división de piso y luego el resultado se asigna al operando de la izquierda.  |
+
+
+### ***Lógicos***
+
+
+## **Ejemplos y ejercicios**
