@@ -1,11 +1,10 @@
 Una **estructura de datos** es una colección de datos (normalmente de tipo simple) que se caracterizan por su organización y las operaciones que se definen en ellos. Por tanto, una estructura de datos vendrá caracterizada tanto por unas ciertas relaciones entre los datos, como las operaciones posibles en ella. 
 
-Dentro de las diferentes estructuras de datos destacan:
+<figure markdown>
 
-* Listas. 
-* Tuplas.
-* Conjuntos.
-* Diccionarios
+  ![grafica](datastructure.png){ width="275" height="150" }
+
+</figure>
 
 ## **Listas**
 Una **lista** es una colección de elementos en un orden particular, y son el tipo de objeto colección ordenada más flexible en Python, pudiendo albergar objetos de cualquier tipo de datos, como números, cadenas u otras listas anidadas.
@@ -144,8 +143,101 @@ nucleo
 25
 ```
 ## **Tuplas**
+Las **tuplas** en Python son una colección de varios elementos inmutables separados por comas, del mismo o diferente tipo. 
 
-## **Conjuntos**
+**¿En qué se diferencia de las listas?** Aparte de la sintaxis, ya que en las listas se utilizan corchetes y en las tuplas ^^paréntesis^^, la principal diferencia entre ambos es que los elementos de una tupla ^^no se pueden cambiar^^ una vez asignados; mientras que los elementos de una lista se pueden cambiar. Por tanto, siempre que necesitemos asegurarnos de que los datos permanezcan sin cambios y protegidos contra escritura, la tupla es la mejor opción.
 
-## **Diccionarios**
+En Python, los paréntesis () indican una tupla, y dentro, los elementos individuales se separan por comas. A continuación tiene unos ejemplos de posibles tuplas.
+
+``` py
+>>> numeros = (0,1,2,3,4,5)
+>>> diccionario = ('mutación', 'nucleótido')
+>>> tupla = (0,1,2, 'mutación')
+```
+
+En realidad no es necesario escribir los paréntesis para indicar que se trata de una tupla, basta con escribir las comas, pero se recomienda escribirlas con paréntesis. Además Python siempre devuelve por salida la tupla con paréntesis.
+``` py
+>>> tupla = 75, 'nucleótido', 500
+>>> tupla
+(75, 'nucleótido', 500)
+```
+
+!!! note "Trabajar con tuplas"
+
+    La mayoría de funciones disponibles para trabajar con las listas son válidas para trabajar con tuplas. Puede practicar alguno de los ejemplos del apartado anterior con este tipo de estructura.
+
+## **Conjuntos/Set**
+Los **conjuntos** o **set** son una estructura de datos utilizada para almacenar elementos de distinto tipo. Estos tienen las siguientes características:
+
+* Los elementos no tienen un orden específico.
+* Sus elementos deben ser únicos, por lo que no puede haber elementos duplicados.
+* Los elementos son inmutables. Al igual que en las tuplas, no admiten cambios.
+
+**¿Por qué utilizar este tipo de estructura?** A diferencia de las listas, los conjuntos contienen funciones altamente optimizadas con el único propósito de verificar elementos comunes, diferencias entre conjuntos, etc. 
+
+En Python, las llaves ({ }) indican un conjunto, y dentro, los elementos individuales se separan por comas. A continuación tiene unos ejemplos de posibles conjuntos.
+``` py
+>>> numeros = {0,1,2,3,4,5}
+>>> diccionario = {'mutación', 'nucleótido'}
+>>> conjunto = {0,1,2, 'mutación'}
+```
+Al igual que antes, una vez que se crea un conjunto solo podemos añadir y eliminar elementos.
+
+### ***Añadir y eliminar elementos***
+Para agregar elementos, tenemos 2 métodos: **add ()** y **update ()**. 
+``` py
+>>> celula_conjunto = {'membrana','nucleo','pared','citosol'}
+>>> celula_conjunto.add ('organulos')
+>>> celula_conjunto
+{'citosol','membrana','organulos','nucleo', 'pared'}
+```
+``` py
+>>> celula_conjunto = {'membrana','nucleo','pared','citosol'}
+>>> celula_conjunto.update ('organulos')
+>>> celula_conjunto
+{'pared','organulos','membrana','citosol', 'nucleo'}
+```
+
+Para eliminar elementos, tenemos 2 métodos: **remove ()** y **discard ()**.
+``` py
+>>> celula_conjunto = {'membrana','nucleo','pared','citosol'}
+>>> celula_conjunto.remove ('nucleo')
+>>> celula_conjunto
+{'citosol','membrana', 'pared'}
+```
+``` py
+>>> celula_conjunto = {'membrana','nucleo','pared','citosol'}
+>>> celula_conjunto.discard ('nucleo')
+>>> celula_conjunto
+{'pared','membrana','citosol'}
+```
+
+!!! info "Elementos de un conjunto"
+
+    Observe cómo los elementos no tienen un orden específico dentro del conjunto.
+
+### ***Trabajar con conjuntos***
+
+A continuación se muestran algunas de las funciones más útiles para trabajar con los conjuntos.
+
+| FUNCIÓN | DESCRIPCIÓN | 
+|:--:|:--:|
+| `clear ()`  | Elimina todos los elementos de un conjunto| 
+|  `copy ()` | Devuelve una copia de un conjunto |   
+|  `difference ()` |  Devuelve un conjunto que contiene la diferencia entre dos o más conjuntos: los elementos que están en el primero pero no en los demás |   
+|  `union()` |  Devuelve un conjunto con todos los elementos que están en alguno de los conjuntos  |   
+|  `intersection()`	 |  Devuelve la intersección entre los conjuntos: todos los elementos que están en ambos |   
+
+Veamos un ejemplo del uso de estas funciones.
+``` py
+>>> conjunto_1 = {3,4,5,6,7,8}
+>>> conjunto_2= {6,7,8,9,10}
+>>> conjunto_1.intersection (conjunto_2)
+{6,8,7}
+```
+
+!!! cite "Enlaces de interés"
+
+    * [**Ampliación de las estructuras de datos.**](https://docs.python.org/es/3/tutorial/datastructures.html#sets)
+    * [**Python Tutorial for Beginners 4: Lists, Tuples, and Sets**](https://www.youtube.com/watch?v=W8KRzm-HUcc)
 
