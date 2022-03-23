@@ -14,9 +14,9 @@ nav:
     - Estructuras de control: 6_EstructurasControl.md
     - Funciones: 7_Funciones.md
     - Importación y exportación de datos: 8_Importacion_Datos.md
-    - Cadenas de caracteres: 9_Cadenas_Caracter.md
     - Graficación: 10_Graficas.md
-    - Manipulación de data frames: 11_DataFrames.md
+    - Ejercicios complementarios o Anaconda: 9_Cadenas_Caracter.md
+    - Prueba de nivel: 11_DataFrames.md
     - Acerca de: AcercaDe.md
 
 theme:
