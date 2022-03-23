@@ -4,7 +4,11 @@ El concepto de **^^variable^^** hace referencia a un nombre simbólico o identif
 * **Variables auxiliares**. También se llaman variables temporales. Son las que necesitamos para realizar algo de manera temporal, y seguramente esa variable no la necesites una vez ha cumplido su objetivo. 
 * **Variables acumulativas**. Sirven para almacenar un número y sus valores consecutivos. Suelen utilizarse en bucles como *for* y *while*.
 
-Una **^^constante^^** es un tipo de variable la cual no puede ser cambiada. Por tanto, es un valor que no puede ser alterado/modificado durante la ejecución de un programa, únicamente puede ser leído. 
+Una **^^constante^^** es un tipo de variable la cual no puede ser cambiada. Por tanto, es un valor que no debe ser alterado/modificado durante la ejecución de un programa, únicamente leído. Python no tiene tipos de constantes integrados, pero los programadores utilizan mayúsculas para indicar que una variable debería tratarse como una constante y no alterarse.
+
+``` py
+>>> NUM_AMINOACIDOS = 500 
+```
 
 ### ***Nombrar y usar variables***
 Cuando utilizamos variables en Python, tenemos que seguir una serie de normas y directrices. Algunas de estas directrices únicamente se emplean para que el código sea fácil de leer y entender, adquiriendo universalidad; mientras que romper algunas reglas provocará errores durante la ejecución del código.
@@ -313,9 +317,59 @@ True
 ```
 
 ## **Ejercicios**
-LOREM IMPSUM
+**EJERCICIO 1**. Escribir un programa que almacene la cadena _¡Hola Mundo!_ en una variable y luego muestre por pantalla el contenido de la variable.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        mensaje = "¡Hola Mundo!"
+        print(mensaje)
+    ```
+
+**EJERCICIO 2**. Escribir un programa que pida al usuario su peso (en kg) y estatura (en metros), calcule el índice de masa corporal y lo almacene en una variable.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        peso = input("¿Cuál es tu peso en kg? ")
+        estatura = input("¿Cuál es tu estatura en metros?")
+        imc = round(float(peso)/float(estatura)**2,2)
+        print("Tu índice de masa corporal es " + str(imc))
+        # En este caso el índice de masa corporal se ha redondeado con dos decimales.
+    ```
+
+**EJERCICIO 3**. Escribir un programa que pida al usuario que introduzca una frase en la consola y muestre por pantalla la frase invertida.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        frase = input("Introduce una frase: ")
+        print(frase[::-1])
+    ```
+
+**EJERCICIO 4**. Escribir un programa que transforme grados Kelvin en grados Celcius.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        grados_kelvin = input("Indique los grados en unidades Kelvin:")
+        grados_celcius = (grados_kelvin - 273.15)
+        print(f"El valor en unidades Celcius es {grados_celcius}")
+    ```
+**EJERCICIO 5**. Escribir un programa que pregunte por consola el precio de un producto en euros con dos decimales y muestre por pantalla el número de euros y el número de céntimos del precio introducido.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        precio = input("Introduce el precio del producto con dos decimales:  ")
+        print(precio[:precio.find('.')], 'euros y', precio[precio.find('.')+1:], 'céntimos.')
+    ```
+
+**EJERCICIO 6**. Escribir un programa que pregunte el nombre del usuario en la consola y después de que el usuario lo introduzca, muestre por pantalla el número de letras que tiene el nombre en mayúsculas.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+         nombre = input("¿Cómo te llamas? ")
+         print(nombre.upper() + " tiene " + str(len(nombre)) + " letras")
+    ```
 
 !!! cite "Enlaces de interés"
 
-    * [**Aprenda PyCharm: tutorial de consejos y trucos rápidos.**](https://www.jetbrains.com/es-es/pycharm/learn/)
-    * [**Índice de elementos del menú.**](https://www.jetbrains.com/help/pycharm/index-of-menu-items.html#ToolsMenu)
+    * [**Información acerca de cadenas de caracteres.**](https://docs.python.org/es/3/library/string.html)
+    * [**How to use Strings in Python**](https://www.youtube.com/watch?v=Ctqi5Y4X-jA&ab_channel=ProgrammingwithMosh)
+    * [**Operadores**](https://support.microsoft.com/es-es/office/tabla-de-operadores-e1bc04d5-8b76-429f-a252-e9223117d6bd)
