@@ -83,7 +83,7 @@ Si en lugar de añadir elementos, desea eliminarlos, hay distintas formas para h
 * ^^Método _remove_^^. Este se utilizará si desconocemos la posición del elemento que deseamos eliminar, solo conocemos su valor.
 ``` py
 >>> celula = ['membrana','nucleo','pared','citosol']
->>> celula.remove(pared)
+>>> celula.remove("pared")
 >>> celula
 ['membrana','nucleo','citosol']
 ```
@@ -105,8 +105,8 @@ nucleo
 
 * ***Count ()***. Este método recibe un elemento como argumento, y cuenta la cantidad de veces que aparece en la lista.
 ``` py
->>> celula = ['membrana','nucleo', 'membrana', 'membrana', pared','citosol']
->>> celula.count(membrana)
+>>> celula = ['membrana','nucleo', 'membrana', 'membrana', 'pared','citosol']
+>>> celula.count("membrana")
 3
 ```
 * ***Sort ()***. Este método ordena la lista alfabéticamente.
@@ -235,6 +235,56 @@ Veamos un ejemplo del uso de estas funciones.
 >>> conjunto_1.intersection (conjunto_2)
 {6,8,7}
 ```
+
+## **Ejercicios**
+**EJERCICIO 1**. Escribir un programa que almacene en una lista los 5 tipos principales de bases nitrogenadas, y muestre por pantalla la última.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        bases = ["A", "G", "C", "T", "U"]
+        print(bases[-1])
+    ```
+**EJERCICIO 2**. Escribir un programa que almacene en una lista una secuencia nucleotídica n = 10. Muestre por pantalla cuántas "A" aparecen.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        secuencia = ['A','C','A','C','T','G','G', 'G', 'A','A']
+        print (secuencia.count('A'))
+    ```
+**EJERCICIO 3**. Escribir un programa que almacene en dos conjuntos secuencias aminoacídicas. Muestre por pantallas los aminoácidos en común.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        proteina_1 = {'Trp','Ala', 'Val', 'Ser', 'Trp', 'Gly'}
+        proteina_2= {'His','Gly', 'Cys', 'Met', 'Ile', 'Glu'}
+        print(proteina_1.intersection (proteína_2))
+    ```
+
+**EJERCICIO 4**. Basándose en el código anterior, esta vez cree un nuevo conjunto con todos los aminoácidos que están en al menos uno de los conjuntos.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        proteina_1 = {'Trp','Ala', 'Val', 'Ser', 'Trp', 'Gly'}
+        proteina_2= {'His','Gly', 'Cys', 'Met', 'Ile', 'Glu'}
+        aa_comunes= (proteina_1.union (proteina_2)) 
+        print(aa_comunes)
+    ```
+
+Puede seguir practicando ejercicios más avanzados de listas en el apartado _Estructuras de control_.
+
+
+!!! Abstract "DICCIONARIOS"
+
+    Debe conocer que existe un último tipo de estructura de datos conocido como **diccionario**. Un diccionario es una colección de claves - valores en lugar de solo elementos. Cada clave está conectada a un valor, y podemos utilizar esa clave para acceder al valor asociada a la misma. 
+    
+    En Python, en la sintaxis de los diccionarios se utilizan las llaves ( { } ), presentando la siguiente estructura:
+     
+    ``` py 
+        >>> mutaciones = {'nucleotido': 41, 'aminoacido': 'trp' }
+        >>>mutaciones['aminoacido']
+        trp
+    ```
+    Como bioquímico principiante en Python, trabajará con las estructuras de datos desglosadas anteriormente, principalmente con las listas. Aun así, si quiere puede obtener más información sobre los diccionarios en el siguiente [enlace](https://realpython.com/python-dicts/). 
 
 !!! cite "Enlaces de interés"
 
