@@ -23,14 +23,14 @@ Si tiene una lista con diferentes elementos, como distintos tipos de proteínas,
 * Trabajo lento y poco eficiente.
 * Cada vez que se altere la longitud de la lista, cambiar el código.
 
-Por este motivo, utilizaríamos la siguiente estructura.
+Por este motivo, lo recomendable es utilizar la siguiente estructura.
 
 ``` py
 >>> proteinas = ['hemoglobina','caseina','lacasa','albumina']
 >>> for proteina in proteinas:
 ...     print (proteina)
 ```
-En este caso, se ha definido la lista *proteinas*, y el bucle for le indica a Python que cada elemento de esta lista se asocie con la variable *proteina*. Posteriormente, se indica que imprima cada elemento que se ha ido asignando a la variable *proteina*. La salida será la siguiente:
+En este caso, se ha definido la lista *proteinas*, y el bucle le indica a Python que cada elemento de esta lista se asocie con la variable *proteina*. Posteriormente, se indica que imprima cada elemento que se ha ido asignando a la variable *proteina*. La salida será la siguiente:
 ``` py
 hemoglobina
 caseina
@@ -114,13 +114,152 @@ Observe que en este caso el rango determinado es *(2,19,2)*. Los dos primeros ar
 
 ```
 
-## **Sentencias IF**
+## **Condicional IF**
+La estructura de control o **sentencia condicional if** permite que un programa ejecute una serie de acciones en función de si se cumple una determinada condición. 
 
+Esta sentencia es la toma de decisión más básica, ya que consiste en comprobar si la **prueba condicional** es verdadera o falsa, y en base a esto, ejecutar o no el código que sigue a la sentencia.
+
+### ***Sentencias if***
+La sentencia if más simple está compuesta por dos elementos: una ^^prueba condicional^^ y una ^^acción^^. 
+``` py
+>>> organulo = 'ribosoma'
+>>> if organulo == 'ribosoma':
+...     print ("¡Era el organulo correcto!")
+```
+Como podrá comprobar, si no se cumple esta condición no se generaría ninguna salida.
+
+!!! note "Sangrado"
+
+    Al igual que ocurría anteriormente, es fundamental prestarle atención al sangrado. Después de la sentencia if, todas las líneas sangradas se ejecutarán si cumple la condición, y se ignorará todo el bloque si no se cumple.
+
+### ***Sentencias if-else***
+¿Qué ocurre si queremos que se genere una salida si no se cumple la condición? Para esto, utilizamos las **sentencias if-else**. 
+
+El bloque if-else es equivalente a la sentencia if ya vista, pero incluye una sentencia else en la que se define una acción si la prueba condicional no es verdadera. Veámoslo con el mismo ejemplo de antes:
+``` py
+>>> organulo = 'vacuola'
+>>> if organulo == 'ribosoma':
+...     print ("¡Era el organulo correcto!")
+>>> else:
+...     print ("¡Ese no es el organulo!")
+```
+### ***Sentencias if-elif-else***
+En muchas ocasiones, va a necesitar probar más de dos situaciones, y para ello es recomendable utilizar las **sentencias if-elif-else**. En este caso, Python va a ejecutar en orden las condiciones, y la primera que se cumpla será de la que ejecute su código asociado. Si ninguna de las condiciones es verdadera, ejecutará el código asociado a else como anteriormente.
+``` py
+>>> num_individuos = 1500
+>>> if num_individuos < 1000:
+...     print ("El numero de individuos es demasiado bajo")
+>>> elif num_individuos > 5000:
+...     print ("El numero de individuos es demasiado alto")    
+>>> else:
+...     print ("El numero de individuos para el muestreo es suficiente")
+```
+
+!!! info "Sentencias if-elif-else"
+
+    Tenga en cuenta que puede utilizar múltiples bloques elif, añadiendo todas las pruebas condicionales que vea necesarias. Además, en este tipo de cadena Python no requiere un bloque else al final, por lo que puede omitirlo, siempre y cuando estos bloques elif engloben todas las posibles situaciones. Es decir, ha de cumplirse uno.  
+
+### ***Combinación con listas***
+La combinación de sentecias if con listas es especialmente útil. Veamos un ejemplo:
+``` py
+>>> proteinas = ['hemoglobina','glucosa','caseina','lacasa','albumina']
+>>> for proteina in proteinas:
+...    if proteina == 'glucosa':
+          print(f"La {proteina} no es una proteína")
+...    else:
+          print (proteina)
+     
+```
+### ***Ejemplo***
+^^Comprobar si un numero es mayor a 0^^
+``` py linenums="1"
+>>> numero = int(input("Introduce un número:")) #Recibir un número por usuario
+>>> if numero == 0:
+       print("El número es igual a 0")
+>>> elif numero > 0:
+       print("El número es mayor a 0")
+>>> else:
+       print("El número es menor a 0")
+
+#Tenga en cuenta que este es un ejemplo de las distintas opciones para realizar este ejercicio.
+```
+
+^^Divisores de un número^^
+``` py linenums="1"
+>>> numero = (int(input('Introduzca un numero:\n')))
+>>> contador = 0
+>>> print(f'Los divisores de {numero} son:')
+>>> for divisor in range(1,numero+1):
+        if (numero % divisor) == 0 :
+            print(divisor,"es divisor")
+            contador += 1
+>>> print(f"El numero {numero} tiene {contador} divisores.") #Observe cómo esta sentencia queda fuera del bucle y condicional por el sangrado.
+```
 
 
 ## **Bucles WHILE**
 
-dd
+NOTA: Tengo que hacer el bucle while, incluir 2 ejercicios más en el apartado ejercicios y añadir los enlaces de interés. Y estará completado este apartado.
 
 ## **Ejercicios**
+**EJERCICIO 1**. Escribir un programa que le pida al usuario un número, y si es par lo eleva al cubo, si no al cuadrado.
+??? note "Respuesta"
+    ``` py linenums="1"
+        numero = int(input("Introduzca un número: "))
+        if numero % 2 == 0:
+           resultado = numero ** 3
+        else:  
+           resultado = numero ** 2
+        print(resultado)
+    ```
+**EJERCICIO 2**. Escribir un programa que almacenen en una lista el cuadrado de los diez primeros números enteros.
+??? note "Respuesta"
+    ``` py linenums="1"
+        squares = [] #Creación de una lista vacía 
+        for value in range(1,11):
+	        square = value**2
+	        squares.append(square)
+        print(squares)
+    ```
+**EJERCICIO 3**. Escribir un programa que le pida al usuario un número y le diga a qué día de la semana corresponde.
+??? note "Respuesta"
+    ``` py linenums="1"
+        if dia == 1:
+           print("Es lunes")
+        elif dia == 2:
+           print("Es martes")
+        elif dia == 3:
+           print("Es miercoles")
+        elif dia == 4:
+           print("Es jueves")
+        elif dia == 5:
+           print("Es viernes")
+        elif dia == 6:
+           print("Es sabado")
+        else:
+           print("Es domingo")
+    ```
 
+**EJERCICIO 4**. Escribir un programa que le pida al usuario un número y le diga si es un número primo o no.
+
+??? note "Respuesta"
+    ``` py linenums="1"
+        numero = int(input("¿Qué número quieres saber si es primo?: \n "))
+        valor = range(2, numero)
+        contador = 0
+        for n in valor:
+            if numero % n == 0:
+                contador += 1
+                print("divisor:", n)
+        if contador > 0:
+            print("El numero no es primo")
+        else:
+            print("El numero es primo")
+    ```
+
+
+!!! cite "Enlaces de interés"
+
+    * [**Información acerca de cadenas de caracteres.**](https://docs.python.org/es/3/library/string.html)
+    * [**How to use Strings in Python**](https://www.youtube.com/watch?v=Ctqi5Y4X-jA&ab_channel=ProgrammingwithMosh)
+    * [**Operadores**](https://support.microsoft.com/es-es/office/tabla-de-operadores-e1bc04d5-8b76-429f-a252-e9223117d6bd)
