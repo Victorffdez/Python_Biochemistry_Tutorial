@@ -59,13 +59,68 @@ La albumina es una proteína.
 albumina
 ```
 
+### ***Trabajar con bucles for***
+#### *Función range ()*
+La función *range ()* se utiliza principalmente para generar y trabajar con una serie de números. Veamos un ejemplo simple:
+``` py
+>>> for numero in range (1,4): #Imprime hasta el número n-1
+...     print (numero)
+
+>>> for valor in range (4): 
+...     print (valor)
+```
+Esto daría lugar a la siguiente salida por pantalla:
+``` py
+1
+2
+3
+
+0
+1
+2
+3
+```
+
+#### *Función list ()*
+Los resultados generados por la función range () pueden convertirse directamente en una lista. Para esto se utiliza la función list ().
+``` py
+>>> lista = list(range(2,19,2))
+>>> lista
+[2,4,6,8,10,12,14,16,18]
+```
+Observe que en este caso el rango determinado es *(2,19,2)*. Los dos primeros argumentos indican el rango de valor de los elementos (entre 2 y 19), y el tercero indica el tamaño de salto entre los valores (de 2 en 2).
+
+### ***Ejemplo***
+^^Tabla de multiplicar del 5^^
+
+``` py linenums="1"
+>>> for numero in range (11):
+       multiplicacion = 5 * numero
+       print (f"5 * {numero} = {multiplicacion}")
+```
+``` py 
+5 * 0 = 0
+5 * 1 = 5
+5 * 2 = 10
+5 * 3 = 15
+5 * 4 = 20
+5 * 5 = 25
+5 * 6 = 30
+5 * 7 = 35
+5 * 8 = 40
+5 * 9 = 45
+5 * 10 = 50
+
+
+```
 
 ## **Condicional IF**
+vamooo
 
-d
 
 ## **Bucles WHILE**
 
 dd
 
+## **Ejercicios**
 
