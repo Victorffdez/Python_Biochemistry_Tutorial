@@ -6,6 +6,8 @@ Una **estructura de datos** es una colección de datos (normalmente de tipo simp
 
 </figure>
 
+***MJ: sugerencia general: en las llamadas a funciones, no dejes espacio delante del primer paréntesis, es poco común hacerlo.***
+
 ## **Listas**
 Una **lista** es una colección de elementos en un orden particular, y son el tipo de objeto colección ordenada más flexible en Python, pudiendo albergar objetos de cualquier tipo de datos, como números, cadenas u otras listas anidadas.
 

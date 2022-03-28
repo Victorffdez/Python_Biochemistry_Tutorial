@@ -102,7 +102,7 @@ En este caso la variable *fecha_actual* está almacenando una cadena formada por
 En este caso la variable *fecha_actual* está almacenando una lista. Este tipo de elemento se verá más adelante.
 
 #### *Datos numéricos*
-Secuencia de dígitos que representan números, pudiendo incluir el - para negativos y el . para decimales. El tipo de datos de número se divide en los siguientes cinco tipos de datos en Python:
+Secuencia de dígitos que representan números, pudiendo incluir el - (guion) para negativos y el . (punto) para decimales. El tipo de datos de número se divide en los siguientes cinco tipos de datos en Python:
 
 * **Entero.** No son más que números enteros, y pueden ser de diferentes tipos: positivo, negativo, cero y largo.
 * **Entero largo.** El sufijo L se usa para la representación de enteros largos en Python, y estos se utilizan para almacenar números grandes sin perder precisión.
@@ -181,7 +181,7 @@ ediozotamrepse
 
 * *^^Concatenar cadenas^^*. El operador + se usa para agregar una cadena a otra cadena.
 ``` py 
->>> cadena_1 = 'La hemoglobina' 
+>>> cadena_1 = 'La hemoglobina ' 
 >>> cadena_2 = 'es una proteina'
 >>> cadena_final = cadena_1 + cadena_2
 >>> cadena_final
@@ -200,7 +200,7 @@ TTTTTGGCCTT
     En el siguiente enlace puede encontrar más funciones disponibles para trabajar con [cadenas](https://docs.python.org/2.5/lib/string-methods.html). Es importante que se familiarice con estas, ya que será importante a la hora de trabajar con secuencias de ADN, ya sea reemplazando, contando, o identificando nucléotidos por ejemplo.
 
 #### *Booleanos*
-Contiene únicamente dos elementos, True y False, que representan los valores lógicos verdadero y falso respectivamente. Por este motivo también se denominan **lógicos**. Todos los otros valores son interpretados por defecto a True.
+Contiene únicamente dos elementos, True y False, que representan los valores lógicos verdadero y falso respectivamente. Por este motivo también se denominan **lógicos**. Todos los otros valores son interpretados por defecto a True. ***MJ: revisa las salidas porque creo que no están bien***
 ``` py 
 >>> False == False
 False
