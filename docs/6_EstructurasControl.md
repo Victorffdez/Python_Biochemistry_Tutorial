@@ -114,8 +114,8 @@ Observe que en este caso el rango determinado es *(2,19,2)*. Los dos primeros ar
 
 ```
 
-## **Condicional IF**
-vamooo
+## **Sentencias IF**
+
 
 
 ## **Bucles WHILE**

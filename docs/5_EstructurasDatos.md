@@ -6,8 +6,6 @@ Una **estructura de datos** es una colección de datos (normalmente de tipo simp
 
 </figure>
 
-***MJ: sugerencia general: en las llamadas a funciones, no dejes espacio delante del primer paréntesis, es poco común hacerlo.***
-
 ## **Listas**
 Una **lista** es una colección de elementos en un orden particular, y son el tipo de objeto colección ordenada más flexible en Python, pudiendo albergar objetos de cualquier tipo de datos, como números, cadenas u otras listas anidadas.
 
@@ -61,14 +59,14 @@ En lugar de sustituir un elemento, puede interesarle añadir uno nuevo. La forma
 
 ``` py
 >>> celula = ['membrana','nucleo','pared','citosol']
->>> celula.append ('organulos')
+>>> celula.append('organulos')
 >>> celula
 ['membrana','nucleo','pared','citosol', 'organulos']
 ```
 Como se observa, el elemento *organulos* se añade al final de la lista. Podemos añadir un elemento en cualquier posición con el método *insert ()*. Para esto, habrá que especificar el índice del nuevo elemento y su valor. 
 ``` py
 >>> celula = ['membrana','nucleo','pared','citosol']
->>> celula.insert (0,'organulos')
+>>> celula.insert(0,'organulos')
 >>> celula
 ['organulos', 'membrana','nucleo','pared','citosol']
 ```
@@ -96,7 +94,7 @@ Si en lugar de añadir elementos, desea eliminarlos, hay distintas formas para h
 * ^^Método _pop ()_^^. Elimina el elemento de una lista, pero permite trabajar con él después de quitarlo. 
 ``` py
 >>> celula = ['membrana','nucleo','pared','citosol']
->>> celula_pop = celula.pop (2)
+>>> celula_pop = celula.pop(2)
 >>> celula
 ['membrana','nucleo','citosol']
 >>> celula_pop
@@ -114,7 +112,7 @@ nucleo
 * ***Sort ()***. Este método ordena la lista alfabéticamente.
 ``` py
 >>> celula = ['membrana','nucleo','pared','citosol']
->>> celula_sort ()
+>>> celula_sort()
 >>> celula
 ['citosol','membrana','nucleo','pared']
 ```
@@ -122,7 +120,7 @@ nucleo
 * ***Reverse ()***. Este método invierte el orden original de la lista.
 ``` py
 >>> celula = ['membrana','nucleo','pared','citosol']
->>> celula_reverse ()
+>>> celula_reverse()
 >>> celula
 ['citosol','pared','nucleo','membrana']
 ```
@@ -134,14 +132,14 @@ nucleo
 * ***Len ()***. Este método devuelve la longitud de la lista, es decir, el número de elementos que la componen.
 ``` py
 >>> celula = ['membrana','nucleo','pared','citosol']
->>> len (celula)
+>>> len(celula)
 4
 ```
 
 * ***min () / max ()***. Este método devuelve el valor mínimo o máximo de una lista.
 ``` py
 >>> edad = [40, 33, 25, 86, 67]
->>> min (edad)
+>>> min(edad)
 25
 ```
 ## **Tuplas**
@@ -189,13 +187,13 @@ Al igual que antes, una vez que se crea un conjunto solo podemos añadir y elimi
 Para agregar elementos, tenemos 2 métodos: **add ()** y **update ()**. 
 ``` py
 >>> celula_conjunto = {'membrana','nucleo','pared','citosol'}
->>> celula_conjunto.add ('organulos')
+>>> celula_conjunto.add('organulos')
 >>> celula_conjunto
 {'citosol','membrana','organulos','nucleo', 'pared'}
 ```
 ``` py
 >>> celula_conjunto = {'membrana','nucleo','pared','citosol'}
->>> celula_conjunto.update ('organulos')
+>>> celula_conjunto.update('organulos')
 >>> celula_conjunto
 {'pared','organulos','membrana','citosol', 'nucleo'}
 ```
@@ -203,13 +201,13 @@ Para agregar elementos, tenemos 2 métodos: **add ()** y **update ()**.
 Para eliminar elementos, tenemos 2 métodos: **remove ()** y **discard ()**.
 ``` py
 >>> celula_conjunto = {'membrana','nucleo','pared','citosol'}
->>> celula_conjunto.remove ('nucleo')
+>>> celula_conjunto.remove('nucleo')
 >>> celula_conjunto
 {'citosol','membrana', 'pared'}
 ```
 ``` py
 >>> celula_conjunto = {'membrana','nucleo','pared','citosol'}
->>> celula_conjunto.discard ('nucleo')
+>>> celula_conjunto.discard('nucleo')
 >>> celula_conjunto
 {'pared','membrana','citosol'}
 ```
@@ -224,9 +222,9 @@ A continuación se muestran algunas de las funciones más útiles para trabajar 
 
 | FUNCIÓN | DESCRIPCIÓN | 
 |:--:|:--:|
-| `clear ()`  | Elimina todos los elementos de un conjunto| 
-|  `copy ()` | Devuelve una copia de un conjunto |   
-|  `difference ()` |  Devuelve un conjunto que contiene la diferencia entre dos o más conjuntos: los elementos que están en el primero pero no en los demás |   
+| `clear()`  | Elimina todos los elementos de un conjunto| 
+|  `copy()` | Devuelve una copia de un conjunto |   
+|  `difference()` |  Devuelve un conjunto que contiene la diferencia entre dos o más conjuntos: los elementos que están en el primero pero no en los demás |   
 |  `union()` |  Devuelve un conjunto con todos los elementos que están en alguno de los conjuntos  |   
 |  `intersection()`	 |  Devuelve la intersección entre los conjuntos: todos los elementos que están en ambos |   
 
@@ -234,7 +232,7 @@ Veamos un ejemplo del uso de estas funciones.
 ``` py
 >>> conjunto_1 = {3,4,5,6,7,8}
 >>> conjunto_2= {6,7,8,9,10}
->>> conjunto_1.intersection (conjunto_2)
+>>> conjunto_1.intersection(conjunto_2)
 {6,8,7}
 ```
 
@@ -259,7 +257,7 @@ Veamos un ejemplo del uso de estas funciones.
     ``` py linenums="1"
         proteina_1 = {'Trp','Ala', 'Val', 'Ser', 'Trp', 'Gly'}
         proteina_2= {'His','Gly', 'Cys', 'Met', 'Ile', 'Glu'}
-        print(proteina_1.intersection (proteína_2))
+        print(proteina_1.intersection(proteína_2))
     ```
 
 **EJERCICIO 4**. Basándose en el código anterior, esta vez cree un nuevo conjunto con todos los aminoácidos que están en al menos uno de los conjuntos.

@@ -200,10 +200,10 @@ TTTTTGGCCTT
     En el siguiente enlace puede encontrar más funciones disponibles para trabajar con [cadenas](https://docs.python.org/2.5/lib/string-methods.html). Es importante que se familiarice con estas, ya que será importante a la hora de trabajar con secuencias de ADN, ya sea reemplazando, contando, o identificando nucléotidos por ejemplo.
 
 #### *Booleanos*
-Contiene únicamente dos elementos, True y False, que representan los valores lógicos verdadero y falso respectivamente. Por este motivo también se denominan **lógicos**. Todos los otros valores son interpretados por defecto a True. ***MJ: revisa las salidas porque creo que no están bien***
+Contiene únicamente dos elementos, True y False, que representan los valores lógicos verdadero y falso respectivamente. Por este motivo también se denominan **lógicos**. Todos los otros valores son interpretados por defecto a True.
 ``` py 
 >>> False == False
-False
+True
 >>> 0 == False
 True
 >>> None == False
