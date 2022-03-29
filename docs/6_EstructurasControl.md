@@ -202,7 +202,7 @@ La combinación de sentecias if con listas es especialmente útil. Veamos un eje
 NOTA: Tengo que hacer el bucle while, incluir 2 ejercicios más en el apartado ejercicios y añadir los enlaces de interés. Y estará completado este apartado.
 
 ## **Ejercicios**
-**EJERCICIO 1**. Escribir un programa que le pida al usuario un número, y si es par lo eleva al cubo, si no al cuadrado.
+**EJERCICIO 1**. Escribir un programa que le pida al usuario un número, y si es impar lo eleva al cuadrado, si no al cubo.
 ??? note "Respuesta"
     ``` py linenums="1"
         numero = int(input("Introduzca un número: "))
