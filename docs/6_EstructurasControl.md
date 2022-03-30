@@ -198,8 +198,73 @@ La combinación de sentecias if con listas es especialmente útil. Veamos un eje
 
 
 ## **Bucles WHILE**
+A diferencia de los bucles for, que ejecutan un bloque de código por cada elemento que compone la condición, los **bucles while** ejecutan el bloque de código siempre que se cumpla una condición determinada, dejándolo de repetir cuando sea falsa. 
 
-NOTA: Tengo que hacer el bucle while, incluir 2 ejercicios más en el apartado ejercicios y añadir los enlaces de interés. Y estará completado este apartado.
+Es decir, el bucle while nos permite realizar múltiples iteraciones basándonos en el resultado de una expresión lógica que puede tener como resultado un valor True o False.
+
+### ***Sintaxis***
+A continuación se muestra la sintaxis básica de un bucle while:
+``` py
+>>> i=1
+>>> while (i<6):
+...       print(f"Nº veces se ha completado el bucle:{i}")
+...       i=i+1
+>>> print("El bucle ha terminado")
+```
+En este caso, se ha definido la variable _i_, que aumentará una unidad cada vez que se complete el bucle. Cuando esta variable sea igual a 6, dejará de cumplirse la condición y finalizará el bucle.  
+
+El resultado será el siguiente:
+``` py
+Nº veces se ha completado el bucle:1
+Nº veces se ha completado el bucle:2
+Nº veces se ha completado el bucle:3
+Nº veces se ha completado el bucle:4
+Nº veces se ha completado el bucle:5
+El bucle ha terminado
+```
+!!! note "Bucle infinito"
+
+    Es fácil cometer errores y programar un bucle infinito involuntariamente. Para parar este ciclo, presione ***Ctrl + C***.
+
+### ***Trabajar con bucles while***
+#### *Función break*
+Existe una forma alternativa de interrumpir o cortar los ciclos: utilizando la palabra reservada _break_. Esta nos permite salir del ciclo incluso si la expresión evaluada en el bucle es verdadera.
+``` py
+>>> variable = int(input("Introduzca un valor >5 : "))
+>>> while variable > 0:
+...    print ("Actual valor de variable:", variable)
+...    variable = variable -1
+...    if variable == 5:
+...        break
+```
+
+En este ejemplo, se muestra cómo el valor de la variable va disminuyendo una unidad hasta que sea igual a 5, finalizando el código. Observe cómo finaliza el código aunque el bucle while se siga cumpliendo (ya que el valor sigue siendo superior a 0).
+
+#### *Función continue*
+En lugar de interrumpir el bucle, podemos utilizar la sentencia _continue_ para volver al principio del bucle en función del resultado de la prueba condicional.
+
+Veamos un ejemplo en el que un bucle imprime los números impares entre el 1 y el 20.
+``` py
+>>> num = 0
+>>> while num <20:
+...     num +=1
+...     if num % 2 == 0:
+...     continue
+... print (num)
+```
+
+### ***Ejemplo***
+^^Suma de n números enteros^^
+
+``` py linenums="1"
+>>> numero = int(input("Introduce un número: "))
+>>> suma = 0
+>>> x = 0
+>>> while (x<=numero):
+...    suma = suma+x
+...    x=x+1
+print(f'El resultado es {suma}')
+```
 
 ## **Ejercicios**
 **EJERCICIO 1**. Escribir un programa que le pida al usuario un número, y si es impar lo eleva al cuadrado, si no al cubo.
@@ -239,8 +304,42 @@ NOTA: Tengo que hacer el bucle while, incluir 2 ejercicios más en el apartado e
         else:
            print("Es domingo")
     ```
+**EJERCICIO 4**. Escribir un programa que le pregunte al usuario una contraseña. Si coincide con contraseña, debe indicar que es correcta.
+??? note "Respuesta"
+    ``` py linenums="1"
+        key = "contraseña"
+        password = input("Introduce la contraseña: ")
+        while password != key:
+            print("La contraseña no coincide")
+            password = input("Introduce la contraseña: ")
+        print("La contraseña coincide")
+    ```
+**EJERCICIO 5**. Escribir un programa que calcule el factorial de un número introducido por el usuario.
+??? note "Respuesta"
+    ``` py linenums="1"
+        numero = int(input("Introduzca un número:"))
+        x=1
+        resultado = 1
+        while x <= numero:
+            resultado= resultado*x
+            x=x+1
+        print(f'El factorial de {numero} es {resultado}')
+    ```
+**EJERCICIO 6**. Escribir un programa que calcule la suma de los n primeros números impares.
+??? note "Respuesta"
+    ``` py linenums="1"
+        numero = int(input("Introduzca un valor:"))
+        sumatorio = 0
+        x = 1
+        variable=1
+        while variable<=numero:
+            sumatorio=sumatorio+x
+            x=x+2
+            variable = variable+1
+        print(f'El resultado es {sumatorio}.')
+    ```
 
-**EJERCICIO 4**. Escribir un programa que le pida al usuario un número y le diga si es un número primo o no.
+**EJERCICIO 7**. Escribir un programa que le pida al usuario un número y le diga si es un número primo o no.
 
 ??? note "Respuesta"
     ``` py linenums="1"
@@ -260,6 +359,6 @@ NOTA: Tengo que hacer el bucle while, incluir 2 ejercicios más en el apartado e
 
 !!! cite "Enlaces de interés"
 
-    * [**Información acerca de cadenas de caracteres.**](https://docs.python.org/es/3/library/string.html)
-    * [**How to use Strings in Python**](https://www.youtube.com/watch?v=Ctqi5Y4X-jA&ab_channel=ProgrammingwithMosh)
-    * [**Operadores**](https://support.microsoft.com/es-es/office/tabla-de-operadores-e1bc04d5-8b76-429f-a252-e9223117d6bd)
+    * [**Información acerca de estructuras de control.**](https://docs.python.org/3/tutorial/controlflow.html)
+    * [**Flow Control in Python.** Great Learning](https://www.youtube.com/watch?v=v4e6oMRS2QA&ab_channel=GreatLearning)
+    * [**Python Tutorial Release 3.8.1 Guido van Rossum and the Python development team.** J. Rosales Silva (2020). ACADEMIA.](https://d1wqtxts1xzle7.cloudfront.net/62442353/tutorial20200322-66446-ykbseo-with-cover-page-v2.pdf?Expires=1648632320&Signature=dhgeD4j~4jK0ujhIca5whEcT0aGL1faOgYvco-q~7MVFmS9SHEHh-BNLU6iqx~R7PIC0aBf6Va1Sgfwulk7iRSFZeSHIiiSsYT5M5fzq3An6j91Rv3cMdqBJrLw~4vFXf2mfjbkRUzfxTJIwQ~7d8s4pSXxKRp6XvD8vqIQxmljdFwXQS9jZ5FCtEh7hfI6mIsmmo5Q1B9jaOheUdyLvLEEUZJGiekWJxWeDr959NnjiWWsf87L3ja9b~phOitFrDXf5xOJLWD8q6lZnK--B2FHDavkcgeohwppigwDp2YbQrVTUfsu2hRDsNJLNXm4dO0X0yWs5mcPjHcfj3q-xqg__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA)
