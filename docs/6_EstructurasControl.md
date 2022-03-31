@@ -361,4 +361,4 @@ print(f'El resultado es {suma}')
 
     * [**Información acerca de estructuras de control.**](https://docs.python.org/3/tutorial/controlflow.html)
     * [**Flow Control in Python.** Great Learning](https://www.youtube.com/watch?v=v4e6oMRS2QA&ab_channel=GreatLearning)
-    * [**Python Tutorial Release 3.8.1 Guido van Rossum and the Python development team.** J. Rosales Silva (2020). ACADEMIA.](https://d1wqtxts1xzle7.cloudfront.net/62442353/tutorial20200322-66446-ykbseo-with-cover-page-v2.pdf?Expires=1648632320&Signature=dhgeD4j~4jK0ujhIca5whEcT0aGL1faOgYvco-q~7MVFmS9SHEHh-BNLU6iqx~R7PIC0aBf6Va1Sgfwulk7iRSFZeSHIiiSsYT5M5fzq3An6j91Rv3cMdqBJrLw~4vFXf2mfjbkRUzfxTJIwQ~7d8s4pSXxKRp6XvD8vqIQxmljdFwXQS9jZ5FCtEh7hfI6mIsmmo5Q1B9jaOheUdyLvLEEUZJGiekWJxWeDr959NnjiWWsf87L3ja9b~phOitFrDXf5xOJLWD8q6lZnK--B2FHDavkcgeohwppigwDp2YbQrVTUfsu2hRDsNJLNXm4dO0X0yWs5mcPjHcfj3q-xqg__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA)
+    * [**Programming in Python 3. Chapter 4.** Mark Summerfield (2010). Addison-Wesley.](https://cs.smu.ca/~porter/csc/227/ProgrammingInPython3.pdf)
