@@ -14,9 +14,9 @@ nav:
     - Estructuras de control: 6_EstructurasControl.md
     - Funciones: 7_Funciones.md
     - Importación y exportación de datos: 8_Importacion_Datos.md
-    - Graficación: 10_Graficas.md
-    - Ejercicios complementarios o Anaconda: 9_Cadenas_Caracter.md
-    - Prueba de nivel: 11_DataFrames.md
+    - Graficación: 9_Graficacion.md
+    - Ejercicios complementarios: 10_Ej_complementarios.md
+    - BIOPYTHON: 11_Biopython.md
     - Acerca de: AcercaDe.md
 
 theme:
