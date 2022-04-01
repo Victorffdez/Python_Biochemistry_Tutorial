@@ -85,6 +85,7 @@ En el cuerpo de una función se pueden encontrar todo tipo de estructuras, desde
         >>> lista = [3,5,6,7]
         >>> sumatorio(lista)
         21
+        # Busque información acerca de la función sum (). 
     ```
 
 !!! example "SENTENCIA IF-ELSE. Mayor/menor de una lista."
@@ -120,5 +121,60 @@ Como se ha comentado anteriormente, Python ya contiene algunas funciones que pue
 |  `id()` |  Retorna la identidad de un objeto  |   
 
 ## **Módulos**
+Las funciones pueden almacenarse en un archivo denominado **módulo**, que se puede importar posteriormente al programa principal. 
+
+Por tanto, un módulo no es otra cosa que un archivo con extensión _.py_ que puede definir funciones, clases o variables. Esto nos permite reutilizar las funciones en distintos programas, por lo que si tiene que utilizar una misma función en varios programas distintos, no tendrá que definirla una y otra vez, simplemente tendrá que **importar el módulo**. 
+
+En primer lugar debe crear el archivo _.py_ que contenga el código que desea importar. Veámoslo con un ejemplo anterior:
+``` py title="multiplicar_funcion.py"
+>>> def multiplicacion(a, b):
+...     print (a*b)
+```
+En el mismo directorio que el archivo _multiplicacion.py_, cree un archivo independiente que importará el módulo creado.
+``` py title="comprobacion.py"
+>>> import multiplicar_funcion
+>>> multiplicacion(8,7)
+56
+```
+!!! note "¿Qué hace la línea import?"
+
+    La línea *import multiplicar_funcion* le dice a Python que abra el archivo *multiplicar_funcion.py*, y que copie todas las funciones que encuentre en este archivo. De esta forma, **cualquier función** definida en el archivo *multiplicar_funcion.py* estará disponible en el archivo *comprobacion.py*.  
+
+Una acción de [buenas prácticas](https://dtagency.tech/10-buenas-practicas-para-programadores/) trabajando en programación es incluir en un mismo archivo todas las funciones que le puedan ser útiles, y así evitar tener muchos archivos que definan funciones distintas. De hecho, desde este archivo puede importar únicamente las funciones que desee en un momento determinado.
+
+``` py 
+>>> from nombre_módulo import funcion_1, funcion_2
+```
+``` py 
+>>> from nombre_módulo import * #Otra forma de importar todas las funciones 
+```
 
 ## **Ejercicios**
+**EJERCICIO 1**. Escribir una función que calcule el área de un círculo.
+??? note "Respuesta"
+    ``` py linenums="1"
+        def circle_area(radius):
+            pi = 3.1415
+            return pi*radius**2
+    ```
+**EJERCICIO 2**. Escribir una función que calcule la media de una lista.
+??? note "Respuesta"
+    ``` py linenums="1"
+        def mean(lista):
+            return sum(lista)/len(lista)
+    ```
+**EJERCICIO 3**. Escribir una función que calcule el máximo común divisor de dos números.
+??? note "Respuesta"
+    ``` py linenums="1"
+        def mcd(a, b):
+            resto = 0
+            while(b > 0):
+                resto = b
+                b = a % b
+                a = resto
+            return a
+    ```
+!!! cite "Enlaces de interés"
+
+    * [**El tutorial de Python. Definiendo funciones.** Guido van Rossum (2009). Python Software Foundation.](https://www.academia.edu/29567071/El_tutorial_de_pyton)
+    * [**Python Tutorial for Beginners 8: Functions.**](https://www.youtube.com/watch?v=9Os0o3wzS_I&ab_channel=CoreySchafer)

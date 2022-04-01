@@ -13,10 +13,10 @@ nav:
     - Estructuras de datos: 5_EstructurasDatos.md
     - Estructuras de control: 6_EstructurasControl.md
     - Funciones: 7_Funciones.md
-    - Importación y exportación de datos: 8_Importacion_Datos.md
+    - Archivos y datos: 8_ArchivosyDatos.md
     - Graficación: 9_Graficacion.md
     - Ejercicios complementarios: 10_Ej_complementarios.md
-    - BIOPYTHON: 11_Biopython.md
+    - BioPython: 11_Biopython.md
     - Acerca de: AcercaDe.md
 
 theme:
