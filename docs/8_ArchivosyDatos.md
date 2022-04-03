@@ -39,7 +39,7 @@ También podría asignar una variable a esta ruta y utilizarla en la llamada.
 ```
 !!! info "Ruta de archivo"
 
-    En la ruta de archivo, habrá observado que se utilizan **barras dobles** (\\) en lugar de una barra simple (\) como de constumbre. La barra simple se utiliza en Python para introducir algun caracter especial, como \n para un salto de línea. Por este motivo se deben utilizar dobles en la ruta de archivo. 
+    En la ruta de archivo, habrá observado que se utilizan **barras dobles** (\\\\) en lugar de una barra simple (\\) como de constumbre. La barra simple se utiliza en Python para introducir algun caracter especial, como _\n_ para un salto de línea. Por este motivo se deben utilizar dobles en la ruta de archivo. 
     
     Si lo desea, para evitar esto puede utilizar **barras hacia delante** (/) para indicar la ruta. 
 
@@ -122,7 +122,7 @@ Una de las librerías disponibles para el manejo de datos es **NumPy**. NumPy es
 >>> import numpy as np
 >>> datos = np.loadtxt("archivo.txt", delimiter=",") #El delimitador por defecto es un espacio en blanco
 ```
-Si el delimitador tiene cabecera, podemos saltar esta fila con **skyprows**, y para trabajar con columnas utilizamos el argumento **usecols**. Si nuestro archivo contiene valores no numéricos , utilizaremos loadtxt()**astype(str)**. 
+Si el archivo contiene cabecera, podemos saltar esta fila con **skyprows**, y para trabajar con columnas utilizamos el argumento **usecols**. Si nuestro archivo contiene valores no numéricos , utilizaremos loadtxt()**astype(str)**. 
 
 ``` py
 >>> import numpy as np
@@ -156,7 +156,7 @@ En la **exportación de datos** se trabaja de forma muy similar a la importació
 ```
 
 ### ***Otros archivos***
-De forma similar a como se trabaja con archivos _.csv._, con _Pandas_ puede trabajar archivos de diferentes extensiones. A continuación se muestran algunas funciones que le pueden resultar de utilidad.
+De forma similar a como se trabaja con archivos _.csv._, con _Pandas_ puede trabajar con archivos de diferentes extensiones. A continuación se muestran algunas funciones que le pueden resultar de utilidad.
 
 | FORMATO | IMPORTAR | EXPORTAR |
 |:--:|:--:|:--:|
