@@ -43,7 +43,7 @@ Por tanto, Python va imprimiendo el valor actual de la variable *proteina*, que 
 
     Tenga en cuenta que puede elegir el nombre que quiera para la variable temporal. Se ha elegido en este caso *proteina* porque conviene utilizar nombres significativos, que representen los elementos de la lista. 
 
-Es muy importante tener cuidado con las líneas sangradas. A veces, el bucle se puede ejecutar sin problemas pero que no produzca el resultado esperado. Veamos algunos ejemplos de esto:
+Es muy importante tener cuidado con las líneas sangradas. A veces, el bucle se puede ejecutar sin problemas pero que no produzca el resultado esperado. Veamos algunos ejemplos de esto: ***MJ: ¿Son necesarios los >>> ? Al copiar y pegar también aparecen, por si el estudiante quiere usarlo.***
 ``` py
 >>> proteinas = ['hemoglobina','caseina','lacasa','albumina']
 >>> for proteina in proteinas:
@@ -117,7 +117,7 @@ Observe que en este caso el rango determinado es *(2,19,2)*. Los dos primeros ar
 ## **Condicional IF**
 La estructura de control o **sentencia condicional if** permite que un programa ejecute una serie de acciones en función de si se cumple una determinada condición. 
 
-Esta sentencia es la toma de decisión más básica, ya que consiste en comprobar si la **prueba condicional** es verdadera o falsa, y en base a esto, ejecutar o no el código que sigue a la sentencia.
+Esta sentencia es la toma de decisión más básica, ya que consiste en comprobar si la **prueba condicional** ***MJ: (o predicado)*** es verdadera o falsa, y en base a esto, ejecutar o no el código que sigue a la sentencia.
 
 ### ***Sentencias if***
 La sentencia if más simple está compuesta por dos elementos: una ^^prueba condicional^^ y una ^^acción^^. 
@@ -135,7 +135,7 @@ Como podrá comprobar, si no se cumple esta condición no se generaría ninguna 
 ### ***Sentencias if-else***
 ¿Qué ocurre si queremos que se genere una salida si no se cumple la condición? Para esto, utilizamos las **sentencias if-else**. 
 
-El bloque if-else es equivalente a la sentencia if ya vista, pero incluye una sentencia else en la que se define una acción si la prueba condicional no es verdadera. Veámoslo con el mismo ejemplo de antes:
+El bloque if-else es equivalente a la sentencia if ***MJ: conviene usar estilo diferente para palabras clave como _if_ *** ya vista, pero incluye una sentencia else en la que se define una acción si la prueba condicional no es verdadera. Veámoslo con el mismo ejemplo de antes:
 ``` py
 >>> organulo = 'vacuola'
 >>> if organulo == 'ribosoma':
@@ -160,7 +160,7 @@ En muchas ocasiones, va a necesitar probar más de dos situaciones, y para ello 
     Tenga en cuenta que puede utilizar múltiples bloques elif, añadiendo todas las pruebas condicionales que vea necesarias. Además, en este tipo de cadena Python no requiere un bloque else al final, por lo que puede omitirlo, siempre y cuando estos bloques elif engloben todas las posibles situaciones. Es decir, ha de cumplirse uno.  
 
 ### ***Combinación con listas***
-La combinación de sentecias if con listas es especialmente útil. Veamos un ejemplo:
+La combinación de sentencias if con listas es especialmente útil. Veamos un ejemplo:
 ``` py
 >>> proteinas = ['hemoglobina','glucosa','caseina','lacasa','albumina']
 >>> for proteina in proteinas:
@@ -207,7 +207,7 @@ A continuación se muestra la sintaxis básica de un bucle while:
 ``` py
 >>> i=1
 >>> while (i<6):
-...       print(f"Nº veces se ha completado el bucle:{i}")
+...       print(f"Nº veces se ha completado el bucle: {i}")
 ...       i=i+1
 >>> print("El bucle ha terminado")
 ```
@@ -215,11 +215,11 @@ En este caso, se ha definido la variable _i_, que aumentará una unidad cada vez
 
 El resultado será el siguiente:
 ``` py
-Nº veces se ha completado el bucle:1
-Nº veces se ha completado el bucle:2
-Nº veces se ha completado el bucle:3
-Nº veces se ha completado el bucle:4
-Nº veces se ha completado el bucle:5
+Nº veces se ha completado el bucle: 1
+Nº veces se ha completado el bucle: 2
+Nº veces se ha completado el bucle: 3
+Nº veces se ha completado el bucle: 4
+Nº veces se ha completado el bucle: 5
 El bucle ha terminado
 ```
 !!! note "Bucle infinito"
@@ -249,7 +249,7 @@ Veamos un ejemplo en el que un bucle imprime los números impares entre el 1 y e
 >>> while num <20:
 ...     num +=1
 ...     if num % 2 == 0:
-...     continue
+...        continue
 ... print (num)
 ```
 

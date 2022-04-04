@@ -9,7 +9,7 @@ A continuación le proponemos un ejemplo, en este caso un archivo que contiene e
 3.1415926535 
   8979323846
 ```
-Una vez creado el archivo, veamos como **abrirlo e imprimir** el contenido en la pantalla en un archivo _.py_.
+Una vez creado el archivo, veamos cómo **abrirlo e imprimir** el contenido en la pantalla en un archivo _.py_.
 ``` py title="leer_pi.py"
 >>> with open ("num_pi.txt") as file_object:
 ...    contenido = file_object.read()
@@ -39,17 +39,17 @@ También podría asignar una variable a esta ruta y utilizarla en la llamada.
 ```
 !!! info "Ruta de archivo"
 
-    En la ruta de archivo, habrá observado que se utilizan **barras dobles** (\\\\) en lugar de una barra simple (\\) como de constumbre. La barra simple se utiliza en Python para introducir algun caracter especial, como _\n_ para un salto de línea. Por este motivo se deben utilizar dobles en la ruta de archivo. 
+    En la ruta de archivo, habrá observado que se utilizan **barras dobles** (\\\\) en lugar de una barra simple (\\) como de costumbre. La barra simple se utiliza en Python para introducir algun caracter especial, como _\n_ para un salto de línea. Por este motivo se deben utilizar dobles en la ruta de archivo. 
     
     Si lo desea, para evitar esto puede utilizar **barras hacia delante** (/) para indicar la ruta. 
 
 #### *Línea a línea*
 Si desea examinar cada línea al leer un archivo, puede incluir un bucle for en el objeto del archivo.
 ``` py title="leer_pi.py" 
->>> archivo = "num_pi.txt" #Asignamos el nombre del archivo a una variable
+>>> archivo = "num_pi.txt" # Asignamos el nombre del archivo a una variable
 >>> with open (archivo) as file_object:
 ...    for linea in file_object:
-...    print(linea)
+...       print(linea)
 ```
 Esto dará como resultado la siguiente salida:
 ```  
@@ -122,7 +122,7 @@ Una de las librerías disponibles para el manejo de datos es **NumPy**. NumPy es
 >>> import numpy as np
 >>> datos = np.loadtxt("archivo.txt", delimiter=",") #El delimitador por defecto es un espacio en blanco
 ```
-Si el archivo contiene cabecera, podemos saltar esta fila con **skyprows**, y para trabajar con columnas utilizamos el argumento **usecols**. Si nuestro archivo contiene valores no numéricos , utilizaremos loadtxt()**astype(str)**. 
+Si el archivo contiene cabecera, podemos saltar esta fila con **skyprows**, y para trabajar con columnas utilizamos el argumento **usecols**. Si nuestro archivo contiene valores no numéricos , utilizaremos loadtxt()**astype(str)**. ***MJ: ¿te falta algo en las palabras de antes?***
 
 ``` py
 >>> import numpy as np
@@ -149,7 +149,7 @@ Para importar un archivo _.csv_:
 ```
 Al igual que con NumPy, se pueden incluir argumentos como **nrows**, que limita el número de filas; funciones como **head()** y **tail()**, que limita la visualización de datos... Puede encontrar una guía ampliada en el siguiente [enlace](https://www.analyticsvidhya.com/blog/2021/05/pandas-functions-13-most-important/). 
 
-En la **exportación de datos** se trabaja de forma muy similar a la importación. Para exportar los datos a un archivo _.csv_ le recomiendo emplear _Pandas_, ya que resulta realmente fácil y rápido:
+En la **exportación de datos** se trabaja de forma muy similar a la importación. Para exportar los datos a un archivo _.csv_ le recomendamos emplear _Pandas_, ya que resulta realmente fácil y rápido:
 ``` py
 >>> import pandas as pd
 >>> df.to_csv("archivo.csv")
@@ -157,6 +157,7 @@ En la **exportación de datos** se trabaja de forma muy similar a la importació
 
 ### ***Otros archivos***
 De forma similar a como se trabaja con archivos _.csv._, con _Pandas_ puede trabajar con archivos de diferentes extensiones. A continuación se muestran algunas funciones que le pueden resultar de utilidad.
+***MJ: aquí también podrías mencionar los pickles.***
 
 | FORMATO | IMPORTAR | EXPORTAR |
 |:--:|:--:|:--:|

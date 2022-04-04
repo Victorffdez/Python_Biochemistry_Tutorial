@@ -3,7 +3,7 @@ Una **función** es un bloque de código que ha sido diseñado para realizar una
 
 Es decir, si tiene que realizar una misma tarea varias veces, en lugar de repetir una y otra vez el código, lo más eficiente es definirlo en una función y utilizarlo de forma mucho más simple. Esto hace que el código sea más ^^legible^^ y ^^limita los errores^^ de escritura.
 
-A continuación aprenderá a trabajar con funciones, aunque de hecho ya ha las ha estado utilizando. A lo largo del tutorial ha utilizado funciones básicas como *print ()* o *len ()*, ya implementadas en Python.
+A continuación aprenderá a trabajar con funciones, aunque de hecho ya las ha estado utilizando. A lo largo del tutorial ha utilizado funciones básicas como *print ()* o *len ()*, ya implementadas en Python.
 ## **Definir y llamar una función**
 Las funciones en Python se crean usando la palabra clave ***def***, seguida de un nombre de función y parámetros de función entre paréntesis. Veamos un ejemplo:
 ``` py
@@ -74,6 +74,7 @@ Me llamo Victor y soy estudiante.
 
 ### ***Cuerpo de la función***
 En el cuerpo de una función se pueden encontrar todo tipo de estructuras, desde estructuras de datos simples como listas, hasta estructuras de control como bucles. 
+***MJ: considera cambiar los ejemplos de funciones para que devuelvan valores (ej. suma) en vez de hacer print dentro del cuerpo de la función. Eso lo puedes hacer fuera.***
 !!! example "BUCLE FOR. Sumatorio de una lista."
 
     ``` py
