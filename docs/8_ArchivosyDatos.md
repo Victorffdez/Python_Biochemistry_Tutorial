@@ -10,10 +10,10 @@ A continuación le proponemos un ejemplo, en este caso un archivo que contiene e
   8979323846
 ```
 Una vez creado el archivo, veamos cómo **abrirlo e imprimir** el contenido en la pantalla en un archivo _.py_.
-``` py title="leer_pi.py"
->>> with open ("num_pi.txt") as file_object:
-...    contenido = file_object.read()
->>> print (contenido)
+``` py title="leer_pi.py" linenums="1"
+with open ("num_pi.txt") as file_object:
+    contenido = file_object.read()
+print (contenido)
 ```
 
 * **Función open()**. Le indica a Python qué archivo deseamos abrir, buscándolo en el mismo directorio que *leer_pi.py*.
@@ -25,17 +25,17 @@ Una vez creado el archivo, veamos cómo **abrirlo e imprimir** el contenido en l
     Se habrá dado cuenta que al final de la salida se muestra una línea en blanco que no estaba en el archivo original. Si la quiere eliminar, utilice **rstrip()** al utilizar la función _print()_.
 
 Aunque existe probabilidad de que su archivo *.txt* se encuentre en el mismo directorio de trabajo, normalmente estará en otro diferente. Para que Python pueda abrir y leer archivos de un directorio distinto, debe incluir la **ruta de archivo**. 
-``` py title="leer_pi.py"
->>> with open ("C:\\Users\\Downloads\\num_pi.txt") as file_object:
-...    contenido = file_object.read()
->>> print (contenido)
+``` py title="leer_pi.py" linenums="1"
+with open ("C:\\Users\\Downloads\\num_pi.txt") as file_object:
+    contenido = file_object.read()
+print (contenido)
 ```
 También podría asignar una variable a esta ruta y utilizarla en la llamada.
-``` py title="leer_pi.py"
->>> ruta_archivo = "C:\\Users\\Downloads\\num_pi.txt"
->>> with open (ruta_archivo) as file_object:
-...    contenido = file_object.read()
->>> print (contenido)
+``` py title="leer_pi.py" linenums="1"
+ruta_archivo = "C:\\Users\\Downloads\\num_pi.txt"
+with open (ruta_archivo) as file_object:
+    contenido = file_object.read()
+print (contenido)
 ```
 !!! info "Ruta de archivo"
 
@@ -45,11 +45,11 @@ También podría asignar una variable a esta ruta y utilizarla en la llamada.
 
 #### *Línea a línea*
 Si desea examinar cada línea al leer un archivo, puede incluir un bucle for en el objeto del archivo.
-``` py title="leer_pi.py" 
->>> archivo = "num_pi.txt" # Asignamos el nombre del archivo a una variable
->>> with open (archivo) as file_object:
-...    for linea in file_object:
-...       print(linea)
+``` py title="leer_pi.py" linenums="1"
+archivo = "num_pi.txt" # Asignamos el nombre del archivo a una variable
+with open (archivo) as file_object:
+    for linea in file_object:
+        print(linea)
 ```
 Esto dará como resultado la siguiente salida:
 ```  
@@ -63,49 +63,48 @@ De nuevo, puede utilizar **rstrip()** en la función _print()_ para eliminar las
 ### ***Acciones***
 #### *Crear una lista*
 Podemos guardar todas las líneas que componen un archivo en una lista, para poder trabajar con esta como hemos visto a lo largo del tutorial. A continuación se muestra cómo crear esta lista e imprimirla.
-``` py title="lista_pi.py" 
->>> archivo = "num_pi.txt" 
->>> with open (archivo) as file_object:
-...    lineas = file_object.readlines()
+``` py title="lista_pi.py" linenums="1"
+archivo = "num_pi.txt" 
+with open (archivo) as file_object:
+    lineas = file_object.readlines()
 
->>  for linea in lineas:
-       print(linea.rstrip())
+for linea in lineas:
+   print(linea.rstrip())
 ```
 El método utilizado **readlines()** lee cada línea de un archivo y la almacena en una lista. 
 
 #### *Crear una cadena*
 Imagine que está trabajando con un archivo FASTA y desea crear una cadena con todos los caracteres, ya sean nucleótidos o aminoácidos, para poder trabajar con esta cadena de forma sencilla.
-``` py title="cadena_pi.py" 
->>> archivo = "num_pi.txt" 
->>> with open (archivo) as file_object:
-...    lineas = file_object.readlines()
->>> cadena_pi = ""  #Creamos una variable para almacenar los caracteres
->>  for linea in lineas:
-       cadena_pi+= linea.rstrip() 
+``` py title="cadena_pi.py" linenums="1"
+archivo = "num_pi.txt" 
+with open (archivo) as file_object:
+    lineas = file_object.readlines()
+cadena_pi = ""  #Creamos una variable para almacenar los caracteres
+for linea in lineas:
+    cadena_pi+= linea.rstrip() 
 ```
 Si imprime esta cadena, el resultado será el siguiente:
 ```  
 3.1415926535   8979323846 
 ```
 Para eliminar el espacio en blanco, en lugar de _rstrip()_ debe utilizar **strip()**. Ya tiene almacenados todos los caracteres en una cadena, y puede trabajar con la misma.
-``` py
->>> longitud = len(cadena_pi)
->>> longitud
-22
+``` py linenums="1"
+longitud = len(cadena_pi)
+print (longitud)
 ```
-``` py
->>> fragmento_problema = "99843"
->>> if fragmento_problema in cadena_pi:
-...    print ("El fragmento aparece.")
->>> else:
-...    print ("El fragmento no aparece.")
+``` py linenums="1"
+fragmento_problema = "99843"
+if fragmento_problema in cadena_pi:
+   print ("El fragmento aparece.")
+else:
+   print ("El fragmento no aparece.")
 ```
 #### *Escribir*
 Si desea escribir texto en un archivo _.txt_ vacío, debe indicárselo a Python en la función _open()_.
-``` py title="escribir_archivo.py" 
->>> archivo = "nuevo_archivo.txt" 
->>> with open (archivo, "w") as file_object: 
-...    file_object.write("¡Estoy escribiendo un archivo!")
+``` py title="escribir_archivo.py" linenums="1"
+archivo = "nuevo_archivo.txt" 
+with open (archivo, "w") as file_object: 
+    file_object.write("¡Estoy escribiendo un archivo!")
 ```
 !!! info ""w""
 
@@ -118,46 +117,46 @@ Una de las librerías disponibles para el manejo de datos es **NumPy**. NumPy es
 
 * Para importar un archivo _.txt_:
 
-``` py
->>> import numpy as np
->>> datos = np.loadtxt("archivo.txt", delimiter=",") #El delimitador por defecto es un espacio en blanco
+``` py linenums="1"
+import numpy as np
+datos = np.loadtxt("archivo.txt", delimiter=",") 
+#El delimitador por defecto es un espacio en blanco
 ```
-Si el archivo contiene cabecera, podemos saltar esta fila con **skyprows**, y para trabajar con columnas utilizamos el argumento **usecols**. Si nuestro archivo contiene valores no numéricos , utilizaremos loadtxt()**astype(str)**. ***MJ: ¿te falta algo en las palabras de antes?***
+Si el archivo contiene cabecera, podemos saltar esta fila con **skyprows = ()**, y para trabajar con columnas utilizamos el argumento **usecols = [ ]**. Si nuestro archivo contiene valores no numéricos , utilizaremos loadtxt()**astype(str)**. ***MJ: ¿te falta algo en las palabras de antes?***
 
-``` py
->>> import numpy as np
->>> datos = np.loadtxt("archivo.txt", delimiter=",", skiprows=1, usecols=[0,1]).astype(str)
-    #Importa las columnas 1 y 2 del archivo.txt, delimitadas por coma, eliminando la primera fila de cabecera.
-    # Una de estas columnas contiene valores no numéricos. 
+``` py linenums="1"
+import numpy as np
+datos = np.loadtxt("archivo.txt", delimiter=",", skiprows=1, usecols=[0,1]).astype(str)
+#Importa las columnas 1 y 2 del archivo.txt, delimitadas por coma, eliminando la primera fila de cabecera.
+# Una de estas columnas contiene valores no numéricos. 
 ```
 
 En el siguiente [enlace](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) puede encontrar más funciones que le serán útiles.
 
 * Para importar un archivo _.csv_:
 
-``` py
->>> import numpy as np
->>> datos = np.recfromcsv("datos.csv")
+``` py linenums="1"
+import numpy as np
+datos = np.recfromcsv("datos.csv")
 ```
 ### ***Pandas***
 La **librería Pandas** ayuda a llevar a cabo todo el trabajo de análisis de datos en Python de una forma fluida y rápida. En este caso los datos importados se almacenan en un ^^dataframe^^, que no es más que un conjunto de observaciones y variables (muy empleado en lenguajes como R). 
 
 Para importar un archivo _.csv_:
-``` py
->>> import pandas as pd
->>> dataframe = pd.read_csv("datos.csv")
+``` py linenums="1"
+import pandas as pd
+dataframe = pd.read_csv("datos.csv")
 ```
-Al igual que con NumPy, se pueden incluir argumentos como **nrows**, que limita el número de filas; funciones como **head()** y **tail()**, que limita la visualización de datos... Puede encontrar una guía ampliada en el siguiente [enlace](https://www.analyticsvidhya.com/blog/2021/05/pandas-functions-13-most-important/). 
+Al igual que con NumPy, se pueden incluir argumentos como **nrows = ()**, que limita el número de filas; funciones como **head()** y **tail()**, que limita la visualización de datos... Puede encontrar una guía ampliada en el siguiente [enlace](https://www.analyticsvidhya.com/blog/2021/05/pandas-functions-13-most-important/). 
 
 En la **exportación de datos** se trabaja de forma muy similar a la importación. Para exportar los datos a un archivo _.csv_ le recomendamos emplear _Pandas_, ya que resulta realmente fácil y rápido:
-``` py
->>> import pandas as pd
->>> df.to_csv("archivo.csv")
+``` py linenums="1"
+import pandas as pd
+df.to_csv("archivo.csv")
 ```
 
 ### ***Otros archivos***
 De forma similar a como se trabaja con archivos _.csv._, con _Pandas_ puede trabajar con archivos de diferentes extensiones. A continuación se muestran algunas funciones que le pueden resultar de utilidad.
-***MJ: aquí también podrías mencionar los pickles.***
 
 | FORMATO | IMPORTAR | EXPORTAR |
 |:--:|:--:|:--:|
@@ -165,6 +164,29 @@ De forma similar a como se trabaja con archivos _.csv._, con _Pandas_ puede trab
 |  `json` | pd.read_json() | df.to_json()| 
 |  `excel`	 |  pd.read_excel() | df.to_excel()|
 |  `sql` |  pd.read_sql() |  df.to_sql()|
+
+Por último, hacer mención a los ***pickles*** en Python. El módulo pickle permite **serializar y deserializar** una estructura de objetos; en otras palabras, transformarla en una cadena de bytes que puede ser empaquetada en un archivo, y desempaquetada después para trabajar con su contenido. 
+
+Los archivos pickles en Python se pueden utilizar para una gran cantidad de propósitos, destacando la creación de copias de seguridad, y para utilizarlos debemos importar el [módulo Pickle](https://docs.python.org/es/3/library/pickle.html).
+``` py linenums="1"
+import pickle 
+```
+A continuación se muestra cómo convertir a pickle una lista (empaquetar):
+``` py linenums="1"
+import pickle
+lista = [1,2,3,4]
+fichero = open("lista.pckl", "w") #Creación del fichero
+pickle.dump(lista, fichero) #Escribe la colección en el fichero
+fichero.close()
+```
+Una vez escrita esta colección, veamos como leerla (desempaquetar):
+``` py linenums="1"
+import pickle
+fichero = open("lista.pckl","rb")
+fichero_lista = pickle.load(fichero)
+print (lista_fichero)
+```
+En el siguiente [vídeo](https://www.youtube.com/watch?v=CkfDnMC79b4&ab_channel=pildorasinformaticas) puede profundizar sobre la el módulo pickle y la serialización.
 
 !!! cite "Enlaces de interés"
 

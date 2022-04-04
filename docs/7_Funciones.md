@@ -6,9 +6,9 @@ Es decir, si tiene que realizar una misma tarea varias veces, en lugar de repeti
 A continuación aprenderá a trabajar con funciones, aunque de hecho ya las ha estado utilizando. A lo largo del tutorial ha utilizado funciones básicas como *print ()* o *len ()*, ya implementadas en Python.
 ## **Definir y llamar una función**
 Las funciones en Python se crean usando la palabra clave ***def***, seguida de un nombre de función y parámetros de función entre paréntesis. Veamos un ejemplo:
-``` py
->>> def saludar_usuario ():
-...     print ("¡Hola a todos!")
+``` py linenums="1"
+def saludar_usuario ():
+    print ("¡Hola a todos!")
 ```
 
 Esta es la estructura más simple para definir una función. En este caso, la función se denomina *saludar_usuario ()*, y como para esta tarea no se necesita información, los paréntesis no contienen parámetros (aunque es ^^fundamental^^ incluirlos). Tras los dos puntos, las siguientes líneas sangradas forman el denominado **cuerpo de la función** que contiene la tarea a realizar, en este caso un saludo al usuario.
@@ -26,16 +26,19 @@ Para llamar a una función, hay que escribir su nombre seguida de la informació
 ## **Modificar la función**
 ### ***Parámetro y argumento***
 Si deseamos que la función salude a una persona en concreto, tenemos que incluir **parámetros** de la función entre paréntesis. Ahora Python esperará que proporcionemos un valor a esta función. Veamos dos ejemplos:
-``` py
->>> def saludar_usuario (usuario):
-...     print (f"¡Hola {usuario}!")
+``` py linenums="1"
+def saludar_usuario (usuario):
+    print (f"¡Hola {usuario}!")
+```
+```
 >>> saludar_usuario ("Victor")
 ¡Hola Victor!
 ```
-``` py
->>> def multiplicacion (a, b):
-...     return (a*b)
->>> resultado = multiplicacion (7,5)
+``` py linenums="1"
+def multiplicacion (a, b):
+    return (a*b)
+resultado = multiplicacion (7,5)
+
 >>> multiplicacion
 35
 ```
@@ -45,25 +48,28 @@ Aunque a veces se pueden llegar a utilizar de forma similar, es importante tener
 * **Argumento**: Víctor; 7,5.
 
 Como observará en el segundo ejemplo, Python asocia cada argumento introducido con un parámetro (a-7, b-5). Esta asociación es muy importante, ya que podemos obtener algún resultado inesperado si mezclamos argumentos al llamar la función.
-``` py
->>> def saludo (nombre, profesion):
-...     print (f"Me llamo {nombre} y soy {profesion}.")
+``` py linenums="1"
+def saludo (nombre, profesion):
+    print (f"Me llamo {nombre} y soy {profesion}.")
+
 >>> saludo("estudiante", "Victor")
 Me llamo estudiante y soy Victor.
 ```
 
 Observe que cuando llama a la función, PyCharm le indica sobre qué parámetro está escribiendo su argumento. Esto es muy útil y evita muchos errores de escritura como el anterior. Otra forma de solucionarlo es utilizar los **argumentos de palabra clave**.
-``` py
->>> def saludo (nombre, profesion):
-...     print (f"Me llamo {nombre} y soy {profesion}.")
+``` py linenums="1"
+def saludo (nombre, profesion):
+    print (f"Me llamo {nombre} y soy {profesion}.")
+
 >>> saludo(profesion="estudiante", nombre="Victor")
 Me llamo Victor y soy estudiante.
 ```
 
 Al escribir una función, podemos definir un **argumento predeterminado** para cada parámetro. Si se utilizan argumentos predeterminados, no es necesario incluirlos al llamar la función. 
-``` py
->>> def saludo (nombre, profesion="estudiante"):
-...     print (f"Me llamo {nombre} y soy {profesion}.")
+``` py linenums="1"
+def saludo (nombre, profesion="estudiante"):
+    print (f"Me llamo {nombre} y soy {profesion}.")
+
 >>> saludo("Victor")
 Me llamo Victor y soy estudiante.
 ```
@@ -77,36 +83,29 @@ En el cuerpo de una función se pueden encontrar todo tipo de estructuras, desde
 ***MJ: considera cambiar los ejemplos de funciones para que devuelvan valores (ej. suma) en vez de hacer print dentro del cuerpo de la función. Eso lo puedes hacer fuera.***
 !!! example "BUCLE FOR. Sumatorio de una lista."
 
-    ``` py
-        >>> def sumatorio(lista):
-        ...     suma=0
-        ...     for x in range(len(lista)):
-        ...         suma=suma+lista[x]
-        ...     print(suma)
-        >>> lista = [3,5,6,7]
-        >>> sumatorio(lista)
-        21
-        # Busque información acerca de la función sum (). 
+    ``` py linenums="1"
+        def sumatorio(lista):
+            suma=0
+            for x in range(len(lista)):
+                suma=suma+lista[x]
+            return(suma)
+        # Busque información acerca de la función sum(). 
     ```
 
 !!! example "SENTENCIA IF-ELSE. Mayor/menor de una lista."
 
-    ``` py
-        >>> def mayormenor(lista):
-        ...    may=lista[0]
-        ...    men=lista[0]
-        ...    for x in range(1,len(lista)): #Esta función se definió en las cadenas de caracteres
-        ...        if lista[x]>may:
-        ...            may=lista[x]
-        ...        else:
-        ...            if lista[x]<men:
-        ...                men=lista[x]
-        ...    print("El valor mayor de la lista es", may)
-        ...    print("El valor menor de la lista es", men)
-        >>> lista = [3,5,6,7]
-        >>> mayormenor(lista)
-        El valor mayor de la lista es 7
-        El valor menor de la lista es 3
+    ``` py linenums="1"
+        def mayormenor(lista):
+           may=lista[0]
+           men=lista[0]
+           for x in range(1,len(lista)): #Esta función se definió en las cadenas de caracteres
+               if lista[x]>may:
+                   may=lista[x]
+               else:
+                   if lista[x]<men:
+                      men=lista[x]
+           return(may)
+           return(men)
     ```
 
 ### ***Funciones ya definidas***
@@ -127,13 +126,14 @@ Las funciones pueden almacenarse en un archivo denominado **módulo**, que se pu
 Por tanto, un módulo no es otra cosa que un archivo con extensión _.py_ que puede definir funciones, clases o variables. Esto nos permite reutilizar las funciones en distintos programas, por lo que si tiene que utilizar una misma función en varios programas distintos, no tendrá que definirla una y otra vez, simplemente tendrá que **importar el módulo**. 
 
 En primer lugar debe crear el archivo _.py_ que contenga el código que desea importar. Veámoslo con un ejemplo anterior:
-``` py title="multiplicar_funcion.py"
->>> def multiplicacion(a, b):
-...     print (a*b)
+``` py title="multiplicar_funcion.py" linenums="1"
+def multiplicacion(a, b):
+    return (a*b)
 ```
 En el mismo directorio que el archivo _multiplicacion.py_, cree un archivo independiente que importará el módulo creado.
-``` py title="comprobacion.py"
->>> import multiplicar_funcion
+``` py title="comprobacion.py" linenums="1"
+import multiplicar_funcion
+
 >>> multiplicacion(8,7)
 56
 ```
@@ -143,11 +143,11 @@ En el mismo directorio que el archivo _multiplicacion.py_, cree un archivo indep
 
 Una acción de [buenas prácticas](https://dtagency.tech/10-buenas-practicas-para-programadores/) trabajando en programación es incluir en un mismo archivo todas las funciones que le puedan ser útiles, y así evitar tener muchos archivos que definan funciones distintas. De hecho, desde este archivo puede importar únicamente las funciones que desee en un momento determinado.
 
-``` py 
->>> from nombre_módulo import funcion_1, funcion_2
+``` py linenums="1"
+from nombre_módulo import funcion_1, funcion_2
 ```
-``` py 
->>> from nombre_módulo import * #Otra forma de importar todas las funciones 
+``` py linenums="1"
+from nombre_módulo import * #Otra forma de importar todas las funciones 
 ```
 
 ## **Ejercicios**

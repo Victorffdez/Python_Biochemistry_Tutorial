@@ -6,8 +6,8 @@ El concepto de **^^variable^^** hace referencia a un nombre simbólico o identif
 
 Una **^^constante^^** es un tipo de variable la cual no puede ser cambiada. Por tanto, es un valor que no debe ser alterado/modificado durante la ejecución de un programa, únicamente leído. Python no tiene tipos de constantes integrados, pero los programadores utilizan mayúsculas para indicar que una variable debería tratarse como una constante y no alterarse.
 
-``` py
->>> NUM_AMINOACIDOS = 500 
+``` py linenums="1"
+NUM_AMINOACIDOS = 500 
 ```
 
 ### ***Nombrar y usar variables***
@@ -28,50 +28,48 @@ Cuando utilizamos variables en Python, tenemos que seguir una serie de normas y 
 !!! note "**Palabras reservadas**"
 
      Puede verificar si una palabra esta reservada utilizando el módulo integrado ***keyword***.
-    ``` py
-        >>> import keyword
-        >>> keyword.iskeyword ("print")
-        True
-        >>> keyword.iskeyword ("fecha")
-        False
+    ``` py linenums="1"
+        import keyword
+        keyword.iskeyword ("print")
+        keyword.iskeyword ("fecha")
     ```
 
 ### ***¿Cómo escribir una variable?***
 Para asignar un valor a una variable se utiliza el operador de igualdad (=). A la izquierda de la igualdad se escribe el nombre de la variable y a la derecha el valor que se quiere dar a la variable.
 
-``` py
->>> edad_paciente = 41
->>> obj_estudio = "proteína"
+``` py linenums="1"
+edad_paciente = 41
+obj_estudio = "proteína"
 ```
 
 Para visualizar el valor de una variable, basta con escribir su nombre:
 
-``` py
->>> edad_paciente = 41
+``` py linenums="1"
+edad_paciente = 41
+
 >>> edad_paciente
 41
->>>
 ```
 
 Podemos asignar un solo valor a múltiples variables de la siguiente manera:
-``` py
->>> x = y = z = 5
+``` py linenums="1"
+x = y = z = 5
 ```
 
 Además, podemos asignar múltiples valores a múltiples variables de la siguiente manera:
 
-``` py
->>> a, b, c = 5, 'abcde', 9
+``` py linenums="1"
+a, b, c = 5, 'abcde', 9
 ```
 
 !!! info "del"
 
     La instrucción ***del*** borra completamente una variable.
-     ``` py
-     >>> x = 5
+     ``` py linenums="1"
+     x = 5
      >>> x
      5
-     >>> del x
+     del x
      >>> x
      ERROR
      ```
@@ -86,18 +84,18 @@ La información que se guarda en una variable puede ser de muchos tipos:
 
 Aunque se definan de forma similar, para Python no es lo mismo un número entero, un número decimal o una cadena ya que, por ejemplo, dos números se pueden multiplicar pero dos cadenas no (aunque una cadena sí que se puede multiplicar por un número). A continuación puede ver ejemplos de estas diferencias.
 
-``` py
->>> fecha_actual = 2022
+``` py linenums="1"
+fecha_actual = 2022
 ```
 En este caso la variable *fecha_actual* está almacenando un número entero.
 
-``` py
->>> fecha_actual = "2022"
+``` py linenums="1"
+fecha_actual = "2022"
 ```
 En este caso la variable *fecha_actual* está almacenando una cadena formada por cuatro letras.
 
-``` py
->>> fecha_actual = ["marzo", 2022]
+``` py linenums="1"
+fecha_actual = ["marzo", 2022]
 ```
 En este caso la variable *fecha_actual* está almacenando una lista. Este tipo de elemento se verá más adelante.
 
@@ -106,33 +104,35 @@ Secuencia de dígitos que representan números, pudiendo incluir el - (guion) pa
 
 * **Entero.** No son más que números enteros, y pueden ser de diferentes tipos: positivo, negativo, cero y largo.
 * **Entero largo.** El sufijo L se usa para la representación de enteros largos en Python, y estos se utilizan para almacenar números grandes sin perder precisión.
-``` py 
->>> variable = 10000000L
+``` py linenums="1"
+variable = 10000000L
 ```
 
 * **Octales y hexadecimales.** Para representar el número octal que tiene base 8 en Python, agregue un 0 previamente para que el intérprete de Python pueda reconocer que el valor esté en base 8 y no en base 10. Para representar el número hexadecimal, agregue 0x. 
-``` py 
->>> variable = 014
+``` py linenums="1"
+variable = 014
+
 >>> variable
 12  #Python devuelve por salida el valor en base decimal
 ```
 
 * **Números de punto flotante.** Simbolizan los números reales que se escriben con un punto decimal que divide las partes entera y decimal. Los números de punto flotante también pueden venir con notación científica con E o e, indicando la potencia de 10.* 
-``` py 
->>> variable = 7.9e2 #Esto es igual a 7.9 * 10**2
+``` py linenums="1"
+variable = 7.9e2 #Esto es igual a 7.9 * 10**2
 ```
 
 * **Números complejos.** Los números complejos tienen la forma 'a + bj', donde a es el valor flotante de la parte real y b es el valor flotante de la parte imaginaria, y j representa la raíz cuadrada de −1. 
-``` py 
->>> variable = 5 + 3j
+``` py linenums="1"
+variable = 5 + 3j
 ```
 
 !!! info "Conversión entre tipos de números"
 
     Hay algunas funciones integradas de Python que nos permiten convertir números explícitamente de un tipo a otro. Un ejemplo es ***int ()***. 
-     ``` py
-     >>> valor = 1.5
-     >>> valor = int (valor)
+     ``` py linenums="1"
+     valor = 1.5
+     valor = int (valor)
+     
      >>> valor
      1
      ```
@@ -140,13 +140,14 @@ Secuencia de dígitos que representan números, pudiendo incluir el - (guion) pa
 
 #### *Cadenas de caracteres*
 Las cadenas de caracteres son secuencias que contienen caracteres encerrados entre comillas, simples o dobles. También podemos usar comillas triples, pero generalmente las comillas triples se usan para crear cadenas de documentos o cadenas de varias líneas.
-``` py 
->>> cadena1 = 'bioquimica'
->>> cadena2 = "cromosoma"
+``` py linenums="1"
+cadena1 = 'bioquimica'
+cadena2 = "cromosoma"
 ```
 En Python, se puede acceder individualmente a los caracteres de la cadena, desde ambas direcciones: hacia adelante y hacia atrás. Hacia adelante comienza desde 0, 1, 2... ; mientras que hacia atrás comienza desde −1, −2...
-``` py 
->>> cadena1 = 'bioquimica'
+``` py linenums="1"
+cadena1 = 'bioquimica'
+
 >>> cadena1[1]
 i
 >>> cadena1[-2]
@@ -156,14 +157,16 @@ c
 A continuación se muestran algunas de las funciones disponibles para trabajar con cadenas:
 
 * *^^Función len()^^*. Función que devuelve la longitud de la cadena.
-``` py 
->>> cadena = 'espermatozoide'
+``` py linenums="1"
+cadena = 'espermatozoide'
+
 >>> len(cadena)
 14
 ```
 * *^^Mostrar parte de la cadena^^*. A continuación se muestra sintaxis para imprimir por pantalla parte de la cadena, ya sea el principio, final o una parte intermedia.
-``` py 
->>> cadena = 'espermatozoide'
+``` py linenums="1"
+cadena = 'espermatozoide'
+
 >>> cadena[2:6]
 perma
 >>> cadena[:6]
@@ -173,25 +176,28 @@ atozoide
 ```
 
 * *^^Cadena inversa^^*. No hay ninguna función integrada para invertir una cadena en Python, pero la forma más fácil es usar un segmento que comienza al final de la cadena y va hacia atrás.
-``` py 
->>> cadena = 'espermatozoide' [::-1]
+``` py linenums="1"
+cadena = 'espermatozoide' [::-1]
+
 >>> cadena
 ediozotamrepse
 ```
 
 * *^^Concatenar cadenas^^*. El operador + se usa para agregar una cadena a otra cadena.
-``` py 
->>> cadena_1 = 'La hemoglobina ' 
->>> cadena_2 = 'es una proteina'
->>> cadena_final = cadena_1 + cadena_2
+``` py linenums="1"
+cadena_1 = 'La hemoglobina ' 
+cadena_2 = 'es una proteina'
+cadena_final = cadena_1 + cadena_2
+
 >>> cadena_final
 La hemoglobina es una proteina
 ```
 
 * *^^Reemplazar elementos^^*. El método *replace()* reemplazará un elemento específico con otro.
-``` py 
->>> cadena_1 = 'AAATTGGCCAA' 
->>> cadena_final = cadena_1.replace("A", "T")
+``` py linenums="1"
+cadena_1 = 'AAATTGGCCAA' 
+cadena_final = cadena_1.replace("A", "T")
+
 >>> cadena_final
 TTTTTGGCCTT
 ```
@@ -285,13 +291,14 @@ Los operadores de asignación se utilizan para asignar valores a las variables d
 | `**=`       | `Exponente y asignar`              | Realiza exponente, y luego el resultado se asigna al operando de la izquierda  |
 | `//=`       | `División entera y asignar`              | Realiza la división de piso y luego el resultado se asigna al operando de la izquierda  |
 
-``` py title="EJEMPLOS"
->>> x = 5
->>> x += 10
+``` py title="EJEMPLOS"linenums="1"
+x = 5
+x += 10
 >>> x
 15
->>> y = 5
->>> y *= 20
+
+y = 5
+y *= 20
 >>> y
 100
 ```
