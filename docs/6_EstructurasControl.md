@@ -269,90 +269,90 @@ print(f'El resultado es {suma}')
 **EJERCICIO 1**. Escribir un programa que le pida al usuario un número, y si es impar lo eleva al cuadrado, si no al cubo.
 ??? note "Respuesta"
     ``` py linenums="1"
-        numero = int(input("Introduzca un número: "))
-        if numero % 2 == 0:
-           resultado = numero ** 3
-        else:  
-           resultado = numero ** 2
-        print(resultado)
+    numero = int(input("Introduzca un número: "))
+    if numero % 2 == 0:
+       resultado = numero ** 3
+    else:  
+       resultado = numero ** 2
+    print(resultado)
     ```
 **EJERCICIO 2**. Escribir un programa que almacenen en una lista el cuadrado de los diez primeros números enteros.
 ??? note "Respuesta"
     ``` py linenums="1"
-        squares = [] #Creación de una lista vacía 
-        for value in range(1,11):
-	        square = value**2
-	        squares.append(square)
-        print(squares)
+    squares = [] #Creación de una lista vacía 
+    for value in range(1,11):
+	    square = value**2
+	    squares.append(square)
+    print(squares)
     ```
 **EJERCICIO 3**. Escribir un programa que le pida al usuario un número y le diga a qué día de la semana corresponde.
 ??? note "Respuesta"
     ``` py linenums="1"
-        if dia == 1:
-           print("Es lunes")
-        elif dia == 2:
-           print("Es martes")
-        elif dia == 3:
-           print("Es miercoles")
-        elif dia == 4:
-           print("Es jueves")
-        elif dia == 5:
-           print("Es viernes")
-        elif dia == 6:
-           print("Es sabado")
-        else:
-           print("Es domingo")
+    if dia == 1:
+       print("Es lunes")
+    elif dia == 2:
+       print("Es martes")
+    elif dia == 3:
+       print("Es miercoles")
+    elif dia == 4:
+       print("Es jueves")
+    elif dia == 5:
+       print("Es viernes")
+    elif dia == 6:
+       print("Es sabado")
+    else:
+       print("Es domingo")
     ```
 **EJERCICIO 4**. Escribir un programa que le pregunte al usuario una contraseña. Si coincide con contraseña, debe indicar que es correcta.
 ??? note "Respuesta"
     ``` py linenums="1"
-        key = "contraseña"
+    key = "contraseña"
+    password = input("Introduce la contraseña: ")
+    while password != key:
+        print("La contraseña no coincide")
         password = input("Introduce la contraseña: ")
-        while password != key:
-            print("La contraseña no coincide")
-            password = input("Introduce la contraseña: ")
-        print("La contraseña coincide")
+    print("La contraseña coincide")
     ```
 **EJERCICIO 5**. Escribir un programa que calcule el factorial de un número introducido por el usuario.
 ??? note "Respuesta"
     ``` py linenums="1"
-        numero = int(input("Introduzca un número:"))
-        x=1
-        resultado = 1
-        while x <= numero:
-            resultado= resultado*x
-            x=x+1
-        print(f'El factorial de {numero} es {resultado}')
+    numero = int(input("Introduzca un número:"))
+    x=1
+    resultado = 1
+    while x <= numero:
+        resultado= resultado*x
+        x=x+1
+    print(f'El factorial de {numero} es {resultado}')
     ```
 **EJERCICIO 6**. Escribir un programa que calcule la suma de los n primeros números impares.
 ??? note "Respuesta"
     ``` py linenums="1"
-        numero = int(input("Introduzca un valor:"))
-        sumatorio = 0
-        x = 1
-        variable=1
-        while variable<=numero:
-            sumatorio=sumatorio+x
-            x=x+2
-            variable = variable+1
-        print(f'El resultado es {sumatorio}.')
+    numero = int(input("Introduzca un valor:"))
+    sumatorio = 0
+    x = 1
+    variable=1
+    while variable<=numero:
+        sumatorio=sumatorio+x
+        x=x+2
+        variable = variable+1
+    print(f'El resultado es {sumatorio}.')
     ```
 
 **EJERCICIO 7**. Escribir un programa que le pida al usuario un número y le diga si es un número primo o no.
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        numero = int(input("¿Qué número quieres saber si es primo?: \n "))
-        valor = range(2, numero)
-        contador = 0
-        for n in valor:
-            if numero % n == 0:
-                contador += 1
-                print("divisor:", n)
-        if contador > 0:
-            print("El numero no es primo")
-        else:
-            print("El numero es primo")
+    numero = int(input("¿Qué número quieres saber si es primo?: \n "))
+    valor = range(2, numero)
+    contador = 0
+    for n in valor:
+        if numero % n == 0:
+            contador += 1
+            print("divisor:", n)
+    if contador > 0:
+        print("El numero no es primo")
+    else:
+        print("El numero es primo")
     ```
 
 

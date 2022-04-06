@@ -80,32 +80,32 @@ Me llamo Victor y soy estudiante.
 
 ### ***Cuerpo de la función***
 En el cuerpo de una función se pueden encontrar todo tipo de estructuras, desde estructuras de datos simples como listas, hasta estructuras de control como bucles. 
-***MJ: considera cambiar los ejemplos de funciones para que devuelvan valores (ej. suma) en vez de hacer print dentro del cuerpo de la función. Eso lo puedes hacer fuera.***
+
 !!! example "BUCLE FOR. Sumatorio de una lista."
 
     ``` py linenums="1"
-        def sumatorio(lista):
-            suma=0
-            for x in range(len(lista)):
-                suma=suma+lista[x]
-            return(suma)
-        # Busque información acerca de la función sum(). 
+    def sumatorio(lista):
+        suma=0
+        or x in range(len(lista)):
+           suma=suma+lista[x]
+        return(suma)
+    # Busque información acerca de la función sum(). 
     ```
 
 !!! example "SENTENCIA IF-ELSE. Mayor/menor de una lista."
 
     ``` py linenums="1"
-        def mayormenor(lista):
-           may=lista[0]
-           men=lista[0]
-           for x in range(1,len(lista)): #Esta función se definió en las cadenas de caracteres
-               if lista[x]>may:
-                   may=lista[x]
-               else:
-                   if lista[x]<men:
-                      men=lista[x]
-           return(may)
-           return(men)
+    def mayormenor(lista):
+        may=lista[0]
+        men=lista[0]
+        for x in range(1,len(lista)): #Esta función se definió en las cadenas de caracteres
+            if lista[x]>may:
+                may=lista[x]
+            else:
+                 if lista[x]<men:
+                     men=lista[x]
+        return(may)
+        return(men)
     ```
 
 ### ***Funciones ya definidas***
@@ -154,26 +154,26 @@ from nombre_módulo import * #Otra forma de importar todas las funciones
 **EJERCICIO 1**. Escribir una función que calcule el área de un círculo.
 ??? note "Respuesta"
     ``` py linenums="1"
-        def circle_area(radius):
-            pi = 3.1415
-            return pi*radius**2
+    def circle_area(radius):
+        pi = 3.1415
+        return pi*radius**2
     ```
 **EJERCICIO 2**. Escribir una función que calcule la media de una lista.
 ??? note "Respuesta"
     ``` py linenums="1"
-        def mean(lista):
-            return sum(lista)/len(lista)
+    def mean(lista):
+        return sum(lista)/len(lista)
     ```
 **EJERCICIO 3**. Escribir una función que calcule el máximo común divisor de dos números.
 ??? note "Respuesta"
     ``` py linenums="1"
-        def mcd(a, b):
-            resto = 0
-            while(b > 0):
-                resto = b
-                b = a % b
-                a = resto
-            return a
+    def mcd(a, b):
+        resto = 0
+        while(b > 0):
+            resto = b
+            b = a % b
+            a = resto
+        return a
     ```
 !!! cite "Enlaces de interés"
 

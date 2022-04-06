@@ -257,33 +257,33 @@ conjunto_2= {6,7,8,9,10}
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        bases = ["A", "G", "C", "T", "U"]
-        print(bases[-1])
+    bases = ["A", "G", "C", "T", "U"]
+    print(bases[-1])
     ```
 **EJERCICIO 2**. Escribir un programa que almacene en una lista una secuencia nucleotídica n = 10. Muestre por pantalla cuántas "A" aparecen.
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        secuencia = ['A','C','A','C','T','G','G', 'G', 'A','A']
-        print (secuencia.count('A'))
+    secuencia = ['A','C','A','C','T','G','G', 'G', 'A','A']
+    print (secuencia.count('A'))
     ```
 **EJERCICIO 3**. Escribir un programa que almacene en dos conjuntos secuencias aminoacídicas. Muestre por pantallas los aminoácidos en común.
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        proteina_1 = {'Trp','Ala', 'Val', 'Ser', 'Trp', 'Gly'}
-        proteina_2= {'His','Gly', 'Cys', 'Met', 'Ile', 'Glu'}
-        print(proteina_1.intersection(proteína_2))
+    proteina_1 = {'Trp','Ala', 'Val', 'Ser', 'Trp', 'Gly'}
+    proteina_2= {'His','Gly', 'Cys', 'Met', 'Ile', 'Glu'}
+    print(proteina_1.intersection(proteína_2))
     ```
 
 **EJERCICIO 4**. Basándose en el código anterior, esta vez cree un nuevo conjunto con todos los aminoácidos que están en al menos uno de los conjuntos.
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        proteina_1 = {'Trp','Ala', 'Val', 'Ser', 'Trp', 'Gly'}
-        proteina_2= {'His','Gly', 'Cys', 'Met', 'Ile', 'Glu'}
-        aa_comunes= (proteina_1.union (proteina_2)) 
-        print(aa_comunes)
+    proteina_1 = {'Trp','Ala', 'Val', 'Ser', 'Trp', 'Gly'}
+    proteina_2= {'His','Gly', 'Cys', 'Met', 'Ile', 'Glu'}
+    aa_comunes= (proteina_1.union (proteina_2)) 
+    print(aa_comunes)
     ```
 
 Puede seguir practicando ejercicios más avanzados de listas en el apartado _Estructuras de control_.
@@ -296,9 +296,9 @@ Puede seguir practicando ejercicios más avanzados de listas en el apartado _Est
     En Python, en la sintaxis de los diccionarios se utilizan las llaves ( { } ), presentando la siguiente estructura:
      
     ``` py linenums="1"
-        mutaciones = {'nucleotido': 41, 'aminoacido': 'trp' }
+    mutaciones = {'nucleotido': 41, 'aminoacido': 'trp' }
 
-        >>>mutaciones['aminoacido']
+    >>>mutaciones['aminoacido']
         trp
     ```
     Como bioquímico principiante en Python, trabajará con las estructuras de datos desglosadas anteriormente, principalmente con las listas. Aun así, si quiere puede obtener más información sobre los diccionarios en el siguiente [enlace](https://realpython.com/python-dicts/). 

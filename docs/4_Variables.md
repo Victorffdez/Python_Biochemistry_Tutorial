@@ -29,9 +29,9 @@ Cuando utilizamos variables en Python, tenemos que seguir una serie de normas y 
 
      Puede verificar si una palabra esta reservada utilizando el módulo integrado ***keyword***.
     ``` py linenums="1"
-        import keyword
-        keyword.iskeyword ("print")
-        keyword.iskeyword ("fecha")
+    import keyword
+    keyword.iskeyword ("print")
+    keyword.iskeyword ("fecha")
     ```
 
 ### ***¿Cómo escribir una variable?***
@@ -328,51 +328,51 @@ True
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        mensaje = "¡Hola Mundo!"
-        print(mensaje)
+    mensaje = "¡Hola Mundo!"
+    print(mensaje)
     ```
 
 **EJERCICIO 2**. Escribir un programa que pida al usuario su peso (en kg) y estatura (en metros), calcule el índice de masa corporal y lo almacene en una variable.
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        peso = input("¿Cuál es tu peso en kg? ")
-        estatura = input("¿Cuál es tu estatura en metros?")
-        imc = round(float(peso)/float(estatura)**2,2)
-        print("Tu índice de masa corporal es " + str(imc))
-        # En este caso el índice de masa corporal se ha redondeado con dos decimales.
+    peso = input("¿Cuál es tu peso en kg? ")
+    estatura = input("¿Cuál es tu estatura en metros?")
+    imc = round(float(peso)/float(estatura)**2,2)
+    print("Tu índice de masa corporal es " + str(imc))
+    # En este caso el índice de masa corporal se ha redondeado con dos decimales.
     ```
 
 **EJERCICIO 3**. Escribir un programa que pida al usuario que introduzca una frase en la consola y muestre por pantalla la frase invertida.
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        frase = input("Introduce una frase: ")
-        print(frase[::-1])
+    frase = input("Introduce una frase: ")
+    print(frase[::-1])
     ```
 
 **EJERCICIO 4**. Escribir un programa que transforme grados Kelvin en grados Celcius.
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        grados_kelvin = input("Indique los grados en unidades Kelvin:")
-        grados_celcius = (grados_kelvin - 273.15)
-        print(f"El valor en unidades Celcius es {grados_celcius}")
+    grados_kelvin = input("Indique los grados en unidades Kelvin:")
+    grados_celcius = (grados_kelvin - 273.15)
+    print(f"El valor en unidades Celcius es {grados_celcius}")
     ```
 **EJERCICIO 5**. Escribir un programa que pregunte por consola el precio de un producto en euros con dos decimales y muestre por pantalla el número de euros y el número de céntimos del precio introducido.
 
 ??? note "Respuesta"
     ``` py linenums="1"
-        precio = input("Introduce el precio del producto con dos decimales:  ")
-        print(precio[:precio.find('.')], 'euros y', precio[precio.find('.')+1:], 'céntimos.')
+    precio = input("Introduce el precio del producto con dos decimales:  ")
+    print(precio[:precio.find('.')], 'euros y', precio[precio.find('.')+1:], 'céntimos.')
     ```
 
 **EJERCICIO 6**. Escribir un programa que pregunte el nombre del usuario en la consola y después de que el usuario lo introduzca, muestre por pantalla el número de letras que tiene el nombre en mayúsculas.
 
 ??? note "Respuesta"
     ``` py linenums="1"
-         nombre = input("¿Cómo te llamas? ")
-         print(nombre.upper() + " tiene " + str(len(nombre)) + " letras")
+    nombre = input("¿Cómo te llamas? ")
+    print(nombre.upper() + " tiene " + str(len(nombre)) + " letras")
     ```
 
 !!! cite "Enlaces de interés"
