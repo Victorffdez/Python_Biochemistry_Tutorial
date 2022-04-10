@@ -2,18 +2,23 @@ A continuación encontrará una serie de ejercicios relacionados con la manipula
 
 ###**Ejercicio 1** 
 Defina dos posibles funciones para conocer el número de nucleótidos o aminoácidos almacenados como una lista.
+
+*Se propone como lista el siguiente fragmento de ADN: ATGCGCGATCG*
 ??? success "Respuesta"
     ``` py linenums="1"
-    def longitud_cadena (lista):
+    segmento_DNA = ['A','T','G','C','G','C','G','A','T','C','G']
+    def longitud_cadena (segmento_DNA):
         cont = 0
-        for i in lista:
+        for i in segmento_DNA:
             cont += 1
         return cont
 
-    #Otra opción: utilizar la función len() ya definida.
+    #Otra opción: 
+    longitud = len(segmento_DNA)
+    print(longitud)
     ```
 ###**Ejercicio 2** 
-Determine cuántas veces aparece el nucleótido citosina (C) en un fragmento de ADN.
+Determine cuántas veces aparece el nucleótido citosina (C) en un fragmento de ADN almacenado como cadena.
 
 *Se propone de ejemplo el siguiente fragmento de ADN: ATGCGCGATCGTAGCT*  
 ??? success "Respuesta"
@@ -33,7 +38,7 @@ Determine cuántas veces aparece el nucleótido citosina (C) en un fragmento de 
     print('Nº de citosinas (bucle while):', contador)
     ```
 ###**Ejercicio 3** 
-Determine el porcentaje de guanina/citosina (GC) en un fragmento de ADN.
+Determine el porcentaje de guanina/citosina (GC) en un fragmento de ADN almacenado como cadena.
 
 *Se propone de ejemplo el siguiente fragmento de ADN: AGGCGCGTTGTGATGGTCGTAGCT*
 
@@ -61,7 +66,7 @@ Defina una función que convierta un fragmento de ADN a su ARN complementario.
         return cadena_arn 
     ```
 ###**Ejercicio 5** 
-Determine si el último codón de un fragmento de ADN es un codón de inicio, stop u otro.
+Determine si el último codón de un fragmento de ADN es un codón de inicio, stop u otro. El fragmento se ha almacenado como cadena en la respuesta, aunque puede solucionarlo como desee.
 
 *Se propone de ejemplo el siguiente fragmento de ADN: ATGCGCGATCGTAGCT*  
 
@@ -80,7 +85,7 @@ Determine si el último codón de un fragmento de ADN es un codón de inicio, st
         print('El codon', codon1, 'es un codon diferente.')
     ```
 ###**Ejercicio 6** 
-Defina una función que muestre la posición del codón de inicio en un fragmento de ADN.
+Defina una función que muestre la posición del primer nucleótido que constituye el codón de inicio en un fragmento de ADN.
 ??? success "Respuesta"
     ``` py linenums="1"
     def codon_inicio(segmento_DNA):
@@ -88,15 +93,15 @@ Defina una función que muestre la posición del codón de inicio en un fragment
             triplete = segmento_DNA[i:i+3]
             if triplete == 'ATG':
                 return(i+1) # Ya que la posición 1 es 0
+        else:
+            return ("No hay codón de inicio.")
     ```
 
 ###**Ejercicio 7** 
-Imprima por pantalla todos los codones que comiencen por timina (T) en un fragmento de ADN.
-
-*Se propone de ejemplo el siguiente fragmento de ADN: ATGCGCGATGTGATCGTCGTAGCT*  
+Imprima por pantalla todos los codones que comiencen por timina (T).
+ 
 ??? success "Respuesta"
     ``` py linenums="1"
-    segmento_DNA = 'ATGCGCGATGTGATCGTCGTAGCT'
     bases = ['A', 'T', 'C', 'G']
         
     print('Codones que empiezan por T:')
@@ -107,7 +112,7 @@ Imprima por pantalla todos los codones que comiencen por timina (T) en un fragme
     ```
 
 ###**Ejercicio 8** 
-Determine el porcentaje de aminoácidos de un fragmento proteico.
+Determine el porcentaje de aminoácidos de un fragmento proteico almacenado como cadena.
 
 *Se propone de ejemplo el siguiente fragmento: PCCWWLAKVRMIKGEFYVIEYAACD*
 ??? success "Respuesta"
