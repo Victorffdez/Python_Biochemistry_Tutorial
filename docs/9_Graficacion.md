@@ -160,6 +160,7 @@ plt.show()
 #### ***Formato a la figura***
 
 * ***Título***. Para insertar un título a la figura se utiliza la **función title**. 
+
 ``` py linenums="1"
 x=np.random.randn(25).cumsum()
 fig, ax = plt.subplots()
@@ -186,6 +187,7 @@ plt.show()
 </figure>
 
 * ***Etiquetas de ejes***. Para añadir etiquetas a los ejes utilice la **función xlabel** y **función ylabel**.
+
 ``` py linenums="1"
 x=np.random.randn(25).cumsum()
 fig, ax = plt.subplots()
@@ -202,6 +204,7 @@ plt.show()
 Estas funciones nos permiten utilizar atributos adicionales similares a los utilizados en la _función title_.
 
 * ***Marcas de ejes***. Existen diferentes formas de cambiar los valores de los ejes. Una de las más útiles es la **función xticks** y **función yticks**.
+
 ``` py linenums="1"
 x=np.random.randn(25).cumsum()
 fig, ax = plt.subplots()
@@ -243,6 +246,7 @@ plt.show()
 Hasta el momento se ha trabajado con figuras de líneas, aunque _Matplotlib_ permite trabajar con muchas más figuras. Tenga en cuenta que muchos de los atributos y parámetros vistos hasta el momento con la _función plot_ se emplean del mismo modo.
 
 * ***Scatter/Dispersión***. Para crear un gráfico de dispersión utilice la **función scatter**.
+
 ``` py linenums="1"
 x=np.random.randn(25).cumsum()
 y=np.random.randn(25).cumsum()
@@ -257,6 +261,7 @@ plt.show()
 </figure>
 
 * ***Áreas***. Para crear un gráfico de áreas utilice la **función fill_between**.
+
 ``` py linenums="1"
 x=[1,2,3,4]
 y=[1,2,0,2]
@@ -270,6 +275,7 @@ plt.show()
 </figure>
 
 * ***Barras***. Para crear un gráfico de barras utilice la **función bar**.
+
 ``` py linenums="1"
 x=[1,2,3,4]
 y=[1,2,7,5]
@@ -320,6 +326,7 @@ plt.title("Diagrama sectores", color="black", fontsize=15, fontweight="bold")
 </figure>
 
 * ***Mapa de colores***. Para crear un mapa de colores a partir de una matriz utilice la **función imshow**.
+
 ``` py linenums="1"
 x=np.random.random((15,15))
 #Observe cómo cambia la entrada para obtener la matriz
@@ -332,9 +339,82 @@ plt.show()
   ![matplot](Grafica19.png){ width="350" height="350" }
 </figure>
 
-
 ## **Exportación de gráficas**
+Después de crear las figuras, Python nos permite diferentes modos para poder guardarlas:
+
+* **Desde PyCharm**. Como habrá observado, en todas las salidas de imagen aparece un botón para poder guardar las figuras.
+* **savefig()**. Desde la propia línea de comandos se puede guardar la imagen en el directorio de trabajo o en otro directorio específico:
+
+``` py linenums="1"
+#Para guardar la figura en el directorio de trabajo
+plt.savefig("Figura_1.png")
+#Para guardar la figura en otro directorio
+plt.savefig("C:/Ruta/Figura_1.png")
+```
+
+* **imsave()**. Se usa de forma similar al anterior.
+
+
 ## **Gráficas avanzadas**
+Las figuras vistas hasta el momento son figuras 2D, aunque _matplotlib_ nos permite también crear figuras 3D. A continuación se muestra un ejemplo de este tipo de gráficas, de las que puede profundizar en el siguiente [enlace](https://matplotlib.org/2.0.2/mpl_toolkits/mplot3d/tutorial.html#surface-plots).
+``` py linenums="1"
+import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits import mplot3d
+#Este submódulo permite crear los ejes 3D
+fig = plt.figure() #Creación de la figura
+ax = plt.axes(projection="3d") #Creación de los ejes
+plt.show()
+```
+<figure markdown>
+  ![matplot](Grafica20.png){ width="350" height="350" }
+</figure>
+
+``` py linenums="1"
+import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes(projection="3d") 
+
+#Datos para crear una gráfica de dispersión
+x = np.random.normal(10, 100, 500)
+y = np.random.normal(10, 100, 500)
+z = np.random.normal(10, 100, 500)
+scatter = ax.scatter3D(x,y,z)
+plt.show()
+```
+<figure markdown>
+  ![matplot](Grafica21.png){ width="350" height="350" }
+</figure>
+
+``` py linenums="1"
+import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes(projection="3d") 
+
+#Datos para crear una gráfica de líneas
+z = np.linspace(0, 15, 1000) #Esta función genera un array Numpy entre 0 y 15 con 1000 números
+#Puede informarse acerca de la función linspace() y logspace()
+x = np.sin(z)
+y = np.cos(z)
+ax.plot3D(x, y, z, "red")
+plt.show()
+```
+<figure markdown>
+  ![matplot](Grafica22.png){ width="350" height="350" }
+</figure>
+
+!!! cite "Enlaces de interés"
+
+    * [**Información acerca de Matplotlib.**](https://matplotlib.org/3.5.1/users/index.html)
+    * [**Matplotlib.** John Hunter & the development team (2021).](https://matplotlib.org/Matplotlib.pdf)
+    * [**Información acerca de la graficación 3D.**](https://matplotlib.org/2.0.2/mpl_toolkits/mplot3d/tutorial.html)
+    * [**Python Graphics: A Reference for Creating 2D and 3D Images**. B.J. Korites (2018).](https://www.pdfdrive.com/python-graphics-a-reference-for-creating-2d-and-3d-images-e196900299.html)
+
+
 
 
 
