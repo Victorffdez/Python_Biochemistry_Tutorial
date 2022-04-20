@@ -1,7 +1,7 @@
 Para hacer gráficas en Python existen una gran cantidad de librerías disponibles, como _Numpy_, vista anteriormente para el tratamiento de datos. Aunque hay un amplio abanico de opciones, sin duda la más utilizada por todo el ámbito científico es ***matplotlib***. 
 
 ## **¿Qué es matplotlib?**
-[Matplotlib](https://matplotlib.org/) es una biblioteca completa para crear visualizaciones estáticas, animadas e interactivas en Python. Aunque con el tiempo ha sido superada visualmente por otras librerías más atractivas e interactivas (_seaborn_ o _ggplot_), el conocimiento y empleo de esta librería sigue siendo el más extendido.
+[Matplotlib](https://matplotlib.org/) es una biblioteca completa para crear visualizaciones estáticas, animadas e interactivas en Python. Aunque con el tiempo ha sido superada visualmente por otras librerías más atractivas e interactivas (_seaborn_ o _ggplot_) ***MJ: pon hipervínculo en cada una de esas***, el conocimiento y empleo de esta librería sigue siendo el más extendido.
 
 El paquete _matplotlib_ es relativamente grande y complejo, y entre otros contiene dos módulos principales: ***pyplot*** y ***pylab***.
 
@@ -9,7 +9,7 @@ El paquete _matplotlib_ es relativamente grande y complejo, y entre otros contie
 * ^^pylab^^. Esta interfaz es conveniente para cálculos y graficación interactiva, ya que minimiza la escritura. Utiliza funcionalidades combinadas de _pyplot_ y _NumPy_.
 
 ### ***Instalación***
-En primer lugar debe instalar el paquete _matplotlib_. Para ello, como se explicó en el apartado _PyCharm_, vaya a la ventana de _Python Packages_ e instálelo.
+En primer lugar debe instalar el paquete _matplotlib_. Para ello, como se explicó en el apartado _PyCharm_ ***MJ: añade link a ese apartado***, vaya a la ventana de _Python Packages_ e instálelo.
 
 <figure markdown>
 
@@ -217,6 +217,8 @@ plt.show()
   ![matplot](Grafica12.png){ width="400" height="400" }
 </figure>
 
+***MJ: el amarillo no parece un color muy acertado, se confunde con el fondo***
+
 !!! info "Marcas de los ejes"
 
     Otra función muy utiilzada para cambiar los valores de los ejes es la **función lim**. Puede buscar información acerca de ella, aunque se utiliza de forma muy similar a la *función ticks*.
@@ -292,7 +294,7 @@ plt.show()
 
     Si desea un diagrama de barras horizontales en lugar de verticales, uticile la **función barh** de forma similar a la *función bar*.
 
-* ***Histograma***. Para crear un histograma utilice la **función hist**. Dentro de un histograma, hay diferentes parámetros interesantes a modificar:
+* ***Histograma***. Para crear un histograma utilice la **función hist**. Dentro de un histograma, hay diferentes parámetros interesantes a modificar: ***MJ: en la lista siguiente usa el nombre del atributo como deba escribirse (ej. minúscula), incluso usa otro estilo para que se diferencia del texto normal (ej. cursiva); usa dos puntos después del nombre del atributo***
     * Barras/Bins. Podemos modificar el número de barras de nuestro histograma.
     * Range. Controla los valores mínimos y máximos en el histograma. 
     * Orientation. Puede tomar los valores _horizontal_ o _vertical_, y determina la orientación del histograma.
@@ -352,7 +354,7 @@ plt.savefig("Figura_1.png")
 plt.savefig("C:/Ruta/Figura_1.png")
 ```
 
-* **imsave()**. Se usa de forma similar al anterior.
+* **imsave()**. Se usa de forma similar al anterior. ***Indica si hay alguna diferencia de comportamiento respecto al anterior***
 
 
 ## **Gráficas avanzadas**
@@ -406,6 +408,8 @@ plt.show()
 <figure markdown>
   ![matplot](Grafica22.png){ width="350" height="350" }
 </figure>
+
+***MJ: en esta sección no veo ningún ejercicio propuesto o cuestiones, sería bueno añadir un par, por ejemplo.***
 
 !!! cite "Enlaces de interés"
 
