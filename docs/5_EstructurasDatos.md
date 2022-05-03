@@ -51,11 +51,11 @@ Para sustituir un elemento en la lista, use el nombre de la lista seguido del í
 ``` py linenums="1"
 celula = ['membrana','nucleo','pared','citosol']
 
->>> lista [2]
+>>> celula [2]
 pared
 
-lista[2] = 'organulos'
->>> lista [2]
+celula[2] = 'organulos'
+>>> celula [2]
 organulos
 ```
 
