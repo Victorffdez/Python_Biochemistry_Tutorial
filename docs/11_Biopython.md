@@ -413,10 +413,181 @@ AAAACAACATCAAAGTTAAAAAAATCGCAACTTCAAAAACTCAAAG-TTTCAACTTCGAAATCTATGATCAAACA...
 
 ...
 ```
+## **Búsqueda en bases de datos: PubMed y Medline**
+Desde Python es posible realizar búsquedas y obtener información de muchas de las principales fuentes de datos en el ámbito bioquímico, como [Pubmed](https://pubmed.ncbi.nlm.nih.gov/) y [Medline](https://medlineplus.gov/). 
 
+Veamos cómo realizar una consulta en PubMed, en este caso se quiere consultar todos los **artículos** relacionados con _Thermus aquaticus_, una bacteria termófila. Para esto utilizaremos el módulo [Bio.Entrez](https://biopython.org/docs/1.75/api/Bio.Entrez.html), un sistema que da acceso a todas las bases del NCBI.  
 
+Lo primero que queremos conocer es el número de artículos que están relacionados con esta bacteria.
+``` py linenums="1"
+from Bio import Entrez
+Entrez.email = "victorfernandezramirez1@hotmail.com"  #Importante indicar tu usuario
+busqueda = Entrez.egquery(term="thermus aquaticus")  #Indicar la búsqueda deseada
+registro = Entrez.read(busqueda)  #Leer esta búsqueda y almacenarla como una variable
+for fila in registro["eGQueryResult"]:  #Bucle para realizar el conteo
+    if fila["DbName"]=="pubmed":
+        print(fila["Count"])
+```
+``` title="Resultado"
+641
+```
+Se obtiene un total de 641 entradas relacionadas con la bacteria _Thermus aquaticus_. Veamos cómo obtener los IDs de estos artículos utilizando la función _Bio.Entrez.esearch_.
+``` py linenums="1"
+from Bio import Entrez
+Entrez.email = "victorfernandezramirez1@hotmail.com"  
+busqueda = Entrez.esearch(db="pubmed", term="thermus aquaticus", retmax=463)
+registro = Entrez.read(busqueda)
+busqueda.close()
+idlist = registro["IdList"]  #Almacena todos los IDs en una lista
+```
+``` py linenums="1"
+>>> print (idlist)
+['34817221', '34773612', '34592573', '34459541',...]
+```
+A partir de esta lista de IDs, podemos importar el módulo _Medline_ y utilizar la función _Entrez.efetch_ para obtener la **información de estos artículos**. Tenga en cuenta que el código utilizado hasta el momento sigue siendo necesario, ya que necesitamos la lista creada _idlist_.
+``` py linenums="1"
+from Bio import Medline
+busqueda_medline = Entrez.efetch(db="pubmed", id=idlist, rettype="medline", retmode="text")
+registros_nuevos = Medline.parse(busqueda_medline)
+registros_nuevos = list(registros_nuevos)
 
+for registro_bucle in registros_nuevos:
+    print("Titulo:", registro_bucle.get("TI", "?"))
+    print("Autores:", registro_bucle.get("AU", "?"))
+    print("Fuente:", registro_bucle.get("SO", "?"))
+    print("")
+```
+Esto le devolverá como salida el título, autor/es y fuente de todos los artículos que fueron almacenados en la lista.
+```
+Titulo: A Novel Trehalose Synthase for the Production of Trehalose and Trehalulose.
+Autores: ['Agarwal N', 'Singh SP']
+Fuente: Microbiol Spectr. 2021 Dec 22;9(3):e0133321. doi: 10.1128/Spectrum.01333-21. Epub 2021 Nov 24.
 
+Titulo: Enhancing Cohort PASA Efficiency from Lessons Assimilated by Mutant Genotyping in C. elegans.
+Autores: ['Pandey A', 'Bhat B', 'Aggarwal ML', 'Pandey GK']
+Fuente: Methods Mol Biol. 2022;2392:17-33. doi: 10.1007/978-1-0716-1799-1_2.
 
+...
+
+Titulo: Purification, crystallization and preliminary X-ray investigation of aqualysin I, a heat-stable serine protease.
+Autores: ['Green PR', 'Oliver JD', 'Strickland LC', 'Toerner DR', 'Matsuzawa H', 'Ohta T']
+Fuente: Acta Crystallogr D Biol Crystallogr. 1993 May 1;49(Pt 3):349-52. doi: 10.1107/S0907444992012083.
+```
+Desde Python también es posible **descargar secuencias** en formato FASTA o como archivo de texto plano desde GenBank, utilizando únicamente un ID de referencia. 
+
+Como ejemplo se utiliza el identificador _NM_001247553_, que pertenece al ARN mensajero de la proteína NAC de _Solanum lycopersicum_, proteína ya utilizada en ejemplos anteriores.
+``` py linenums="1"
+from Bio import Entrez
+Entrez.email = "victorfernandezramirez1@hotmail.com"
+busqueda = Entrez.efetch(db="nucleotide", id="NM_001247553", rettype="gb", retmode="text")
+print(busqueda.read())
+```
+``` title="Salida por pantalla"
+LOCUS       NM_001247553            1309 bp    mRNA    linear   PLN 25-FEB-2019
+DEFINITION  Solanum lycopersicum NAC domain protein (NAC1), mRNA.
+ACCESSION   NM_001247553
+VERSION     NM_001247553.3
+KEYWORDS    RefSeq.
+SOURCE      Solanum lycopersicum (Lycopersicon esculentum)
+  ORGANISM  Solanum lycopersicum
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Magnoliopsida; eudicotyledons; Gunneridae;
+            Pentapetalae; asterids; lamiids; Solanales; Solanaceae;
+            Solanoideae; Solaneae; Solanum; Solanum subgen. Lycopersicon.
+REFERENCE   1  (bases 1 to 1309)
+  AUTHORS   Gao Y, Wei W, Zhao X, Tan X, Fan Z, Zhang Y, Jing Y, Meng L, Zhu B,
+            Zhu H, Chen J, Jiang CZ, Grierson D, Luo Y and Fu DQ.
+  TITLE     A NAC transcription factor, NOR-like1, is a new positive regulator
+            of tomato fruit ripening
+  JOURNAL   Hortic Res 5, 75 (2018)
+   PUBMED   30588320
+  REMARK    Publication Status: Online-Only
+REFERENCE   2  (bases 1 to 1309)
+  AUTHORS   Giovannoni J, Nguyen C, Ampofo B, Zhong S and Fei Z.
+  TITLE     The Epigenome and Transcriptional Dynamics of Fruit Ripening
+  JOURNAL   Annu Rev Plant Biol 68, 61-84 (2017)
+   PUBMED   28226232
+  REMARK    Review article
+REFERENCE   3  (bases 1 to 1309)
+...
+PRIMARY     REFSEQ_SPAN         PRIMARY_IDENTIFIER PRIMARY_SPAN        COMP
+            1-1309              AK323390.1         1-1309
+FEATURES             Location/Qualifiers
+     source          1..1309
+                     /organism="Solanum lycopersicum"
+                     /mol_type="mRNA"
+                     /cultivar="Micro-Tom"
+                     /db_xref="taxon:4081"
+                     /chromosome="4"
+                     /map="4"
+     gene            1..1309
+                     /gene="NAC1"
+                     /gene_synonym="NC1; SlNAC1"
+                     /note="NAC domain protein"
+                     /db_xref="GeneID:543917"
+     exon            1..327
+                     /gene="NAC1"
+                     /gene_synonym="NC1; SlNAC1"
+                     /inference="alignment:Splign:2.1.0"
+     misc_feature    18..20
+                     /gene="NAC1"
+                     /gene_synonym="NC1; SlNAC1"
+                     /note="upstream in-frame stop codon"
+     CDS             150..1055
+                     /gene="NAC1"
+                     /gene_synonym="NC1; SlNAC1"
+                     /note="NAC domain protein 1; NAC domain-containing protein
+                     2"
+                     /codon_start=1
+                     /product="NAC domain protein"
+                     /protein_id="NP_001234482.1"
+                     /db_xref="GeneID:543917"
+                     /translation="MNKGANGNQQLELPAGFRFHPTDDELVQHYLCRKCAGQSIAVSI
+                     IAEIDLYKFDPWQLPEKALYGEKEWYFFSPRDRKYPNGSRPNRAAGTGYWKATGADKP
+                     VGKPKTLGIKKALVFYAGKAPRGIKTNWIMHEYRLANVDRSAGKNNNLRLDDWVLCRI
+                     YNKKGTLEKHYNVDNKETTSFGEFDEEIKPKILPTQLAPMPPRPRSTPANDYFYFESS
+                     ESMTRMHTTNSSSGSEHVLSPCDKEVQSAPKWDEDHRNTLDFQLNYLDGLLNEPFETQ
+                     MQQQICNFDQFNNFQDMFLYMQKPY"
+     exon            328..602
+                     /gene="NAC1"
+                     /gene_synonym="NC1; SlNAC1"
+                     /inference="alignment:Splign:2.1.0"
+     exon            603..1302
+                     /gene="NAC1"
+                     /gene_synonym="NC1; SlNAC1"
+                     /inference="alignment:Splign:2.1.0"
+ORIGIN      
+        1 gtcaaagaaa ctgaaactaa cacaaagcag gagcaggagc agcaacaaac agagagaaga
+       61 aaacagagga agataagagg aaaatttatc gaattcgaat cgagagaaaa ggggaagtga
+      121 agttgcgaag agtgagaatt tcaaaggaaa tgaacaaagg agcaaacgga aatcagcaat
+      181 tggagttacc ggcgggattc agattccatc cgacagacga cgaattggtg cagcactatc
+     ....
+     1081 attgagtgtg atccatgaca ttttctttgt tctttggtgg tgtaggtcaa ctttttatta
+     1141 agtagtttag agaagtacaa aatgctagtc aaatttggtg ggctacagca caaatgagcc
+     1201 ttgataagca tagccaaaga gtcgtataga agggcttatt attattgtaa ggtatgtaaa
+     1261 aacaaatgaa aatttgttaa tatcaagtta tcattcttca aaaaaaaaa
+```
+Existe un método ya visto para poder **acceder a esta información** de forma individual: utilizar el módulo _Bio.SeqIO_.
+``` py linenums="1"
+from Bio import Entrez
+from Bio import SeqIO
+Entrez.email = "victorfernandezramirez1@hotmail.com"
+busqueda = Entrez.efetch(db="nucleotide", id="NM_001247553", rettype="gb", retmode="text")
+registro = SeqIO.read(busqueda, "genbank")
+busqueda.close()
+```
+Ahora podremos acceder de forma individual a la distinta información almacenada en la variable _registro_:
+``` linenums="1"
+>>> print(registro.id)
+NM_001247553.3
+
+>>> print(registro.description)
+print(registro.description)
+
+>>> print(registro.seq)
+GTCAAAGAAACTGAAACTAA...GTTATCATTCTTCAAAAAAAAAA
+```
+
+Este apartado es fundamental que lo practique, ya que en unos simples comandos puede realizar una búsqueda en PubMed y acceder a la secuencia nucleotídica de un gen problema para trabajar con ella.
 
 ## **Archivos de lecturas**
