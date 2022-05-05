@@ -145,9 +145,17 @@ print(proteina)
 ## **Trabajo con archivos**
 Para trabajar con distintos formatos de archivos de secuencias, el módulo más utilizado en BioPython es [Bio.seqIO](https://biopython.org/wiki/SeqIO). 
 
-Para poder aprender a trabajar con archivos, necesitaremos uno que se desee analizar. Tenga en cuenta las características de su ordenador, ya que si utiliza un genoma demasiado pesado este proceso puede llegar a ser muy lento o incluso interminable.
+Para poder aprender a trabajar con archivos, necesitaremos uno que se desee analizar. Tenga en cuenta las características de su ordenador, ya que si utiliza un archivo FASTA demasiado pesado este proceso puede llegar a ser muy lento o incluso interminable.
 
-En este caso se propone como ejemplo los resultados en NCBI de una subfamilia de orquídea, [Cypripedioideae](https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/158330/), utilizado en formato .fasta: [orquidea.fasta](ls_orchid.fasta). 
+En este caso se propone como ejemplo un archivo FASTA que contiene todas las entradas resultantes de una búsqueda en la base de datos **nucleotide de NCBI**. 
+
+La búsqueda elegida es de _[Viola tricolor](https://www.ncbi.nlm.nih.gov/nuccore/?term=Viola+tricolor)_ (denominada comúnmente ^^pensamiento^^), y puede descargarse el archivo en el siguiente [enlace](viola_tricolor.fasta). 
+
+<figure markdown>
+
+  ![matplot](pensamiento.png){ width="450" height="450" }
+    <figcaption> Flor de pensamiento. Fuente: pharysol.es </figcaption>
+</figure>
 
 ### ***Lectura de archivos de secuencia***
 Para leer archivos de secuencia la función más utilizada es _Bio.SeqIO.parse()_. Esta función, utilizada normalmente en un bucle _for_, necesita dos argumentos:
@@ -158,24 +166,34 @@ Para leer archivos de secuencia la función más utilizada es _Bio.SeqIO.parse()
 ``` py linenums="1"
 from Bio import SeqIO
 
-for seq_record in SeqIO.parse("ls_orchid.fasta", "fasta"):
+for seq_record in SeqIO.parse("viola_tricolor.fasta", "fasta"):
     print(seq_record.id)  #Devuelve el ID identificador
+    print(seq_record.description) #Devuelve la descripción
     print(repr(seq_record.seq))  #Devuelve la secuencia
     print(len(seq_record))  #Devuelve la longitud de la secuencia
 ```
 Deberá haber obtenido un resultado similar al siguiente:
 ```  
-gi|2765658|emb|Z78533.1|CIZ78533
-Seq('CGTAACAAGGTTTCCGTAGGTGAACCTGCGGAAGGATCATTGATGAGACCGTGG...CGC')
-740
-gi|2765657|emb|Z78532.1|CCZ78532
-Seq('CGTAACAAGGTTTCCGTAGGTGAACCTGCGGAAGGATCATTGTTGAGACAACAG...GGC')
-753
+HM590365.1
+HM590365.1 Viola tricolor voucher personal collection:I. Hiiesalu 74 tRNA-Leu (trnL) gene, partial sequence; chloroplast
+Seq('GACTTAATTGGATTGAGCCTTGGTATGGAAACTTACTAAGTGGATAACTTTCAA...GAG')
+506
+
+JZ084087.1
+JZ084087.1 MHV6 MHV-Cold stress-Viola library Viola tricolor cDNA clone MHV6, mRNA sequence
+Seq('AACAGACAGTTGTATGCTGCGTTCGGGAGGATGAATCCCTCCCGANAAGGAATC...CTT')
+177
 ...
 ...
-gi|2765564|emb|Z78439.1|PBZ78439
-Seq('CATTGTTGAGATCACATAATAATTGATCGAGTTAATCTGGAGGATCTGTTTACT...GCC')
-592
+MG009035.1
+MG009035.1 Crithmum maritimum clone CM_04 microsatellite sequence
+Seq('AAAACATTCATCTCCTGCACTCTTAAAATTCTTCTATTCTTTTCAATCCAATCT...TCA')
+174
+
+MG009034.1
+MG009034.1 Crithmum maritimum clone CM_03 microsatellite sequence
+Seq('GCTTACTTAGTTGAGATCCAGTGTTTAGATTGTACATCACTTTCTTGGAGGTTC...GGA')
+144
 ```
 !!! info "Lectura de otros formatos de archivo"
 
@@ -192,7 +210,7 @@ Aunque esta opción de lectura le puede ser de uso, en muchas ocasiones deseará
 ``` py linenums="1"
 from Bio import SeqIO
 
-entradas = SeqIO.parse("ls_orchid.fasta", "fasta")
+entradas = SeqIO.parse("viola_tricolor.fasta", "fasta")
 
 print("LA PRIMERA ENTRADA:")
 primera_entrada = next(entradas)
@@ -206,33 +224,47 @@ print(segunda_entrada.id)
 print(segunda_entrada.description)
 print(len(segunda_entrada))
 ```
+``` title="Salida por pantalla"
+LA PRIMERA ENTRADA:
+HM590365.1
+HM590365.1 Viola tricolor voucher personal collection:I. Hiiesalu 74 tRNA-Leu (trnL) gene, partial sequence; chloroplast
+506
+LA SEGUNDA ENTRADA:
+JZ084087.1
+JZ084087.1 MHV6 MHV-Cold stress-Viola library Viola tricolor cDNA clone MHV6, mRNA sequence
+177
+```
+
 
 ### ***Extracción y escritura de datos***
-El archivo fasta utilizado de ejemplo empieza de la siguiente forma:
+El archivo FASTA utilizado de ejemplo empieza de la siguiente forma:
 ``` 
->gi|2765658|emb|Z78533.1|CIZ78533 C.irapeanum 5.8S rRNA gene and ITS1 and ITS2 DNA
-CGTAACAAGGTTTCCGTAGGTGAACCTGCGGAAGGATCATTGATGAGACCGTGGAATAAACGATCGAGTG
+>HM590365.1 Viola tricolor voucher personal collection:I. Hiiesalu 74 tRNA-Leu (trnL) gene, partial sequence; chloroplast
+GACTTAATTGGATTGAGCCTTGGTATGGAAACTTACTAAGTGGATAA....
 ....
 ```
-Como puede comprobar, el nombre de la especie (_C. irapeanum_) es el segundo argumento en la descripción, información que podemos utilizar para obtener el nombre de todas las especies:
+Como puede comprobar, el identificador es el primer argumento en la descripción, información que podemos utilizar para obtener una lista con todos los IDs:
 ``` py linenums="1"
 from Bio import SeqIO
 
 especies = []
-for seq_record in SeqIO.parse("ls_orchid.fasta", "fasta"):
-    especies.append(seq_record.description.split()[1])
+for seq_record in SeqIO.parse("viola_tricolor.fasta", "fasta"):
+    especies.append(seq_record.description.split()[0])
 print(especies)
 ```
 Esto te devuelve por pantalla la siguiente lista:
 ``` 
-['C.irapeanum', 'C.californicum', 'C.fasciculatum', 'C.margaritaceum', 'C.lichiangense',...]
+['HM590365.1', 'JZ084087.1', 'JZ084086.1', 'JZ084085.1','JZ084084.1', ...]
 ```
-Aun así, como sabe los archivos fasta no son excesivamente útiles en el aspecto de extracción de información, por lo que le recomendamos que pruebe este método con archivos de EMBL o GenBank.
+
+!!! note "Lectura de otros formatos de archivo"
+
+    Le recomendamos que pruebe este método con archivos de EMBL o GenBank.
 
 La modificación de datos en el archivo es muy simple. Veamos como modificar por ejemplo el ID de la primera entrada:
 ``` py linenums="1"
 from Bio import SeqIO
-entradas = SeqIO.parse("ls_orchid.fasta", "fasta")
+entradas = SeqIO.parse("viola_tricolor.fasta", "fasta")
 primera_entrada = next(entradas)
 print(primera_entrada)
 
@@ -241,14 +273,14 @@ print(primera_entrada)
 ```
 
 ## **Graficación**
-En este apartado se muestran algunos ejemplos de gráficas utilizando la librería _matplotlib_ junto al módulo _Bio.SeqIO_. Para ello se va a utilizar de nuevo el archivo [orquidea.fasta](ls_orchid.fasta).
+En este apartado se muestran algunos ejemplos de gráficas utilizando la librería _matplotlib_ junto al módulo _Bio.SeqIO_. Para ello se va a utilizar de nuevo el archivo [viola_tricolor.fasta](viola_tricolor.fasta).
 
 ***HISTOGRAMA***
 
 Veamos cómo realizar un histograma que compare las longitudes de las secuencias en un rango de tamaños. En primer lugar, necesitamos almacenar en una lista la longitud de todas las secuencias:
 ``` py linenums="1"
 from Bio import SeqIO
-longitudes = [len(rec) for rec in SeqIO.parse("ls_orchid.fasta", "fasta")]
+longitudes = [len(rec) for rec in SeqIO.parse("viola_tricolor.fasta", "fasta")]
 
 print(longitudes)
 ```
@@ -257,7 +289,7 @@ Ahora utilizaremos la librería _matplotlib_ para poder representarlos.
 from Bio import SeqIO
 from matplotlib import pylab
 
-longitudes = [len(rec) for rec in SeqIO.parse("ls_orchid.fasta", "fasta")]
+longitudes = [len(rec) for rec in SeqIO.parse("viola_tricolor.fasta", "fasta")]
 
 pylab.hist(longitudes, bins=20)
 pylab.title(
@@ -276,13 +308,14 @@ pylab.show()
 
 Para mostrar un ejemplo de un gráfico de líneas, la mejor opción es representar una de las gráficas que más utilizará: **representación GC%**.
 
-En primer lugar necesitamos una lista con los porcentajes GC de las secuencias, utilizando el _módulo GC_ empleado al principio de esta página.
+En primer lugar necesitamos una lista con los porcentajes GC de las secuencias, utilizando el _módulo GC_ empleado al principio de esta página. Vamos a realizar una representación ordenada de menores a mayores valores de GC%, para observar la variación.
 
 ``` py linenums="1"
 from Bio import SeqIO
-longitudes = [len(rec) for rec in SeqIO.parse("ls_orchid.fasta", "fasta")]
+from Bio.SeqUtils import GC
 
-print(longitudes)
+valores_GC = sorted(GC(rec.seq) for rec in SeqIO.parse("viola_tricolor.fasta", "fasta"))
+print(valores_GC)
 ```
 
 Una vez obtenida la lista, representamos:
@@ -291,7 +324,7 @@ from Bio import SeqIO
 from Bio.SeqUtils import GC
 from matplotlib import pylab
 
-valores_GC = sorted(GC(rec.seq) for rec in SeqIO.parse("ls_orchid.fasta", "fasta"))
+valores_GC = sorted(GC(rec.seq) for rec in SeqIO.parse("viola_tricolor.fasta", "fasta"))
 pylab.plot(valores_GC, linewidth= 3, color= "red")
 pylab.title(
     "%i Secuencias\nGC%% desde %0.1f a %0.1f"
@@ -316,11 +349,11 @@ pylab.show()
 
 Esta herramienta, sin duda una de las más importantes en bioinformática, está disponible desde Biopython con el [módulo Bio.blast.NCBIWWW](https://biopython.org/docs/1.75/api/Bio.Blast.NCBIWWW.html). 
 
-La función _qblast()_ en el módulo _Bio.blast.NCBIWWW necesita tres argumentos:
+La función _qblast()_ en el módulo _Bio.blast.NCBIWWW_ necesita tres argumentos:
 
 * **Primer argumento**. Programa blast que usará: blastn, blastp...
 * **Segundo argumento**. Base de datos en la que basará la búsqueda. Ej. _Nucleotide database (nt)_.
-* **Tercer argumento**. Una cadena que contenga tu secuencia de entrada (query sequence). Si la secuencia la tiene en un archivo fasta, simplemente almacénela como una cadena.
+* **Tercer argumento**. Una cadena que contenga tu secuencia de entrada (query sequence). Si la secuencia la tiene en un archivo FASTA, simplemente almacénela como una cadena.
 
 Aunque estos son los argumentos principales y necesarios para su funcionamiento, _qblast()_ tiene muchos más argumentos y parámetros disponibles para modificar. Al igual que con todas las funciones, puede informarse en:
 ``` py linenums="1"
@@ -329,9 +362,9 @@ help(NCBIWWW.qblast)
 ```
 ### ***Ejemplo práctico***
 
-En primer lugar descárguese un archivo fasta en su directorio de trabajo. Le proponemos como ejemplo el siguiente [fasta](NAC_solanum_arabidopsis.fasta), la secuencia codificante del gen NAC de _Solanum lycopersicum_ y de _Arabidopsis thaliana_.
+En primer lugar descárguese un archivo FASTA en su directorio de trabajo. Le proponemos como ejemplo el siguiente archivo [NAC_solanum_arabidopsis](NAC_solanum_arabidopsis.fasta), la secuencia codificante del gen NAC de _Solanum lycopersicum_ y de _Arabidopsis thaliana_.
 
-Importe el _módulo NCBIWWW_ y asigne la secuencia fasta a una variable.
+Importe el _módulo NCBIWWW_ y asigne la secuencia FASTA a una variable.
 
 ``` py linenums="1"
 from Bio.Blast import NCBIWWW
@@ -421,7 +454,7 @@ Veamos cómo realizar una consulta en PubMed, en este caso se quiere consultar t
 Lo primero que queremos conocer es el número de artículos que están relacionados con esta bacteria.
 ``` py linenums="1"
 from Bio import Entrez
-Entrez.email = "victorfernandezramirez1@hotmail.com"  #Importante indicar tu usuario
+entrez.email = "victorfernandezramirez1@hotmail.com"  #Importante indicar su usuario
 busqueda = Entrez.egquery(term="thermus aquaticus")  #Indicar la búsqueda deseada
 registro = Entrez.read(busqueda)  #Leer esta búsqueda y almacenarla como una variable
 for fila in registro["eGQueryResult"]:  #Bucle para realizar el conteo
@@ -434,7 +467,7 @@ for fila in registro["eGQueryResult"]:  #Bucle para realizar el conteo
 Se obtiene un total de 641 entradas relacionadas con la bacteria _Thermus aquaticus_. Veamos cómo obtener los IDs de estos artículos utilizando la función _Bio.Entrez.esearch_.
 ``` py linenums="1"
 from Bio import Entrez
-Entrez.email = "victorfernandezramirez1@hotmail.com"  
+entrez.email = "victorfernandezramirez1@hotmail.com"  
 busqueda = Entrez.esearch(db="pubmed", term="thermus aquaticus", retmax=463)
 registro = Entrez.read(busqueda)
 busqueda.close()
@@ -588,6 +621,8 @@ print(registro.description)
 GTCAAAGAAACTGAAACTAA...GTTATCATTCTTCAAAAAAAAAA
 ```
 
-Este apartado es fundamental que lo practique, ya que en unos simples comandos puede realizar una búsqueda en PubMed y acceder a la secuencia nucleotídica de un gen problema para trabajar con ella.
+!!! tip "Recomendación"
+
+    Este apartado es fundamental que lo practique, ya que en unos simples comandos puede realizar una búsqueda en PubMed y acceder a la secuencia nucleotídica de un gen problema para trabajar con ella.
 
 ## **Archivos de lecturas**
