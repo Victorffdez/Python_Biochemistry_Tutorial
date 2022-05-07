@@ -623,6 +623,6 @@ GTCAAAGAAACTGAAACTAA...GTTATCATTCTTCAAAAAAAAAA
 
 !!! tip "Recomendación"
 
-    Este apartado es fundamental que lo practique, ya que en unos simples comandos puede realizar una búsqueda en PubMed y acceder a la secuencia nucleotídica de un gen problema para trabajar con ella.
+    Este apartado es fundamental que lo practique, ya que en unos simples comandos puede realizar una búsqueda en PubMed y acceder a la secuencia nucleotídica de un gen problema para trabajar con ella...¡y todo desde Python!
 
 ## **Archivos de lecturas**

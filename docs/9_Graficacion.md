@@ -407,7 +407,15 @@ plt.show()
   ![matplot](Grafica22.png){ width="350" height="350" }
 </figure>
 
-***MJ: en esta sección no veo ningún ejercicio propuesto o cuestiones, sería bueno añadir un par, por ejemplo.***
+## **Ejercicios**
+En este apartado de ejercicios le vamos a introducir los **cuadernos de Python**. 
+
+Como viene utilizando hasta el momento, la forma tradicional de crear un programa en Python es crear un archivo _.py_ que almacene el código fuente de dicho programa. En este caso, en lugar de utilizar esto utilizaremos un cuaderno de [Google colab](https://colab.research.google.com/).
+
+Los cuadernos en lenguaje de programación (normalmente conocidos como ^^notebook^^) permiten combinar texto y código, siendo muy útiles para documentar nuestro trabajo a la vez que probamos código fácilmente. Otro de los cuadernos más utilizados en Python es [Jupyter Notebook](https://jupyter.org/). 
+
+A continuación puede acceder a los ejercicios que se le plantean: [Google Colab Notebook](https://colab.research.google.com/drive/1MV_PKIMXun1RKmETiMxVLcoJ6R2rMRkS?usp=sharing). 
+
 
 !!! cite "Enlaces de interés"
 
