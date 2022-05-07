@@ -625,4 +625,9 @@ GTCAAAGAAACTGAAACTAA...GTTATCATTCTTCAAAAAAAAAA
 
     Este apartado es fundamental que lo practique, ya que en unos simples comandos puede realizar una búsqueda en PubMed y acceder a la secuencia nucleotídica de un gen problema para trabajar con ella...¡y todo desde Python!
 
-## **Archivos de lecturas**
+## **Resumen**
+En este apartado se le ha enseñado una serie de funcionalidades de Biopython que seguro que le serán de ayuda, pudiendo trabajar a su antojo con archivos FASTA desde la terminal de Python. 
+
+No obstante, debe saber que Biopython permite realizar **funciones muy avanzadas**, como trabajar con archivos de secuenciación (filtrado, indexado..), realizar alineamientos múltiples (basado en herramientas como MUSCLE o ClustalW) o análisis de motivos de secuencias. 
+
+Si quiere profundizar en sus conocimientos sobre el paquete Biopython, le recomendamos que acceda al *[libro de cocina](http://biopython.org/DIST/docs/tutorial/Tutorial.html#sec371)* de Biopython.

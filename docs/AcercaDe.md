@@ -3,5 +3,5 @@ Este tutorial de programación ha sido desarrollado por Víctor J. Fernández Ra
 <figure markdown>
 
   ![grafica](chiste_python.png){ width="400" height="350" }
-
+    <figcaption> Fuente: xkcd.com </figcaption>
 </figure>
