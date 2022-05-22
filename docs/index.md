@@ -3,8 +3,12 @@
 
 **En el siguiente enlace puede acceder al Trabajo de Fin de Grado _(URL PDF)_**
 </center>
-## **Contexto docente**
+## **Introducción**
+El estudiante del [Grado de Bioquímica](https://www.uco.es/ciencias/es/grado-bioquimica) en la [Universidad de Córdoba](http://www.uco.es/) adquiere una gran cantidad de competencias, entre las que se incluyen competencias bioinformáticas. Entre estas, destacan los conceptos aprendidos sobre el empleo del sistema operativo *Linux*, y el uso  del lenguaje de programación *R*.
 
+En este Trabajo de Fin de Grado se presenta un tutorial aplicado al estudiante de Bioquímica sobre un lenguaje de programación denominado ^^Python^^. Python se trata de uno de los lenguajes más utilizados en la actualidad por empresas de todo el mundo, destacando por su potencia y facilidad de aprendizaje.
+
+Este tutorial se enmarca dentro del ámbito de la materia [Informática aplicada a la Bioquímica](https://www.uco.es/eguiado/guias/2019-20/101840es_2019-20.pdf), impartida durante el primer cuatrimestre del segundo curso del Grado de Bioquímica de la Universidad de Córdoba.
 
 ## **Importancia de la Bioinformática**
 La bioinformática, según el [National Human Genome Research Institute (NHGRI)](https://www.genome.gov/25019999/understanding-bioinformatics-and-sequencing#:~:text=Bioinformatics%20is%20the%20branch%20of,acid%20and%20protein%20sequence%20data.), es una subdisciplina de la biología y de la informática que se ocupa de la adquisición, el almacenamiento, el análisis y la difusión de datos biológicos. Dentro de este campo encontramos el análisis de secuencias y datos genómicos, predicción gen/proteína, construcción de redes biológicas, etc. 
@@ -13,7 +17,7 @@ La bioinformática, según el [National Human Genome Research Institute (NHGRI)]
    ![bioinformatica](https://miro.medium.com/max/531/1*s7i0AeBYzh2FHD1gjcp7pg@2x.png){ height="30" width="350" }
     <figcaption> Introduction to bioinformatics (2020). Ashutosh Bele. </figcaption>
 
-# </figure>
+</figure>
 
 En la actualidad, la parte más importante de la bioinformática es el análisis e interpretación de los datos de las moléculas biológicas, un proceso que se denomina **biología computacional**.
 
