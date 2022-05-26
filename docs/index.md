@@ -1,7 +1,7 @@
 <center>
 # **Tutorial de programación en Python orientado al estudiante de Bioquímica**
 
-**En el siguiente enlace puede acceder al Trabajo de Fin de Grado _(URL PDF)_**
+**En el siguiente enlace puede acceder al [Trabajo de Fin de Grado](TFG_sucio.pdf)**
 </center>
 ## **Introducción**
 El estudiante del [Grado de Bioquímica](https://www.uco.es/ciencias/es/grado-bioquimica) en la [Universidad de Córdoba](http://www.uco.es/) adquiere una gran cantidad de competencias, entre las que se incluyen competencias bioinformáticas. Entre estas, destacan los conceptos aprendidos sobre el empleo del sistema operativo *Linux*, y el uso  del lenguaje de programación *R*.
