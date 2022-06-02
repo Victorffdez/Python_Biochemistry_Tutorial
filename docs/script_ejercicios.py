@@ -1,4 +1,4 @@
-# Defin dos posibles funciones para conocer el número de nucleótidos o aminoácidos almacenados como una lista.
+# Defina dos posibles funciones para conocer el número de nucleótidos o aminoácidos almacenados como una lista.
 # Se propone como lista el siguiente fragmento de ADN: ATGCGCGATCG
 
 segmento_DNA = ['A','T','G','C','G','C','G','A','T','C','G']
