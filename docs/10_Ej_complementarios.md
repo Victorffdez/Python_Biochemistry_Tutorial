@@ -1,6 +1,6 @@
 A continuación encontrará una serie de ejercicios relacionados con la manipulación de **fragmentos nucleotídicos o proteicos** para que siga practicando en Python. 
 
-En el siguiente enlace [script_ejercicios](script_ejercicios.py) se puede descargar un script de Python con todos los ejercicios y soluciones que forman esta sección. 
+En el siguiente [enlace](script_ejercicios.py) se puede descargar un script de Python con todos los ejercicios y soluciones que forman esta sección. 
 
 ###**Ejercicio 1** 
 Defina dos posibles funciones para conocer el número de nucleótidos o aminoácidos almacenados como una lista.
