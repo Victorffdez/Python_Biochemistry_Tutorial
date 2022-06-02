@@ -1,4 +1,4 @@
-# Defina dos posibles funciones para conocer el número de nucleótidos o aminoácidos almacenados como una lista.
+# Defin dos posibles funciones para conocer el número de nucleótidos o aminoácidos almacenados como una lista.
 # Se propone como lista el siguiente fragmento de ADN: ATGCGCGATCG
 
 segmento_DNA = ['A','T','G','C','G','C','G','A','T','C','G']
@@ -70,7 +70,7 @@ else:
     print('El codon', codon1, 'es un codon diferente.')
 
 
-# Defina una función que muestre la posición del primer nucleótido que constituye el codón de inicio en un fragmento de ADN.
+# Defina una funcion que muestre la posición del primer nucleótido que constituye el codón de inicio en un fragmento de ADN.
 
 def codon_inicio(segmento_DNA):
     for i in range(len(segmento_DNA)):
