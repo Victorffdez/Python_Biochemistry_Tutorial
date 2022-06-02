@@ -1,4 +1,6 @@
-A continuación encontrará una serie de ejercicios relacionados con la manipulación de **fragmentos nucleotídicos o proteicos** para que siga practicando en Python:
+A continuación encontrará una serie de ejercicios relacionados con la manipulación de **fragmentos nucleotídicos o proteicos** para que siga practicando en Python. 
+
+En el siguiente enlace [script_ejercicios.py](script_ejercicios.py) puede descargarse un script de Python con todos los ejercicios y soluciones que forman esta sección. 
 
 ###**Ejercicio 1** 
 Defina dos posibles funciones para conocer el número de nucleótidos o aminoácidos almacenados como una lista.
@@ -126,3 +128,4 @@ Determine el porcentaje de aminoácidos de un fragmento proteico almacenado como
         aminoacido_porcentaje = (aminoacido_count/secuencia_length) * 100
         print(aminoacido,":",round(aminoacido_porcentaje,1))
     ```
+
