@@ -3,7 +3,7 @@ A continuación encontrará una serie de ejercicios relacionados con la manipula
 En el siguiente [enlace](script_ejercicios.py) se puede descargar un script de Python con todos los ejercicios y soluciones que forman esta sección. 
 
 ###**Ejercicio 1** 
-Defina dos posibles funciones para conocer el número de nucleótidos o aminoácidos almacenados como una lista.
+Describa dos posibles formas para conocer el número de nucleótidos o aminoácidos almacenados como una lista.
 
 *Se propone como lista el siguiente fragmento de ADN: ATGCGCGATCG*
 ??? success "Respuesta"
@@ -14,13 +14,12 @@ Defina dos posibles funciones para conocer el número de nucleótidos o aminoác
         for i in segmento_DNA:
             cont += 1
         return cont
-
+    longitud_cadena(segmento_DNA)
+    
     #Otra opción: 
     longitud = len(segmento_DNA)
     print(longitud)
     ```
-
-***MJ: en la primera deberías hacer la llamada a función; y la segunda no es que hayas "definido". Revisa enunciado e indica "dos formas", en vez de "dos funciones".***
 
 ###**Ejercicio 2** 
 Determine cuántas veces aparece el nucleótido citosina (C) en un fragmento de ADN almacenado como cadena.
@@ -43,7 +42,7 @@ Determine cuántas veces aparece el nucleótido citosina (C) en un fragmento de 
     print('Nº de citosinas (bucle while):', contador)
     ```
 ###**Ejercicio 3** 
-Determine el porcentaje de guanina/citosina (GC) ***MJ: ¿eso está expresado correctamente con /?*** 
+Determine el porcentaje de guanina-citosina (GC) 
 en un fragmento de ADN almacenado como cadena.
 
 *Se propone de ejemplo el siguiente fragmento de ADN: AGGCGCGTTGTGATGGTCGTAGCT*
