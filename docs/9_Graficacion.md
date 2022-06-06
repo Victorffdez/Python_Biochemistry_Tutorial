@@ -408,7 +408,7 @@ plt.show()
 </figure>
 
 ## **Ejercicios**
-En este apartado de ejercicios le vamos a introducir los **cuadernos de Python**. 
+En este apartado de ejercicios le vamos a introducir a los **cuadernos de Python**. 
 
 Como viene utilizando hasta el momento, la forma tradicional de crear un programa en Python es crear un archivo _.py_ que almacene el código fuente de dicho programa. En este caso, en lugar de utilizar esto utilizaremos un cuaderno de [Google colab](https://colab.research.google.com/).
 

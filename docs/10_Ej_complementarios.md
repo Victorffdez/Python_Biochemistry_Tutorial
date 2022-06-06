@@ -19,6 +19,9 @@ Defina dos posibles funciones para conocer el número de nucleótidos o aminoác
     longitud = len(segmento_DNA)
     print(longitud)
     ```
+
+***MJ: en la primera deberías hacer la llamada a función; y la segunda no es que hayas "definido". Revisa enunciado e indica "dos formas", en vez de "dos funciones".***
+
 ###**Ejercicio 2** 
 Determine cuántas veces aparece el nucleótido citosina (C) en un fragmento de ADN almacenado como cadena.
 
@@ -40,7 +43,8 @@ Determine cuántas veces aparece el nucleótido citosina (C) en un fragmento de 
     print('Nº de citosinas (bucle while):', contador)
     ```
 ###**Ejercicio 3** 
-Determine el porcentaje de guanina/citosina (GC) en un fragmento de ADN almacenado como cadena.
+Determine el porcentaje de guanina/citosina (GC) ***MJ: ¿eso está expresado correctamente con /?*** 
+en un fragmento de ADN almacenado como cadena.
 
 *Se propone de ejemplo el siguiente fragmento de ADN: AGGCGCGTTGTGATGGTCGTAGCT*
 

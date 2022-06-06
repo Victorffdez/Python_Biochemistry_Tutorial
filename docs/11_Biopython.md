@@ -9,7 +9,7 @@ Esta librería fue creada en el año 1999 por _Brad Chapman_ y _Jeff Chang_, y a
 
 ### ***Ventajas***
 
-* ^^Compatibilidad con diferentes formatos.^^ Biopython permite el tratamiento de archivos en diversos formatos utilizados en el ámbito biológico, presentando total compatibilidad con los archivos procedentes de GenBank, PDB, PubMed, ExPASy...
+* ^^Compatibilidad con diferentes formatos.^^ Biopython permite el tratamiento de archivos en diversos formatos utilizados en el ámbito biológico, presentando total compatibilidad con los archivos procedentes de GenBank, PDB, PubMed, ExPASy,...
 * ^^Tratamiento de secuencias.^^ Permite trabajar con secuencias tanto nucleotídicas como aminoacídicas.
 * ^^Herramientas incorporadas.^^ Herramientas para realizar operaciones comunes en secuencias, como traducción, transcripción, longitud de cadenas...
 * ^^Herramientas para realizar alineamientos de secuencias.^^
@@ -205,7 +205,7 @@ Seq('GCTTACTTAGTTGAGATCCAGTGTTTAGATTGTACATCACTTTCTTGGAGGTTC...GGA')
 
     En muchos casos trabajará con archivos gzip, muy utilizados por herramientas bioinformáticas. Puede informarse sobre el [módulo gzip](https://docs.python.org/3/library/gzip.html), aunque es tan simple como utilizar _gzip.open()_. 
 
-Aunque esta opción de lectura le puede ser de uso, en muchas ocasiones deseará trabajar con cada lectura de forma individual. Para ello tiene que trabajar con este archivo como si fuera un objeto más, como se muestra a continuación:
+Aunque esta opción de lectura le puede ser útil, en muchas ocasiones deseará trabajar con cada lectura de forma individual. Para ello tiene que trabajar con este archivo como si fuera un objeto más, como se muestra a continuación:
 
 ``` py linenums="1"
 from Bio import SeqIO
