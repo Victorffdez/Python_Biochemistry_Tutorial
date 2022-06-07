@@ -1,0 +1,1359 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Víctor J. Fernández">
+      
+      
+        <link rel="canonical" href="https://ucodemy.github.io/pybioq/6_EstructurasControl/">
+      
+      <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
+    
+    
+      
+        <title>Estructuras de control - TUTORIAL PYTHON PARA BIOQUIMICOS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.5d38496d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bucles-for" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="TUTORIAL PYTHON PARA BIOQUIMICOS" class="md-header__button md-logo" aria-label="TUTORIAL PYTHON PARA BIOQUIMICOS" data-md-component="logo">
+      
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TUTORIAL PYTHON PARA BIOQUIMICOS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Estructuras de control
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Victorffdez/Python_Biochemistry_Tutorial" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    victorffdez/GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TUTORIAL PYTHON PARA BIOQUIMICOS" class="md-nav__button md-logo" aria-label="TUTORIAL PYTHON PARA BIOQUIMICOS" data-md-component="logo">
+      
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="logo">
+
+    </a>
+    TUTORIAL PYTHON PARA BIOQUIMICOS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Victorffdez/Python_Biochemistry_Tutorial" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    victorffdez/GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_Introduccion_python/" class="md-nav__link">
+        Introducción a Python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_Pycharm/" class="md-nav__link">
+        PyCharm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_Variables/" class="md-nav__link">
+        Variables y operadores
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_EstructurasDatos/" class="md-nav__link">
+        Estructuras de datos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Estructuras de control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Estructuras de control
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-for" class="md-nav__link">
+    Bucles FOR
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucles FOR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sintaxis" class="md-nav__link">
+    Sintaxis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajar-con-bucles-for" class="md-nav__link">
+    Trabajar con bucles for
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajar con bucles for">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-range" class="md-nav__link">
+    Función range ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-list" class="md-nav__link">
+    Función list ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo" class="md-nav__link">
+    Ejemplo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condicional-if" class="md-nav__link">
+    Condicional IF
+  </a>
+  
+    <nav class="md-nav" aria-label="Condicional IF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentencias-if" class="md-nav__link">
+    Sentencias if
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentencias-if-else" class="md-nav__link">
+    Sentencias if-else
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentencias-if-elif-else" class="md-nav__link">
+    Sentencias if-elif-else
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combinacion-con-listas" class="md-nav__link">
+    Combinación con listas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo_1" class="md-nav__link">
+    Ejemplo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-while" class="md-nav__link">
+    Bucles WHILE
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucles WHILE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sintaxis_1" class="md-nav__link">
+    Sintaxis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajar-con-bucles-while" class="md-nav__link">
+    Trabajar con bucles while
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajar con bucles while">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-break" class="md-nav__link">
+    Función break
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-continue" class="md-nav__link">
+    Función continue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo_2" class="md-nav__link">
+    Ejemplo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios" class="md-nav__link">
+    Ejercicios
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_Funciones/" class="md-nav__link">
+        Funciones
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_ArchivosyDatos/" class="md-nav__link">
+        Archivos y datos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_Graficacion/" class="md-nav__link">
+        Graficación
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_Ej_complementarios/" class="md-nav__link">
+        Ejercicios complementarios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_Biopython/" class="md-nav__link">
+        BioPython
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AcercaDe/" class="md-nav__link">
+        Acerca de
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-for" class="md-nav__link">
+    Bucles FOR
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucles FOR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sintaxis" class="md-nav__link">
+    Sintaxis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajar-con-bucles-for" class="md-nav__link">
+    Trabajar con bucles for
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajar con bucles for">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-range" class="md-nav__link">
+    Función range ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-list" class="md-nav__link">
+    Función list ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo" class="md-nav__link">
+    Ejemplo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condicional-if" class="md-nav__link">
+    Condicional IF
+  </a>
+  
+    <nav class="md-nav" aria-label="Condicional IF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentencias-if" class="md-nav__link">
+    Sentencias if
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentencias-if-else" class="md-nav__link">
+    Sentencias if-else
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentencias-if-elif-else" class="md-nav__link">
+    Sentencias if-elif-else
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combinacion-con-listas" class="md-nav__link">
+    Combinación con listas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo_1" class="md-nav__link">
+    Ejemplo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-while" class="md-nav__link">
+    Bucles WHILE
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucles WHILE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sintaxis_1" class="md-nav__link">
+    Sintaxis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajar-con-bucles-while" class="md-nav__link">
+    Trabajar con bucles while
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajar con bucles while">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-break" class="md-nav__link">
+    Función break
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-continue" class="md-nav__link">
+    Función continue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo_2" class="md-nav__link">
+    Ejemplo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios" class="md-nav__link">
+    Ejercicios
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Estructuras de control</h1>
+
+<p>Las <strong>estructuras de control</strong> son aquellas que permiten modificar el flujo normal de ejecución de instrucciones de un programa, dependiendo del resultado de unas condiciones.</p>
+<p>Estas estructuras nos permiten realizar acciones típicas en nuestros scripts, como pueden ser bucles o la toma de decisiones.</p>
+<figure>
+<p><img alt="estcontrol" height="500" src="../estructuras_control.png" width="700" />
+   </p>
+<figcaption> Lógica de Programación. Universidad Politécnica de Puebla (UPP). </figcaption>
+</figure>
+<h2 id="bucles-for"><strong>Bucles FOR</strong></h2>
+<p>Un <strong>bucle</strong> es una estructura de control que repite un bloque de instrucciones, denominado <em>cuerpo</em>, siendo cada repetición conocida como <em>iteración</em>. En el caso del <strong>bucle for</strong>, se repite el bloque de instrucciones un número determinado de veces.</p>
+<p>Los bucles nos permiten realizar las mismas acciones con los elementos de una lista, como puede ser realizar una misma operación matemática con cada elemento.</p>
+<h3 id="sintaxis"><strong><em>Sintaxis</em></strong></h3>
+<p>Si tiene una lista con diferentes elementos, como distintos tipos de proteínas, y quiere imprimir por pantalla todos los nombres, puede hacerlo de forma individual como ya se enseñó anteriormente. Esto nos conduce a los siguientes problemas:</p>
+<ul>
+<li>Código muy repetitivo.</li>
+<li>Trabajo lento y poco eficiente.</li>
+<li>Cada vez que se altere la longitud de la lista, cambiar el código.</li>
+</ul>
+<p>Por este motivo, lo recomendable es utilizar la siguiente estructura.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">proteinas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hemoglobina&#39;</span><span class="p">,</span><span class="s1">&#39;caseina&#39;</span><span class="p">,</span><span class="s1">&#39;lacasa&#39;</span><span class="p">,</span><span class="s1">&#39;albumina&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">for</span> <span class="n">proteina</span> <span class="ow">in</span> <span class="n">proteinas</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="nb">print</span> <span class="p">(</span><span class="n">proteina</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+En este caso, se ha definido la lista <em>proteinas</em>, y el bucle le indica a Python que cada elemento de esta lista se asocie con la variable <em>proteina</em>. Posteriormente, se indica que imprima cada elemento que se ha ido asignando a la variable <em>proteina</em>. La salida será la siguiente:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">hemoglobina</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">caseina</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">lacasa</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">albumina</span>
+</code></pre></div>
+Por tanto, Python va imprimiendo el valor actual de la variable <em>proteina</em>, que va cambiando al repetir el bucle. Cuando ya no hay más elementos en la lista, finaliza el programa. </p>
+<div class="admonition info">
+<p class="admonition-title">Nomenclatura de la variable</p>
+<p>Tenga en cuenta que puede elegir el nombre que quiera para la variable temporal. Se ha elegido en este caso <em>proteina</em> porque conviene utilizar nombres significativos, que representen los elementos de la lista. </p>
+</div>
+<p>Es muy importante tener cuidado con las líneas sangradas. A veces, el bucle se puede ejecutar sin problemas pero que no produzca el resultado esperado. Veamos algunos ejemplos de esto: 
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">proteinas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hemoglobina&#39;</span><span class="p">,</span><span class="s1">&#39;caseina&#39;</span><span class="p">,</span><span class="s1">&#39;lacasa&#39;</span><span class="p">,</span><span class="s1">&#39;albumina&#39;</span><span class="p">]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">for</span> <span class="n">proteina</span> <span class="ow">in</span> <span class="n">proteinas</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La </span><span class="si">{</span><span class="n">proteina</span><span class="si">}</span><span class="s2"> es una proteína.&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nb">print</span> <span class="p">(</span><span class="n">proteina</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Este código imprime por pantalla el siguiente texto. Observe cómo en la última línea de código, únicamente se muestra el último elemento asociado a la variable <em>proteina</em>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">La</span> <span class="n">hemoglobina</span> <span class="n">es</span> <span class="n">una</span> <span class="n">proteína</span><span class="o">.</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">La</span> <span class="n">caseina</span> <span class="n">es</span> <span class="n">una</span> <span class="n">proteína</span><span class="o">.</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">La</span> <span class="n">lacasa</span> <span class="n">es</span> <span class="n">una</span> <span class="n">proteína</span><span class="o">.</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">La</span> <span class="n">albumina</span> <span class="n">es</span> <span class="n">una</span> <span class="n">proteína</span><span class="o">.</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">albumina</span>
+</code></pre></div></p>
+<h3 id="trabajar-con-bucles-for"><strong><em>Trabajar con bucles for</em></strong></h3>
+<h4 id="funcion-range"><em>Función range ()</em></h4>
+<p>La función <em>range ()</em> se utiliza principalmente para generar y trabajar con una serie de números. Veamos un ejemplo simple:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span> <span class="c1">#Imprime hasta el número n-1</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>    <span class="nb">print</span> <span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">for</span> <span class="n">valor</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">4</span><span class="p">):</span> 
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="nb">print</span> <span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Esto daría lugar a la siguiente salida por pantalla:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="mi">1</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="mi">2</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="mi">3</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="mi">0</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="mi">1</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="mi">2</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="mi">3</span>
+</code></pre></div></p>
+<h4 id="funcion-list"><em>Función list ()</em></h4>
+<p>Los resultados generados por la función range () pueden convertirse directamente en una lista. Para esto se utiliza la función list ().
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+Observe que en este caso el rango determinado es <em>(2,19,2)</em>. Los dos primeros argumentos indican el rango de valor de los elementos (entre 2 y 19), y el tercero indica el tamaño de salto entre los valores (de 2 en 2).</p>
+<h3 id="ejemplo"><strong><em>Ejemplo</em></strong></h3>
+<p><ins>Tabla de multiplicar del 5</ins></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">11</span><span class="p">):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="n">multiplicacion</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">numero</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;5 * </span><span class="si">{</span><span class="n">numero</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">multiplicacion</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">0</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">15</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">20</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">25</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">30</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">35</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">40</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">=</span> <span class="mi">45</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">=</span> <span class="mi">50</span>
+</code></pre></div></p>
+<h2 id="condicional-if"><strong>Condicional IF</strong></h2>
+<p>La estructura de control o <strong>sentencia condicional if</strong> permite que un programa ejecute una serie de acciones en función de si se cumple una determinada condición. </p>
+<p>Esta sentencia es la toma de decisión más básica, ya que consiste en comprobar si la <strong>prueba condicional</strong> o <strong>predicado</strong> es verdadero o falso, y en base a esto, ejecutar o no el código que sigue a la sentencia.</p>
+<h3 id="sentencias-if"><strong><em>Sentencias if</em></strong></h3>
+<p>La sentencia <em>if</em> más simple está compuesta por dos elementos: una <ins>prueba condicional</ins> y una <ins>acción</ins>. 
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">organulo</span> <span class="o">=</span> <span class="s1">&#39;ribosoma&#39;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">if</span> <span class="n">organulo</span> <span class="o">==</span> <span class="s1">&#39;ribosoma&#39;</span><span class="p">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;¡Era el organulo correcto!&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Como podrá comprobar, si no se cumple esta condición no se generaría ninguna salida.</p>
+<div class="admonition note">
+<p class="admonition-title">Sangrado</p>
+<p>Al igual que ocurría anteriormente, es fundamental prestarle atención al sangrado. Después de la sentencia <em>if</em>, todas las líneas sangradas se ejecutarán si cumple la condición, y se ignorará todo el bloque si no se cumple.</p>
+</div>
+<h3 id="sentencias-if-else"><strong><em>Sentencias if-else</em></strong></h3>
+<p>¿Qué ocurre si queremos que se genere una salida si no se cumple la condición? Para esto, utilizamos las <strong>sentencias if-else</strong>. </p>
+<p>El bloque <em>if-else</em> es equivalente a la sentencia <em>if</em> ya vista, pero incluye una sentencia else en la que se define una acción si la prueba condicional no es verdadera. Veámoslo con el mismo ejemplo de antes:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">organulo</span> <span class="o">=</span> <span class="s1">&#39;vacuola&#39;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">if</span> <span class="n">organulo</span> <span class="o">==</span> <span class="s1">&#39;ribosoma&#39;</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;¡Era el organulo correcto!&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;¡Ese no es el organulo!&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="sentencias-if-elif-else"><strong><em>Sentencias if-elif-else</em></strong></h3>
+<p>En muchas ocasiones, va a necesitar probar más de dos situaciones, y para ello es recomendable utilizar las <strong>sentencias if-elif-else</strong>. En este caso, Python va a ejecutar en orden las condiciones, y la primera que se cumpla será de la que ejecute su código asociado. Si ninguna de las condiciones es verdadera, ejecutará el código asociado a else como anteriormente.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span>
+<span class="normal"><a href="#__codelineno-11-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">num_individuos</span> <span class="o">=</span> <span class="mi">1500</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="k">if</span> <span class="n">num_individuos</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;El numero de individuos es demasiado bajo&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="k">elif</span> <span class="n">num_individuos</span> <span class="o">&gt;</span> <span class="mi">5000</span><span class="p">:</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;El numero de individuos es demasiado alto&quot;</span><span class="p">)</span>    
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;El numero de individuos para el muestreo es suficiente&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<div class="admonition info">
+<p class="admonition-title">Sentencias <em>if-elif-else</em></p>
+<p>Tenga en cuenta que puede utilizar múltiples bloques <em>elif</em>, añadiendo todas las pruebas condicionales que vea necesarias. Además, en este tipo de cadena Python no requiere un bloque else al final, por lo que puede omitirlo, siempre y cuando estos bloques <em>elif</em> engloben todas las posibles situaciones. Es decir, ha de cumplirse uno.  </p>
+</div>
+<h3 id="combinacion-con-listas"><strong><em>Combinación con listas</em></strong></h3>
+<p>La combinación de sentencias <em>if</em> con listas es especialmente útil. Veamos un ejemplo:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">proteinas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hemoglobina&#39;</span><span class="p">,</span><span class="s1">&#39;glucosa&#39;</span><span class="p">,</span><span class="s1">&#39;caseina&#39;</span><span class="p">,</span><span class="s1">&#39;lacasa&#39;</span><span class="p">,</span><span class="s1">&#39;albumina&#39;</span><span class="p">]</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">for</span> <span class="n">proteina</span> <span class="ow">in</span> <span class="n">proteinas</span><span class="p">:</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>   <span class="k">if</span> <span class="n">proteina</span> <span class="o">==</span> <span class="s1">&#39;glucosa&#39;</span><span class="p">:</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La </span><span class="si">{</span><span class="n">proteina</span><span class="si">}</span><span class="s2"> no es una proteína&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>   <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>      <span class="nb">print</span> <span class="p">(</span><span class="n">proteina</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="ejemplo_1"><strong><em>Ejemplo</em></strong></h3>
+<p><ins>Comprobar si un numero es mayor a 0</ins>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span>
+<span class="normal"><a href="#__codelineno-13-8">8</a></span>
+<span class="normal"><a href="#__codelineno-13-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Introduce un número:&quot;</span><span class="p">))</span> <span class="c1">#Recibir un número por usuario</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="k">if</span> <span class="n">numero</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número es igual a 0&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="k">elif</span> <span class="n">numero</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número es mayor a 0&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número es menor a 0&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1">#Tenga en cuenta que este es un ejemplo de las distintas opciones para realizar este ejercicio.</span>
+</code></pre></div></td></tr></table></div></p>
+<p><ins>Divisores de un número</ins>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Introduzca un numero:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)))</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">contador</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Los divisores de </span><span class="si">{</span><span class="n">numero</span><span class="si">}</span><span class="s1"> son:&#39;</span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="k">for</span> <span class="n">divisor</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numero</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">numero</span> <span class="o">%</span> <span class="n">divisor</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">divisor</span><span class="p">,</span><span class="s2">&quot;es divisor&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>        <span class="n">contador</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El numero </span><span class="si">{</span><span class="n">numero</span><span class="si">}</span><span class="s2"> tiene </span><span class="si">{</span><span class="n">contador</span><span class="si">}</span><span class="s2"> divisores.&quot;</span><span class="p">)</span> <span class="c1">#Observe cómo esta sentencia queda fuera del bucle y condicional por el sangrado.</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="bucles-while"><strong>Bucles WHILE</strong></h2>
+<p>A diferencia de los bucles <em>for</em>, que ejecutan un bloque de código por cada elemento que compone la condición, los <strong>bucles while</strong> ejecutan el bloque de código siempre que se cumpla una condición determinada, dejándolo de repetir cuando sea falsa. </p>
+<p>Es decir, el bucle <em>while</em> nos permite realizar múltiples iteraciones basándonos en el resultado de una expresión lógica que puede tener como resultado un valor True o False.</p>
+<h3 id="sintaxis_1"><strong><em>Sintaxis</em></strong></h3>
+<p>A continuación se muestra la sintaxis básica de un bucle <em>while</em>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">i</span><span class="o">=</span><span class="mi">1</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="k">while</span> <span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">):</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nº veces se ha completado el bucle: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>      <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El bucle ha terminado&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+En este caso, se ha definido la variable <em>i</em>, que aumentará una unidad cada vez que se complete el bucle. Cuando esta variable sea igual a 6, dejará de cumplirse la condición y finalizará el bucle.  </p>
+<p>El resultado será el siguiente:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">Nº</span> <span class="n">veces</span> <span class="n">se</span> <span class="n">ha</span> <span class="n">completado</span> <span class="n">el</span> <span class="n">bucle</span><span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">Nº</span> <span class="n">veces</span> <span class="n">se</span> <span class="n">ha</span> <span class="n">completado</span> <span class="n">el</span> <span class="n">bucle</span><span class="p">:</span> <span class="mi">2</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">Nº</span> <span class="n">veces</span> <span class="n">se</span> <span class="n">ha</span> <span class="n">completado</span> <span class="n">el</span> <span class="n">bucle</span><span class="p">:</span> <span class="mi">3</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">Nº</span> <span class="n">veces</span> <span class="n">se</span> <span class="n">ha</span> <span class="n">completado</span> <span class="n">el</span> <span class="n">bucle</span><span class="p">:</span> <span class="mi">4</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">Nº</span> <span class="n">veces</span> <span class="n">se</span> <span class="n">ha</span> <span class="n">completado</span> <span class="n">el</span> <span class="n">bucle</span><span class="p">:</span> <span class="mi">5</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="n">El</span> <span class="n">bucle</span> <span class="n">ha</span> <span class="n">terminado</span>
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Bucle infinito</p>
+<p>Es fácil cometer errores y programar un bucle infinito involuntariamente. Para parar este ciclo, presione <strong><em>Ctrl + C</em></strong>.</p>
+</div>
+<h3 id="trabajar-con-bucles-while"><strong><em>Trabajar con bucles while</em></strong></h3>
+<h4 id="funcion-break"><em>Función break</em></h4>
+<p>Existe una forma alternativa de interrumpir o cortar los ciclos: utilizando la palabra reservada <em>break</em>. Esta nos permite salir del ciclo incluso si la expresión evaluada en el bucle es verdadera.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span>
+<span class="normal"><a href="#__codelineno-17-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">variable</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Introduzca un valor &gt;5 : &quot;</span><span class="p">))</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">while</span> <span class="n">variable</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>   <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Actual valor de variable:&quot;</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>   <span class="n">variable</span> <span class="o">=</span> <span class="n">variable</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>   <span class="k">if</span> <span class="n">variable</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>       <span class="k">break</span>
+</code></pre></div></td></tr></table></div></p>
+<p>En este ejemplo, se muestra cómo el valor de la variable va disminuyendo una unidad hasta que sea igual a 5, finalizando el código. Observe cómo finaliza el código aunque el bucle <em>while</em> se siga cumpliendo (ya que el valor sigue siendo superior a 0).</p>
+<h4 id="funcion-continue"><em>Función continue</em></h4>
+<p>En lugar de interrumpir el bucle, podemos utilizar la sentencia <em>continue</em> para volver al principio del bucle en función del resultado de la prueba condicional.</p>
+<p>Veamos un ejemplo en el que un bucle imprime los números impares entre el 1 y el 20.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span><span class="mi">20</span><span class="p">:</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>    <span class="n">num</span> <span class="o">+=</span><span class="mi">1</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>       <span class="k">continue</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>    <span class="nb">print</span> <span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="ejemplo_2"><strong><em>Ejemplo</em></strong></h3>
+<p><ins>Suma de n números enteros</ins></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span>
+<span class="normal"><a href="#__codelineno-19-6">6</a></span>
+<span class="normal"><a href="#__codelineno-19-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Introduce un número: &quot;</span><span class="p">))</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="k">while</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;=</span><span class="n">numero</span><span class="p">):</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a>   <span class="n">suma</span> <span class="o">=</span> <span class="n">suma</span><span class="o">+</span><span class="n">x</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a>   <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;El resultado es </span><span class="si">{</span><span class="n">suma</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="ejercicios"><strong>Ejercicios</strong></h2>
+<p><strong>EJERCICIO 1</strong>. Escribir un programa que le pida al usuario un número, y si es impar lo eleva al cuadrado, si no al cubo.</p>
+<details class="note">
+<summary>Respuesta</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Introduzca un número: &quot;</span><span class="p">))</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="k">if</span> <span class="n">numero</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>   <span class="n">resultado</span> <span class="o">=</span> <span class="n">numero</span> <span class="o">**</span> <span class="mi">3</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="k">else</span><span class="p">:</span>  
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>   <span class="n">resultado</span> <span class="o">=</span> <span class="n">numero</span> <span class="o">**</span> <span class="mi">2</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p><strong>EJERCICIO 2</strong>. Escribir un programa que almacenen en una lista el cuadrado de los diez primeros números enteros.</p>
+<details class="note">
+<summary>Respuesta</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Creación de una lista vacía </span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>    <span class="n">square</span> <span class="o">=</span> <span class="n">value</span><span class="o">**</span><span class="mi">2</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p><strong>EJERCICIO 3</strong>. Escribir un programa que le pida al usuario un número y le diga a qué día de la semana corresponde.</p>
+<details class="note">
+<summary>Respuesta</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-22-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-22-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-22-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-22-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-22-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-22-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-22-10">10</a></span>
+<span class="normal"><a href="#__codelineno-22-11">11</a></span>
+<span class="normal"><a href="#__codelineno-22-12">12</a></span>
+<span class="normal"><a href="#__codelineno-22-13">13</a></span>
+<span class="normal"><a href="#__codelineno-22-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">if</span> <span class="n">dia</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es lunes&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="k">elif</span> <span class="n">dia</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es martes&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="k">elif</span> <span class="n">dia</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es miercoles&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="k">elif</span> <span class="n">dia</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es jueves&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="k">elif</span> <span class="n">dia</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es viernes&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="k">elif</span> <span class="n">dia</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es sabado&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14"></a>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es domingo&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p><strong>EJERCICIO 4</strong>. Escribir un programa que le pregunte al usuario una contraseña. Si coincide con contraseña, debe indicar que es correcta.</p>
+<details class="note">
+<summary>Respuesta</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span>
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span>
+<span class="normal"><a href="#__codelineno-23-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;contraseña&quot;</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Introduce la contraseña: &quot;</span><span class="p">)</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="k">while</span> <span class="n">password</span> <span class="o">!=</span> <span class="n">key</span><span class="p">:</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La contraseña no coincide&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Introduce la contraseña: &quot;</span><span class="p">)</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La contraseña coincide&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p><strong>EJERCICIO 5</strong>. Escribir un programa que calcule el factorial de un número introducido por el usuario.</p>
+<details class="note">
+<summary>Respuesta</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span>
+<span class="normal"><a href="#__codelineno-24-5">5</a></span>
+<span class="normal"><a href="#__codelineno-24-6">6</a></span>
+<span class="normal"><a href="#__codelineno-24-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Introduzca un número:&quot;</span><span class="p">))</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">x</span><span class="o">=</span><span class="mi">1</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">resultado</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">numero</span><span class="p">:</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>    <span class="n">resultado</span><span class="o">=</span> <span class="n">resultado</span><span class="o">*</span><span class="n">x</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;El factorial de </span><span class="si">{</span><span class="n">numero</span><span class="si">}</span><span class="s1"> es </span><span class="si">{</span><span class="n">resultado</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p><strong>EJERCICIO 6</strong>. Escribir un programa que calcule la suma de los n primeros números impares.</p>
+<details class="note">
+<summary>Respuesta</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span>
+<span class="normal"><a href="#__codelineno-25-3">3</a></span>
+<span class="normal"><a href="#__codelineno-25-4">4</a></span>
+<span class="normal"><a href="#__codelineno-25-5">5</a></span>
+<span class="normal"><a href="#__codelineno-25-6">6</a></span>
+<span class="normal"><a href="#__codelineno-25-7">7</a></span>
+<span class="normal"><a href="#__codelineno-25-8">8</a></span>
+<span class="normal"><a href="#__codelineno-25-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Introduzca un valor:&quot;</span><span class="p">))</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">sumatorio</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="n">variable</span><span class="o">=</span><span class="mi">1</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="k">while</span> <span class="n">variable</span><span class="o">&lt;=</span><span class="n">numero</span><span class="p">:</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>    <span class="n">sumatorio</span><span class="o">=</span><span class="n">sumatorio</span><span class="o">+</span><span class="n">x</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a>    <span class="n">variable</span> <span class="o">=</span> <span class="n">variable</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;El resultado es </span><span class="si">{</span><span class="n">sumatorio</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p><strong>EJERCICIO 7</strong>. Escribir un programa que le pida al usuario un número y le diga si es un número primo o no.</p>
+<details class="note">
+<summary>Respuesta</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;¿Qué número quieres saber si es primo?: </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">))</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">valor</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">numero</span><span class="p">)</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="n">contador</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">valor</span><span class="p">:</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>    <span class="k">if</span> <span class="n">numero</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>        <span class="n">contador</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;divisor:&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="k">if</span> <span class="n">contador</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El numero no es primo&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El numero es primo&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="admonition cite">
+<p class="admonition-title">Enlaces de interés</p>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/controlflow.html"><strong>Información acerca de estructuras de control.</strong></a></li>
+<li><a href="https://www.youtube.com/watch?v=v4e6oMRS2QA&amp;ab_channel=GreatLearning"><strong>Flow Control in Python.</strong> Great Learning</a></li>
+<li><a href="https://cs.smu.ca/~porter/csc/227/ProgrammingInPython3.pdf"><strong>Programming in Python 3. Chapter 4.</strong> Mark Summerfield (2010). Addison-Wesley.</a></li>
+</ul>
+</div>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Volver al principio
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
+      
+        
+        <a href="../5_EstructurasDatos/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Estructuras de datos" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Estructuras de datos
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../7_Funciones/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Funciones" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Funciones
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2021-2022 Víctor J. Fernández. Todos los derechos reservados.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/Fac_CienciasUCO?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23Z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://uco.es/" target="_blank" rel="noopener" title="uco.es" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/school/facultadcienciasuco/?originalSubdomain=es" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://es.python.org/" target="_blank" rel="noopener" title="es.python.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "search.suggest", "search.highlight", "search.share", null], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7f366e99.min.js"></script>
+      
+    
+  </body>
+</html>

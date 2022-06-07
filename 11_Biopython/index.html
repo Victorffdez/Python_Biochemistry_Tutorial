@@ -1,0 +1,1562 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Víctor J. Fernández">
+      
+      
+        <link rel="canonical" href="https://ucodemy.github.io/pybioq/11_Biopython/">
+      
+      <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
+    
+    
+      
+        <title>BioPython - TUTORIAL PYTHON PARA BIOQUIMICOS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.5d38496d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#que-es-biopython" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="TUTORIAL PYTHON PARA BIOQUIMICOS" class="md-header__button md-logo" aria-label="TUTORIAL PYTHON PARA BIOQUIMICOS" data-md-component="logo">
+      
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TUTORIAL PYTHON PARA BIOQUIMICOS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BioPython
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Victorffdez/Python_Biochemistry_Tutorial" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    victorffdez/GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TUTORIAL PYTHON PARA BIOQUIMICOS" class="md-nav__button md-logo" aria-label="TUTORIAL PYTHON PARA BIOQUIMICOS" data-md-component="logo">
+      
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="logo">
+
+    </a>
+    TUTORIAL PYTHON PARA BIOQUIMICOS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Victorffdez/Python_Biochemistry_Tutorial" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    victorffdez/GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_Introduccion_python/" class="md-nav__link">
+        Introducción a Python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_Pycharm/" class="md-nav__link">
+        PyCharm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_Variables/" class="md-nav__link">
+        Variables y operadores
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_EstructurasDatos/" class="md-nav__link">
+        Estructuras de datos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_EstructurasControl/" class="md-nav__link">
+        Estructuras de control
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_Funciones/" class="md-nav__link">
+        Funciones
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_ArchivosyDatos/" class="md-nav__link">
+        Archivos y datos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_Graficacion/" class="md-nav__link">
+        Graficación
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_Ej_complementarios/" class="md-nav__link">
+        Ejercicios complementarios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          BioPython
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        BioPython
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-biopython" class="md-nav__link">
+    ¿Qué es Biopython?
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Qué es Biopython?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ventajas" class="md-nav__link">
+    Ventajas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion" class="md-nav__link">
+    Instalación
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajo-con-secuencias" class="md-nav__link">
+    Trabajo con secuencias
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajo con secuencias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    Ejemplos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transcripcion-y-traduccion" class="md-nav__link">
+    Transcripción y traducción
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajo-con-archivos" class="md-nav__link">
+    Trabajo con archivos
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajo con archivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-archivos-de-secuencia" class="md-nav__link">
+    Lectura de archivos de secuencia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraccion-y-escritura-de-datos" class="md-nav__link">
+    Extracción y escritura de datos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graficacion" class="md-nav__link">
+    Graficación
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blast" class="md-nav__link">
+    Blast
+  </a>
+  
+    <nav class="md-nav" aria-label="Blast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-practico" class="md-nav__link">
+    Ejemplo práctico
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#busqueda-en-bases-de-datos-pubmed-y-medline" class="md-nav__link">
+    Búsqueda en bases de datos: PubMed y Medline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    Resumen
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AcercaDe/" class="md-nav__link">
+        Acerca de
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-biopython" class="md-nav__link">
+    ¿Qué es Biopython?
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Qué es Biopython?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ventajas" class="md-nav__link">
+    Ventajas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion" class="md-nav__link">
+    Instalación
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajo-con-secuencias" class="md-nav__link">
+    Trabajo con secuencias
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajo con secuencias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    Ejemplos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transcripcion-y-traduccion" class="md-nav__link">
+    Transcripción y traducción
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajo-con-archivos" class="md-nav__link">
+    Trabajo con archivos
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajo con archivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-archivos-de-secuencia" class="md-nav__link">
+    Lectura de archivos de secuencia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraccion-y-escritura-de-datos" class="md-nav__link">
+    Extracción y escritura de datos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graficacion" class="md-nav__link">
+    Graficación
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blast" class="md-nav__link">
+    Blast
+  </a>
+  
+    <nav class="md-nav" aria-label="Blast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-practico" class="md-nav__link">
+    Ejemplo práctico
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#busqueda-en-bases-de-datos-pubmed-y-medline" class="md-nav__link">
+    Búsqueda en bases de datos: PubMed y Medline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    Resumen
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>BioPython</h1>
+
+<h2 id="que-es-biopython"><strong>¿Qué es Biopython?</strong></h2>
+<p><a href="https://biopython.org/">Biopython</a> es el paquete de Python más utilizado en el ámbito de la biología computacional, con una gran cantidad de herramientas útiles en bioinformática. </p>
+<p>Esta librería fue creada en el año 1999 por <em>Brad Chapman</em> y <em>Jeff Chang</em>, y actualmente está soportada por el <em>Proyecto Biopython</em>, una asociación de desarrolladores de herramientas en el lenguaje informático Python.</p>
+<figure>
+<p><img alt="matplot" height="350" src="../logo_biopython.png" width="350" /></p>
+</figure>
+<h3 id="ventajas"><strong><em>Ventajas</em></strong></h3>
+<ul>
+<li><ins>Compatibilidad con diferentes formatos.</ins> Biopython permite el tratamiento de archivos en diversos formatos utilizados en el ámbito biológico, presentando total compatibilidad con los archivos procedentes de GenBank, PDB, PubMed, ExPASy,...</li>
+<li><ins>Tratamiento de secuencias.</ins> Permite trabajar con secuencias tanto nucleotídicas como aminoacídicas.</li>
+<li><ins>Herramientas incorporadas.</ins> Herramientas para realizar operaciones comunes en secuencias, como traducción, transcripción, longitud de cadenas...</li>
+<li><ins>Herramientas para realizar alineamientos de secuencias.</ins></li>
+<li><ins>Amplio uso.</ins> Al ser el paquete más utilizado en biología computacional junto a <a href="https://www.bioconductor.org/">Bioconductor</a>, encontrará una gran cantidad de foros actualizados que le serán de ayuda. Además se incluyen herramientas nuevas que le pueden ser de utilidad, así como actualizaciones de las herramientas anteriores.</li>
+</ul>
+<p>Como bioquímico interesado en la bioinformática, es fundamental que se familiarice con Biopython, ya que es una herramienta fundamental actualmente en el lenguaje Python para el tratamiento de datos biológicos.</p>
+<h3 id="instalacion"><strong><em>Instalación</em></strong></h3>
+<p>En primer lugar debe instalar el paquete <em>biopython</em>. Para ello, como se explicó en el apartado <a href="../3_Pycharm/">PyCharm</a>, vaya a la ventana de <em>Python Packages</em> e instálelo.</p>
+<figure>
+<p><img alt="matplot" height="500" src="../biopython_instalacion.png" width="800" />
+    <figcaption> Instalación del paquete <em>biopython</em> </figcaption></p>
+</figure>
+<p>Otra opción sería utilizar el siguiente comando en la consola:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install biopython
+</code></pre></div></p>
+<h2 id="trabajo-con-secuencias"><strong>Trabajo con secuencias</strong></h2>
+<p>Sin duda los elementos u objetos centrales en el tratamiento de datos biológicos son las <strong>secuencias</strong>. </p>
+<p>En este apartado aprenderá algunos conceptos básicos sobre el maneja del <strong>objeto <em>Seq</em></strong>, objeto más utilizado en el paquete Biopython, que contiene muchas funciones en común con las cadenas. </p>
+<h3 id="ejemplos"><strong><em>Ejemplos </em></strong></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">seq</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;AGAGCCGACTTTACT&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">num_nucleotidos</span><span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="c1">#Almacena el número de nucleótidos</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">primer_nucleotido</span><span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Almacena el primer nucleótido</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">num_guaninas</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span> <span class="c1">#Almacena el número de guaninas</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">cortar_secuencia</span><span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="c1">#Almacena la secuencia desde el primer nucleótido hasta el séptimo</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="n">cadena_complementaria</span><span class="o">=</span> <span class="n">seq</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#Almacena la cadena complementaria</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="c1">#Porcentaje de G+C</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">porcentaje_GC</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="c1">#Biopython ya contiene un módulo integrado que simplifica esta tarea</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="kn">from</span> <span class="nn">Bio.SeqUtils</span> <span class="kn">import</span> <span class="n">GC</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="n">calculo_porcentaje_GC</span><span class="o">=</span> <span class="n">GC</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="transcripcion-y-traduccion"><strong><em>Transcripción y traducción</em></strong></h3>
+<p>En primer lugar veamos cómo realizar una <strong>transcripción</strong> en Biopython. Para esto crearemos objetos <em>Seq</em> para la hebra de ADN codificante y la hebra molde/template:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">seq_codificante</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;AATGCGGCTTAACCACAC&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">seq_codificante</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">seq_molde</span> <span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">seq_molde</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Debe tener en cuenta que la secuencia molde es leída por la polimerasa en dirección 3'-5', por lo que la secuencia codificante aparece en dirección 5'-3'. Por tanto se muestra por pantalla la siguiente salida:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">AATGCGGCTTAACCACAC</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">GTGTGGTTAAGCCGCATT</span>
+</code></pre></div>
+Una vez hemos creado la hebra molde y la codificante, vamos a llevar a cabo la transcripción. Recuerde que la transcripción se puede ver como la sustitución de A-&gt;U en la hebra codificante.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">seq_codificante</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;AATGCGGCTTAACCACAC&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">seq_molde</span> <span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">ARN_mensajero</span> <span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">transcribe</span><span class="p">()</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">ARN_mensajero</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Si únicamente posee la hebra molde, y desea realizar la transcripción sin necesidad de crear la hebra codificante, puede utilizar la acción combinada de ambas funciones anteriores:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">seq_molde</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GTGTGGTTAAGCCGCATT&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">ARN_mensajero</span> <span class="o">=</span> <span class="n">seq_molde</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span><span class="o">.</span><span class="n">transcribe</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+Por último, si lo que desea es realizar una transcripción inversa, es decir, pasar del ARN mensajero a la hebra codificante:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">ARN_mensajero</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;AAUGCGGCUUAACCACAC&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">seq_codificante</span> <span class="o">=</span> <span class="n">ARN_mensajero</span><span class="o">.</span><span class="n">back_transcribe</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+Una vez finalizada la transcripción, veamos cómo llevar a cabo la <strong>traducción</strong> partiendo de la secuencia nucleotídica del ARN mensajero obtenida.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">seq_codificante</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;AATGCGGCTTTACCACAC&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">seq_molde</span> <span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">ARN_mensajero</span> <span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">transcribe</span><span class="p">()</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">proteina</span><span class="o">=</span> <span class="n">ARN_mensajero</span><span class="o">.</span><span class="n">translate</span><span class="p">()</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">proteina</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Esto debería mostrar por pantalla la siguiente secuencia aminoacídica:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">NAALPH</span>
+</code></pre></div>
+También podría realizar la traducción desde la hebra codificante de ADN. En este caso se ha introducido una mutación en la secuencia: T 11 -&gt; A 11.<br />
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">seq_codificante</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;AATGCGGCTTAACCACAC&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">seq_molde</span> <span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">proteina</span><span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">translate</span><span class="p">()</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">proteina</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+En este caso, el resultado será el siguiente:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">NAA</span><span class="o">*</span><span class="n">PH</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1"># El asterisco indica que es un codón stop.</span>
+</code></pre></div>
+Aunque a priori parece un método muy básico, hay algunos <strong>aspectos adicionales</strong> en la traducción que hay que tener en cuenta.</p>
+<p>La tabla de traducción que utiliza Biopython se basa en la tablas indicadas en el <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi">NCBI</a>, utilizando de forma predeterminada el código genético estándar (<em>Tabla 1</em>). En algunos casos necesitará utilizar tablas de traducción diferente, por ejemplo si está tratando con un genoma mitocondrial. Esto se puede indicar de diversas formas:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">seq_codificante</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;AATGCGGCTTAACCACAC&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="n">seq_molde</span> <span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="n">proteina</span><span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s2">&quot;Vertebrate Mitochondrial&quot;</span><span class="p">)</span> <span class="c1">#1ª Forma</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="n">proteina</span><span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 2ª Forma</span>
+</code></pre></div></td></tr></table></div>
+Como ha visto en uno de los ejemplos anteriores, Biopython va a detectar un codón de parada indicándolo con un asterisco. Lo normal es que desee llevar a cabo la traducción hasta este codón y detenerse:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">seq_codificante</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;AATGCGGCTTAACCACAC&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">seq_molde</span> <span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">proteina</span><span class="o">=</span> <span class="n">seq_codificante</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">to_stop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">proteina</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="trabajo-con-archivos"><strong>Trabajo con archivos</strong></h2>
+<p>Para trabajar con distintos formatos de archivos de secuencias, el módulo más utilizado en BioPython es <a href="https://biopython.org/wiki/SeqIO">Bio.seqIO</a>. </p>
+<p>Para poder aprender a trabajar con archivos, necesitaremos uno que se desee analizar. Tenga en cuenta las características de su ordenador, ya que si utiliza un archivo FASTA demasiado pesado este proceso puede llegar a ser muy lento o incluso interminable.</p>
+<p>En este caso se propone como ejemplo un archivo FASTA que contiene todas las entradas resultantes de una búsqueda en la base de datos <strong>nucleotide de NCBI</strong>. </p>
+<p>La búsqueda elegida es de <em><a href="https://www.ncbi.nlm.nih.gov/nuccore/?term=Viola+tricolor">Viola tricolor</a></em> (denominada comúnmente <ins>pensamiento</ins>), y puede descargarse el archivo en el siguiente <a href="../viola_tricolor.fasta">enlace</a>. </p>
+<figure>
+<p><img alt="matplot" height="450" src="../pensamiento.png" width="450" />
+    <figcaption> Flor de pensamiento. Fuente: pharysol.es </figcaption></p>
+</figure>
+<h3 id="lectura-de-archivos-de-secuencia"><strong><em>Lectura de archivos de secuencia</em></strong></h3>
+<p>Para leer archivos de secuencia la función más utilizada es <em>Bio.SeqIO.parse()</em>. Esta función, utilizada normalmente en un bucle <em>for</em>, necesita dos argumentos:</p>
+<ul>
+<li>Nombre del fichero que se desea leer.</li>
+<li>Indicador del tipo de archivo que se desea leer, en letras minúsculas.</li>
+</ul>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="k">for</span> <span class="n">seq_record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;viola_tricolor.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">seq_record</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>  <span class="c1">#Devuelve el ID identificador</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">seq_record</span><span class="o">.</span><span class="n">description</span><span class="p">)</span> <span class="c1">#Devuelve la descripción</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">seq_record</span><span class="o">.</span><span class="n">seq</span><span class="p">))</span>  <span class="c1">#Devuelve la secuencia</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq_record</span><span class="p">))</span>  <span class="c1">#Devuelve la longitud de la secuencia</span>
+</code></pre></div></td></tr></table></div>
+Deberá haber obtenido un resultado similar al siguiente:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>HM590365.1
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>HM590365.1 Viola tricolor voucher personal collection:I. Hiiesalu 74 tRNA-Leu (trnL) gene, partial sequence; chloroplast
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Seq(&#39;GACTTAATTGGATTGAGCCTTGGTATGGAAACTTACTAAGTGGATAACTTTCAA...GAG&#39;)
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>506
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>JZ084087.1
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>JZ084087.1 MHV6 MHV-Cold stress-Viola library Viola tricolor cDNA clone MHV6, mRNA sequence
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>Seq(&#39;AACAGACAGTTGTATGCTGCGTTCGGGAGGATGAATCCCTCCCGANAAGGAATC...CTT&#39;)
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>177
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>...
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>...
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>MG009035.1
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>MG009035.1 Crithmum maritimum clone CM_04 microsatellite sequence
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>Seq(&#39;AAAACATTCATCTCCTGCACTCTTAAAATTCTTCTATTCTTTTCAATCCAATCT...TCA&#39;)
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>174
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>MG009034.1
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>MG009034.1 Crithmum maritimum clone CM_03 microsatellite sequence
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>Seq(&#39;GCTTACTTAGTTGAGATCCAGTGTTTAGATTGTACATCACTTTCTTGGAGGTTC...GGA&#39;)
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>144
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Lectura de otros formatos de archivo</p>
+<p>Si en lugar de leer un archivo en formato .fasta, desea leer cualquier otro archivo únicamente tiene que cambiar el valor del segundo argumento.</p>
+<p>Por ejemplo, si desea leer un archivo .gbk (procedente de GenBank): "fasta" -&gt; "genbank". </p>
+<p>En el siguiente <a href="https://biopython.org/wiki/SeqIO">enlace</a> puede encontrar una tabla con todas las opciones.</p>
+<p>En muchos casos trabajará con archivos gzip, muy utilizados por herramientas bioinformáticas. Puede informarse sobre el <a href="https://docs.python.org/3/library/gzip.html">módulo gzip</a>, aunque es tan simple como utilizar <em>gzip.open()</em>. </p>
+</div>
+<p>Aunque esta opción de lectura le puede ser útil, en muchas ocasiones deseará trabajar con cada lectura de forma individual. Para ello tiene que trabajar con este archivo como si fuera un objeto más, como se muestra a continuación:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span>
+<span class="normal"><a href="#__codelineno-15-12">12</a></span>
+<span class="normal"><a href="#__codelineno-15-13">13</a></span>
+<span class="normal"><a href="#__codelineno-15-14">14</a></span>
+<span class="normal"><a href="#__codelineno-15-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="n">entradas</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;viola_tricolor.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LA PRIMERA ENTRADA:&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="n">primera_entrada</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">entradas</span><span class="p">)</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">primera_entrada</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">primera_entrada</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">primera_entrada</span><span class="p">))</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LA SEGUNDA ENTRADA:&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="n">segunda_entrada</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">entradas</span><span class="p">)</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">segunda_entrada</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">segunda_entrada</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">segunda_entrada</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">Salida por pantalla</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>LA PRIMERA ENTRADA:
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>HM590365.1
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>HM590365.1 Viola tricolor voucher personal collection:I. Hiiesalu 74 tRNA-Leu (trnL) gene, partial sequence; chloroplast
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>506
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>LA SEGUNDA ENTRADA:
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>JZ084087.1
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>JZ084087.1 MHV6 MHV-Cold stress-Viola library Viola tricolor cDNA clone MHV6, mRNA sequence
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>177
+</code></pre></div></p>
+<h3 id="extraccion-y-escritura-de-datos"><strong><em>Extracción y escritura de datos</em></strong></h3>
+<p>El archivo FASTA utilizado de ejemplo empieza de la siguiente forma:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>&gt;HM590365.1 Viola tricolor voucher personal collection:I. Hiiesalu 74 tRNA-Leu (trnL) gene, partial sequence; chloroplast
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>GACTTAATTGGATTGAGCCTTGGTATGGAAACTTACTAAGTGGATAA....
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>....
+</code></pre></div>
+Como puede comprobar, el identificador es el primer argumento en la descripción, información que podemos utilizar para obtener una lista con todos los IDs:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">especies</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="k">for</span> <span class="n">seq_record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;viola_tricolor.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>    <span class="n">especies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq_record</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">especies</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Esto te devuelve por pantalla la siguiente lista:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>[&#39;HM590365.1&#39;, &#39;JZ084087.1&#39;, &#39;JZ084086.1&#39;, &#39;JZ084085.1&#39;,&#39;JZ084084.1&#39;, ...]
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Lectura de otros formatos de archivo</p>
+<p>Le recomendamos que pruebe este método con archivos de EMBL o GenBank.</p>
+</div>
+<p>La modificación de datos en el archivo es muy simple. Veamos como modificar por ejemplo el ID de la primera entrada:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span>
+<span class="normal"><a href="#__codelineno-20-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">entradas</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;viola_tricolor.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="n">primera_entrada</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">entradas</span><span class="p">)</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">primera_entrada</span><span class="p">)</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="n">primera_entrada</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;ID_NUEVO&quot;</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">primera_entrada</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="graficacion"><strong>Graficación</strong></h2>
+<p>En este apartado se muestran algunos ejemplos de gráficas utilizando la librería <em>matplotlib</em> junto al módulo <em>Bio.SeqIO</em>. Para ello se va a utilizar de nuevo el archivo <a href="../viola_tricolor.fasta">viola_tricolor.fasta</a>.</p>
+<p><strong><em>HISTOGRAMA</em></strong></p>
+<p>Veamos cómo realizar un histograma que compare las longitudes de las secuencias en un rango de tamaños. En primer lugar, necesitamos almacenar en una lista la longitud de todas las secuencias:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">longitudes</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span> <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;viola_tricolor.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)]</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">longitudes</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Ahora utilizaremos la librería <em>matplotlib</em> para poder representarlos.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-22-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-22-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-22-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-22-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-22-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-22-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-22-10">10</a></span>
+<span class="normal"><a href="#__codelineno-22-11">11</a></span>
+<span class="normal"><a href="#__codelineno-22-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pylab</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">longitudes</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span> <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;viola_tricolor.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)]</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="n">pylab</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">longitudes</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="n">pylab</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a>    <span class="s2">&quot;</span><span class="si">%i</span><span class="s2"> Secuencias</span><span class="se">\n</span><span class="s2">Tamaños desde </span><span class="si">%i</span><span class="s2"> a </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">longitudes</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">longitudes</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">longitudes</span><span class="p">))</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="p">)</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="n">pylab</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tamaño de secuencias (bp)&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="n">pylab</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Recuento&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="n">pylab</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div></p>
+<figure>
+<p><img alt="matplot" height="450" src="../biopython_histograma.png" width="450" /></p>
+</figure>
+<p><strong><em>FIGURA DE LÍNEAS</em></strong></p>
+<p>Para mostrar un ejemplo de un gráfico de líneas, la mejor opción es representar una de las gráficas que más utilizará: <strong>representación GC%</strong>.</p>
+<p>En primer lugar necesitamos una lista con los porcentajes GC de las secuencias, utilizando el <em>módulo GC</em> empleado al principio de esta página. Vamos a realizar una representación ordenada de menores a mayores valores de GC%, para observar la variación.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span>
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kn">from</span> <span class="nn">Bio.SeqUtils</span> <span class="kn">import</span> <span class="n">GC</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="n">valores_GC</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">GC</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">seq</span><span class="p">)</span> <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;viola_tricolor.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">))</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">valores_GC</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Una vez obtenida la lista, representamos:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span>
+<span class="normal"><a href="#__codelineno-24-12">12</a></span>
+<span class="normal"><a href="#__codelineno-24-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kn">from</span> <span class="nn">Bio.SeqUtils</span> <span class="kn">import</span> <span class="n">GC</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pylab</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="n">valores_GC</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">GC</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">seq</span><span class="p">)</span> <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;viola_tricolor.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">))</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="n">pylab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">valores_GC</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="n">pylab</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a>    <span class="s2">&quot;</span><span class="si">%i</span><span class="s2"> Secuencias</span><span class="se">\n</span><span class="s2">GC</span><span class="si">%%</span><span class="s2"> desde </span><span class="si">%0.1f</span><span class="s2"> a </span><span class="si">%0.1f</span><span class="s2">&quot;</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a>    <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">valores_GC</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">valores_GC</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">valores_GC</span><span class="p">))</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="p">)</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="n">pylab</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Genes&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="n">pylab</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;GC%&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a><span class="n">pylab</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div></p>
+<figure>
+<p><img alt="matplot" height="450" src="../biopython_graficolineas.png" width="450" /></p>
+</figure>
+<h2 id="blast"><strong>Blast</strong></h2>
+<p><a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">Blast</a> (<em>Basic Local Alignment Search Tool</em>) es una herramienta informática de alineamiento de secuencias local, tanto de ácidos nucleicos como de secuencias proteicas. </p>
+<ul>
+<li><ins>Blastn</ins>. Nucleótido &gt; nucleótido.</li>
+<li><ins>Blastp</ins>. Proteína &gt; proteína.</li>
+<li><ins>Tblastn</ins>. Proteína &gt; secuencia nucleotídica traducida.</li>
+<li><ins>Blastx</ins>. Secuencia nucleotídica traducida &gt; proteína.</li>
+</ul>
+<p>Esta herramienta, sin duda una de las más importantes en bioinformática, está disponible desde Biopython con el <a href="https://biopython.org/docs/1.75/api/Bio.Blast.NCBIWWW.html">módulo Bio.blast.NCBIWWW</a>. </p>
+<p>La función <em>qblast()</em> en el módulo <em>Bio.blast.NCBIWWW</em> necesita tres argumentos:</p>
+<ul>
+<li><strong>Primer argumento</strong>. Programa blast que usará: blastn, blastp...</li>
+<li><strong>Segundo argumento</strong>. Base de datos en la que basará la búsqueda. Ej. <em>Nucleotide database (nt)</em>.</li>
+<li><strong>Tercer argumento</strong>. Una cadena que contenga tu secuencia de entrada (query sequence). Si la secuencia la tiene en un archivo FASTA, simplemente almacénela como una cadena.</li>
+</ul>
+<p>Aunque estos son los argumentos principales y necesarios para su funcionamiento, <em>qblast()</em> tiene muchos más argumentos y parámetros disponibles para modificar. Al igual que con todas las funciones, puede informarse en:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kn">from</span> <span class="nn">Bio.Blast</span> <span class="kn">import</span> <span class="n">NCBIWWW</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">help</span><span class="p">(</span><span class="n">NCBIWWW</span><span class="o">.</span><span class="n">qblast</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="ejemplo-practico"><strong><em>Ejemplo práctico</em></strong></h3>
+<p>En primer lugar descárguese un archivo FASTA en su directorio de trabajo. Le proponemos como ejemplo el siguiente archivo <a href="../NAC_solanum_arabidopsis.fasta">NAC_solanum_arabidopsis</a>, la secuencia codificante del gen NAC de <em>Solanum lycopersicum</em> y de <em>Arabidopsis thaliana</em>.</p>
+<p>Importe el <em>módulo NCBIWWW</em> y asigne la secuencia FASTA a una variable.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kn">from</span> <span class="nn">Bio.Blast</span> <span class="kn">import</span> <span class="n">NCBIWWW</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">archivo_fasta</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;NAC_solanum_arabidopsis.fasta&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>&gt;&gt;&gt; archivo_fasta
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>&gt;NC_015441.3:2856617-2858593 Solanum lycopersicum cultivar Heinz 1706 chromosome 4, SL3.0, whole genome shotgun sequence
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>GTCAAAGAAACTGAAACTAACACAAAGCAGGAGCAGGAGCAGCAACAAACAGAGAGAAGAAAACAGAGGA
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>AGATAAGAGGAAAATTTATCGAATTCGAATCGAGAGAAAAGGGGAAGTGAA ....
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>&gt;NC_003070.9:c11867154-11865229 Arabidopsis thaliana chromosome 1 sequence
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>GTCAAAGAAACTGAAACTAACACAAAGCAGGAGCAGGAGCAGCAACAAACAGAGAGAAGAAAACAGAGGAAGATA
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>GAGTCCTACCACCATTATAAATTATCTCATCGTTTGCTTTCTTTTTTTTAA ....
+</code></pre></div></p>
+<p>Utilice la función <em>qblast()</em> con los parámetros indicados anteriormente, como a continuación:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kn">from</span> <span class="nn">Bio.Blast</span> <span class="kn">import</span> <span class="n">NCBIWWW</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="n">archivo_fasta</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;NAC_solanum_arabidopsis.fasta&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="n">resultados</span> <span class="o">=</span> <span class="n">NCBIWWW</span><span class="o">.</span><span class="n">qblast</span><span class="p">(</span><span class="s2">&quot;blastn&quot;</span><span class="p">,</span> <span class="s2">&quot;nt&quot;</span><span class="p">,</span> <span class="n">archivo_fasta</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Guarde el objeto <em>resultados</em> a un archivo .xml que puede ser analizado.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span>
+<span class="normal"><a href="#__codelineno-29-4">4</a></span>
+<span class="normal"><a href="#__codelineno-29-5">5</a></span>
+<span class="normal"><a href="#__codelineno-29-6">6</a></span>
+<span class="normal"><a href="#__codelineno-29-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kn">from</span> <span class="nn">Bio.Blast</span> <span class="kn">import</span> <span class="n">NCBIWWW</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="n">archivo_fasta</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;NAC_solanum_arabidopsis.fasta&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="n">resultados</span> <span class="o">=</span> <span class="n">NCBIWWW</span><span class="o">.</span><span class="n">qblast</span><span class="p">(</span><span class="s2">&quot;blastn&quot;</span><span class="p">,</span> <span class="s2">&quot;nt&quot;</span><span class="p">,</span> <span class="n">archivo_fasta</span><span class="p">)</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;results.xml&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">save_file</span><span class="p">:</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>    <span class="n">blast_results</span> <span class="o">=</span> <span class="n">resultados</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>    <span class="n">save_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">blast_results</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Tras esto, habrá obtenido el siguiente archivo <a href="../results.xml">xml</a>. Tenga en cuenta que el análisis con Biopython de los resultados del Blast también le puede ser útil para resultados obtenidos en un Blast online.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-30-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-30-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-30-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-30-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-30-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-30-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-30-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-30-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-30-10">10</a></span>
+<span class="normal"><a href="#__codelineno-30-11">11</a></span>
+<span class="normal"><a href="#__codelineno-30-12">12</a></span>
+<span class="normal"><a href="#__codelineno-30-13">13</a></span>
+<span class="normal"><a href="#__codelineno-30-14">14</a></span>
+<span class="normal"><a href="#__codelineno-30-15">15</a></span>
+<span class="normal"><a href="#__codelineno-30-16">16</a></span>
+<span class="normal"><a href="#__codelineno-30-17">17</a></span>
+<span class="normal"><a href="#__codelineno-30-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="kn">from</span> <span class="nn">Bio.Blast</span> <span class="kn">import</span> <span class="n">NCBIWWW</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="kn">from</span> <span class="nn">Bio.Blast</span> <span class="kn">import</span> <span class="n">NCBIXML</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="n">resultado</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;results.xml&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="n">registro_blast</span> <span class="o">=</span> <span class="n">NCBIXML</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="n">registro_blast</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">registro_blast</span><span class="p">)</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7"></a>
+<a id="__codelineno-30-8" name="__codelineno-30-8"></a><span class="n">E_VALUE_THRESH</span> <span class="o">=</span> <span class="mf">0.04</span>
+<a id="__codelineno-30-9" name="__codelineno-30-9"></a><span class="k">for</span> <span class="n">alignment</span> <span class="ow">in</span> <span class="n">registro_blast</span><span class="o">.</span><span class="n">alignments</span><span class="p">:</span>
+<a id="__codelineno-30-10" name="__codelineno-30-10"></a>    <span class="k">for</span> <span class="n">hsp</span> <span class="ow">in</span> <span class="n">alignment</span><span class="o">.</span><span class="n">hsps</span><span class="p">:</span>
+<a id="__codelineno-30-11" name="__codelineno-30-11"></a>        <span class="k">if</span> <span class="n">hsp</span><span class="o">.</span><span class="n">expect</span> <span class="o">&lt;</span> <span class="n">E_VALUE_THRESH</span><span class="p">:</span>
+<a id="__codelineno-30-12" name="__codelineno-30-12"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;****Alineamiento****&quot;</span><span class="p">)</span>
+<a id="__codelineno-30-13" name="__codelineno-30-13"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Secuencia:&quot;</span><span class="p">,</span> <span class="n">alignment</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<a id="__codelineno-30-14" name="__codelineno-30-14"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tamaño:&quot;</span><span class="p">,</span> <span class="n">alignment</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
+<a id="__codelineno-30-15" name="__codelineno-30-15"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;e-value:&quot;</span><span class="p">,</span> <span class="n">hsp</span><span class="o">.</span><span class="n">expect</span><span class="p">)</span>
+<a id="__codelineno-30-16" name="__codelineno-30-16"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">hsp</span><span class="o">.</span><span class="n">query</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">75</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span><span class="p">)</span>
+<a id="__codelineno-30-17" name="__codelineno-30-17"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">hsp</span><span class="o">.</span><span class="n">match</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">75</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span><span class="p">)</span>
+<a id="__codelineno-30-18" name="__codelineno-30-18"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">hsp</span><span class="o">.</span><span class="n">sbjct</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">75</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Esto le dará como resultado el siguiente análisis Blast. A partir de este análisis puede realizar diferentes acciones, encontrando más información en el siguiente <a href="https://biopython-tutorial.readthedocs.io/en/latest/notebooks/07%20-%20Blast.html">enlace</a> a mayor información. 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>****Alineamiento****
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>Secuencia: gi|1273855477|gb|CP023760.1| Solanum lycopersicum cultivar I-3 chromosome 4
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>Tamaño: 66477049
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>e-value: 0.0
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>GTCAAAGAAACTGAAACTAACACAAAGCAGGAGCAGGAGCAGCAACAAACAGAGAGAAGAAAACAGAGGAAGATA...
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||...
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>GTCAAAGAAACTGAAACTAACACAAAGCAGGAGCAGGAGCAGCAACAAACAGAGAGAAGAAAACAGAGGAAGATA...
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>****Alineamiento****
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>Secuencia: gi|1273855477|gb|CP023760.1| Solanum lycopersicum cultivar I-3 chromosome 4
+<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>Tamaño: 66477049
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>e-value: 1.44242e-12
+<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>GGTGAAAAAGAGTGGTATTTTTTCTCACCAAGGGATAGAAAATATCCGAACGGTTCACGGCCGAACCGAGCAGCA...
+<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>|| |||||||| |||||||| ||| | ||| | |||||||||||||| || |||    |||| ||  | ||||| ...
+<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>GGAGAAAAAGAATGGTATTTCTTCACCCCACGTGATAGAAAATATCCAAATGGTGTTAGGCCAAATAGGGCAGCT...
+<a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>
+<a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>****Alineamiento****
+<a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a>Secuencia: gi|1273855477|gb|CP023760.1| Solanum lycopersicum cultivar I-3 chromosome 4
+<a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>Tamaño: 66477049
+<a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a>e-value: 4.71528e-06
+<a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>AACACAACTTCAAATCTCAAAAA-TCACAATTTCAAAAACTCATAGATTTCAACT------TCTATATTCAAACA...
+<a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a>|| ||||| |||||  | ||||| || ||| |||||||||||| || ||||||||      |||||  |||||||...
+<a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>AAAACAACATCAAAGTTAAAAAAATCGCAACTTCAAAAACTCAAAG-TTTCAACTTCGAAATCTATGATCAAACA...
+<a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>
+<a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a>...
+</code></pre></div></p>
+<h2 id="busqueda-en-bases-de-datos-pubmed-y-medline"><strong>Búsqueda en bases de datos: PubMed y Medline</strong></h2>
+<p>Desde Python es posible realizar búsquedas y obtener información de muchas de las principales fuentes de datos en el ámbito bioquímico, como <a href="https://pubmed.ncbi.nlm.nih.gov/">Pubmed</a> y <a href="https://medlineplus.gov/">Medline</a>. </p>
+<p>Veamos cómo realizar una consulta en PubMed, en este caso se quiere consultar todos los <strong>artículos</strong> relacionados con <em>Thermus aquaticus</em>, una bacteria termófila. Para esto utilizaremos el módulo <a href="https://biopython.org/docs/1.75/api/Bio.Entrez.html">Bio.Entrez</a>, un sistema que da acceso a todas las bases del NCBI.  </p>
+<p>Lo primero que queremos conocer es el número de artículos que están relacionados con esta bacteria.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span>
+<span class="normal"><a href="#__codelineno-32-2">2</a></span>
+<span class="normal"><a href="#__codelineno-32-3">3</a></span>
+<span class="normal"><a href="#__codelineno-32-4">4</a></span>
+<span class="normal"><a href="#__codelineno-32-5">5</a></span>
+<span class="normal"><a href="#__codelineno-32-6">6</a></span>
+<span class="normal"><a href="#__codelineno-32-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Entrez</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="n">entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;victorfernandezramirez1@hotmail.com&quot;</span>  <span class="c1">#Importante indicar su usuario</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="n">busqueda</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">egquery</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="s2">&quot;thermus aquaticus&quot;</span><span class="p">)</span>  <span class="c1">#Indicar la búsqueda deseada</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="n">registro</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">busqueda</span><span class="p">)</span>  <span class="c1">#Leer esta búsqueda y almacenarla como una variable</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="k">for</span> <span class="n">fila</span> <span class="ow">in</span> <span class="n">registro</span><span class="p">[</span><span class="s2">&quot;eGQueryResult&quot;</span><span class="p">]:</span>  <span class="c1">#Bucle para realizar el conteo</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a>    <span class="k">if</span> <span class="n">fila</span><span class="p">[</span><span class="s2">&quot;DbName&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;pubmed&quot;</span><span class="p">:</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">fila</span><span class="p">[</span><span class="s2">&quot;Count&quot;</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">Resultado</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>641
+</code></pre></div>
+Se obtiene un total de 641 entradas relacionadas con la bacteria <em>Thermus aquaticus</em>. Veamos cómo obtener los IDs de estos artículos utilizando la función <em>Bio.Entrez.esearch</em>.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span>
+<span class="normal"><a href="#__codelineno-34-2">2</a></span>
+<span class="normal"><a href="#__codelineno-34-3">3</a></span>
+<span class="normal"><a href="#__codelineno-34-4">4</a></span>
+<span class="normal"><a href="#__codelineno-34-5">5</a></span>
+<span class="normal"><a href="#__codelineno-34-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Entrez</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;victorfernandezramirez1@hotmail.com&quot;</span>  
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="n">busqueda</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">esearch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;pubmed&quot;</span><span class="p">,</span> <span class="n">term</span><span class="o">=</span><span class="s2">&quot;thermus aquaticus&quot;</span><span class="p">,</span> <span class="n">retmax</span><span class="o">=</span><span class="mi">463</span><span class="p">)</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="n">registro</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">busqueda</span><span class="p">)</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">busqueda</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="n">idlist</span> <span class="o">=</span> <span class="n">registro</span><span class="p">[</span><span class="s2">&quot;IdList&quot;</span><span class="p">]</span>  <span class="c1">#Almacena todos los IDs en una lista</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span>
+<span class="normal"><a href="#__codelineno-35-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span> <span class="p">(</span><span class="n">idlist</span><span class="p">)</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="p">[</span><span class="s1">&#39;34817221&#39;</span><span class="p">,</span> <span class="s1">&#39;34773612&#39;</span><span class="p">,</span> <span class="s1">&#39;34592573&#39;</span><span class="p">,</span> <span class="s1">&#39;34459541&#39;</span><span class="p">,</span><span class="o">...</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+A partir de esta lista de IDs, podemos importar el módulo <em>Medline</em> y utilizar la función <em>Entrez.efetch</em> para obtener la <strong>información de estos artículos</strong>. Tenga en cuenta que el código utilizado hasta el momento sigue siendo necesario, ya que necesitamos la lista creada <em>idlist</em>.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-36-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-36-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-36-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-36-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-36-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-36-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-36-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-36-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-36-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Medline</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="n">busqueda_medline</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">efetch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;pubmed&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">idlist</span><span class="p">,</span> <span class="n">rettype</span><span class="o">=</span><span class="s2">&quot;medline&quot;</span><span class="p">,</span> <span class="n">retmode</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="n">registros_nuevos</span> <span class="o">=</span> <span class="n">Medline</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">busqueda_medline</span><span class="p">)</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="n">registros_nuevos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">registros_nuevos</span><span class="p">)</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5"></a>
+<a id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="k">for</span> <span class="n">registro_bucle</span> <span class="ow">in</span> <span class="n">registros_nuevos</span><span class="p">:</span>
+<a id="__codelineno-36-7" name="__codelineno-36-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Titulo:&quot;</span><span class="p">,</span> <span class="n">registro_bucle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;TI&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">))</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Autores:&quot;</span><span class="p">,</span> <span class="n">registro_bucle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AU&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">))</span>
+<a id="__codelineno-36-9" name="__codelineno-36-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fuente:&quot;</span><span class="p">,</span> <span class="n">registro_bucle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;SO&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">))</span>
+<a id="__codelineno-36-10" name="__codelineno-36-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Esto le devolverá como salida el título, autor/es y fuente de todos los artículos que fueron almacenados en la lista.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Titulo: A Novel Trehalose Synthase for the Production of Trehalose and Trehalulose.
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>Autores: [&#39;Agarwal N&#39;, &#39;Singh SP&#39;]
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>Fuente: Microbiol Spectr. 2021 Dec 22;9(3):e0133321. doi: 10.1128/Spectrum.01333-21. Epub 2021 Nov 24.
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>Titulo: Enhancing Cohort PASA Efficiency from Lessons Assimilated by Mutant Genotyping in C. elegans.
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>Autores: [&#39;Pandey A&#39;, &#39;Bhat B&#39;, &#39;Aggarwal ML&#39;, &#39;Pandey GK&#39;]
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>Fuente: Methods Mol Biol. 2022;2392:17-33. doi: 10.1007/978-1-0716-1799-1_2.
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>...
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>Titulo: Purification, crystallization and preliminary X-ray investigation of aqualysin I, a heat-stable serine protease.
+<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>Autores: [&#39;Green PR&#39;, &#39;Oliver JD&#39;, &#39;Strickland LC&#39;, &#39;Toerner DR&#39;, &#39;Matsuzawa H&#39;, &#39;Ohta T&#39;]
+<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>Fuente: Acta Crystallogr D Biol Crystallogr. 1993 May 1;49(Pt 3):349-52. doi: 10.1107/S0907444992012083.
+</code></pre></div>
+Desde Python también es posible <strong>descargar secuencias</strong> en formato FASTA o como archivo de texto plano desde GenBank, utilizando únicamente un ID de referencia. </p>
+<p>Como ejemplo se utiliza el identificador <em>NM_001247553</em>, que pertenece al ARN mensajero de la proteína NAC de <em>Solanum lycopersicum</em>, proteína ya utilizada en ejemplos anteriores.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1">1</a></span>
+<span class="normal"><a href="#__codelineno-38-2">2</a></span>
+<span class="normal"><a href="#__codelineno-38-3">3</a></span>
+<span class="normal"><a href="#__codelineno-38-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Entrez</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="n">Entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;victorfernandezramirez1@hotmail.com&quot;</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="n">busqueda</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">efetch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;nucleotide&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;NM_001247553&quot;</span><span class="p">,</span> <span class="n">rettype</span><span class="o">=</span><span class="s2">&quot;gb&quot;</span><span class="p">,</span> <span class="n">retmode</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">busqueda</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">Salida por pantalla</span><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>LOCUS       NM_001247553            1309 bp    mRNA    linear   PLN 25-FEB-2019
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>DEFINITION  Solanum lycopersicum NAC domain protein (NAC1), mRNA.
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>ACCESSION   NM_001247553
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>VERSION     NM_001247553.3
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>KEYWORDS    RefSeq.
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>SOURCE      Solanum lycopersicum (Lycopersicon esculentum)
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>  ORGANISM  Solanum lycopersicum
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a>            Spermatophyta; Magnoliopsida; eudicotyledons; Gunneridae;
+<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>            Pentapetalae; asterids; lamiids; Solanales; Solanaceae;
+<a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a>            Solanoideae; Solaneae; Solanum; Solanum subgen. Lycopersicon.
+<a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a>REFERENCE   1  (bases 1 to 1309)
+<a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a>  AUTHORS   Gao Y, Wei W, Zhao X, Tan X, Fan Z, Zhang Y, Jing Y, Meng L, Zhu B,
+<a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a>            Zhu H, Chen J, Jiang CZ, Grierson D, Luo Y and Fu DQ.
+<a id="__codelineno-39-15" name="__codelineno-39-15" href="#__codelineno-39-15"></a>  TITLE     A NAC transcription factor, NOR-like1, is a new positive regulator
+<a id="__codelineno-39-16" name="__codelineno-39-16" href="#__codelineno-39-16"></a>            of tomato fruit ripening
+<a id="__codelineno-39-17" name="__codelineno-39-17" href="#__codelineno-39-17"></a>  JOURNAL   Hortic Res 5, 75 (2018)
+<a id="__codelineno-39-18" name="__codelineno-39-18" href="#__codelineno-39-18"></a>   PUBMED   30588320
+<a id="__codelineno-39-19" name="__codelineno-39-19" href="#__codelineno-39-19"></a>  REMARK    Publication Status: Online-Only
+<a id="__codelineno-39-20" name="__codelineno-39-20" href="#__codelineno-39-20"></a>REFERENCE   2  (bases 1 to 1309)
+<a id="__codelineno-39-21" name="__codelineno-39-21" href="#__codelineno-39-21"></a>  AUTHORS   Giovannoni J, Nguyen C, Ampofo B, Zhong S and Fei Z.
+<a id="__codelineno-39-22" name="__codelineno-39-22" href="#__codelineno-39-22"></a>  TITLE     The Epigenome and Transcriptional Dynamics of Fruit Ripening
+<a id="__codelineno-39-23" name="__codelineno-39-23" href="#__codelineno-39-23"></a>  JOURNAL   Annu Rev Plant Biol 68, 61-84 (2017)
+<a id="__codelineno-39-24" name="__codelineno-39-24" href="#__codelineno-39-24"></a>   PUBMED   28226232
+<a id="__codelineno-39-25" name="__codelineno-39-25" href="#__codelineno-39-25"></a>  REMARK    Review article
+<a id="__codelineno-39-26" name="__codelineno-39-26" href="#__codelineno-39-26"></a>REFERENCE   3  (bases 1 to 1309)
+<a id="__codelineno-39-27" name="__codelineno-39-27" href="#__codelineno-39-27"></a>...
+<a id="__codelineno-39-28" name="__codelineno-39-28" href="#__codelineno-39-28"></a>PRIMARY     REFSEQ_SPAN         PRIMARY_IDENTIFIER PRIMARY_SPAN        COMP
+<a id="__codelineno-39-29" name="__codelineno-39-29" href="#__codelineno-39-29"></a>            1-1309              AK323390.1         1-1309
+<a id="__codelineno-39-30" name="__codelineno-39-30" href="#__codelineno-39-30"></a>FEATURES             Location/Qualifiers
+<a id="__codelineno-39-31" name="__codelineno-39-31" href="#__codelineno-39-31"></a>     source          1..1309
+<a id="__codelineno-39-32" name="__codelineno-39-32" href="#__codelineno-39-32"></a>                     /organism=&quot;Solanum lycopersicum&quot;
+<a id="__codelineno-39-33" name="__codelineno-39-33" href="#__codelineno-39-33"></a>                     /mol_type=&quot;mRNA&quot;
+<a id="__codelineno-39-34" name="__codelineno-39-34" href="#__codelineno-39-34"></a>                     /cultivar=&quot;Micro-Tom&quot;
+<a id="__codelineno-39-35" name="__codelineno-39-35" href="#__codelineno-39-35"></a>                     /db_xref=&quot;taxon:4081&quot;
+<a id="__codelineno-39-36" name="__codelineno-39-36" href="#__codelineno-39-36"></a>                     /chromosome=&quot;4&quot;
+<a id="__codelineno-39-37" name="__codelineno-39-37" href="#__codelineno-39-37"></a>                     /map=&quot;4&quot;
+<a id="__codelineno-39-38" name="__codelineno-39-38" href="#__codelineno-39-38"></a>     gene            1..1309
+<a id="__codelineno-39-39" name="__codelineno-39-39" href="#__codelineno-39-39"></a>                     /gene=&quot;NAC1&quot;
+<a id="__codelineno-39-40" name="__codelineno-39-40" href="#__codelineno-39-40"></a>                     /gene_synonym=&quot;NC1; SlNAC1&quot;
+<a id="__codelineno-39-41" name="__codelineno-39-41" href="#__codelineno-39-41"></a>                     /note=&quot;NAC domain protein&quot;
+<a id="__codelineno-39-42" name="__codelineno-39-42" href="#__codelineno-39-42"></a>                     /db_xref=&quot;GeneID:543917&quot;
+<a id="__codelineno-39-43" name="__codelineno-39-43" href="#__codelineno-39-43"></a>     exon            1..327
+<a id="__codelineno-39-44" name="__codelineno-39-44" href="#__codelineno-39-44"></a>                     /gene=&quot;NAC1&quot;
+<a id="__codelineno-39-45" name="__codelineno-39-45" href="#__codelineno-39-45"></a>                     /gene_synonym=&quot;NC1; SlNAC1&quot;
+<a id="__codelineno-39-46" name="__codelineno-39-46" href="#__codelineno-39-46"></a>                     /inference=&quot;alignment:Splign:2.1.0&quot;
+<a id="__codelineno-39-47" name="__codelineno-39-47" href="#__codelineno-39-47"></a>     misc_feature    18..20
+<a id="__codelineno-39-48" name="__codelineno-39-48" href="#__codelineno-39-48"></a>                     /gene=&quot;NAC1&quot;
+<a id="__codelineno-39-49" name="__codelineno-39-49" href="#__codelineno-39-49"></a>                     /gene_synonym=&quot;NC1; SlNAC1&quot;
+<a id="__codelineno-39-50" name="__codelineno-39-50" href="#__codelineno-39-50"></a>                     /note=&quot;upstream in-frame stop codon&quot;
+<a id="__codelineno-39-51" name="__codelineno-39-51" href="#__codelineno-39-51"></a>     CDS             150..1055
+<a id="__codelineno-39-52" name="__codelineno-39-52" href="#__codelineno-39-52"></a>                     /gene=&quot;NAC1&quot;
+<a id="__codelineno-39-53" name="__codelineno-39-53" href="#__codelineno-39-53"></a>                     /gene_synonym=&quot;NC1; SlNAC1&quot;
+<a id="__codelineno-39-54" name="__codelineno-39-54" href="#__codelineno-39-54"></a>                     /note=&quot;NAC domain protein 1; NAC domain-containing protein
+<a id="__codelineno-39-55" name="__codelineno-39-55" href="#__codelineno-39-55"></a>                     2&quot;
+<a id="__codelineno-39-56" name="__codelineno-39-56" href="#__codelineno-39-56"></a>                     /codon_start=1
+<a id="__codelineno-39-57" name="__codelineno-39-57" href="#__codelineno-39-57"></a>                     /product=&quot;NAC domain protein&quot;
+<a id="__codelineno-39-58" name="__codelineno-39-58" href="#__codelineno-39-58"></a>                     /protein_id=&quot;NP_001234482.1&quot;
+<a id="__codelineno-39-59" name="__codelineno-39-59" href="#__codelineno-39-59"></a>                     /db_xref=&quot;GeneID:543917&quot;
+<a id="__codelineno-39-60" name="__codelineno-39-60" href="#__codelineno-39-60"></a>                     /translation=&quot;MNKGANGNQQLELPAGFRFHPTDDELVQHYLCRKCAGQSIAVSI
+<a id="__codelineno-39-61" name="__codelineno-39-61" href="#__codelineno-39-61"></a>                     IAEIDLYKFDPWQLPEKALYGEKEWYFFSPRDRKYPNGSRPNRAAGTGYWKATGADKP
+<a id="__codelineno-39-62" name="__codelineno-39-62" href="#__codelineno-39-62"></a>                     VGKPKTLGIKKALVFYAGKAPRGIKTNWIMHEYRLANVDRSAGKNNNLRLDDWVLCRI
+<a id="__codelineno-39-63" name="__codelineno-39-63" href="#__codelineno-39-63"></a>                     YNKKGTLEKHYNVDNKETTSFGEFDEEIKPKILPTQLAPMPPRPRSTPANDYFYFESS
+<a id="__codelineno-39-64" name="__codelineno-39-64" href="#__codelineno-39-64"></a>                     ESMTRMHTTNSSSGSEHVLSPCDKEVQSAPKWDEDHRNTLDFQLNYLDGLLNEPFETQ
+<a id="__codelineno-39-65" name="__codelineno-39-65" href="#__codelineno-39-65"></a>                     MQQQICNFDQFNNFQDMFLYMQKPY&quot;
+<a id="__codelineno-39-66" name="__codelineno-39-66" href="#__codelineno-39-66"></a>     exon            328..602
+<a id="__codelineno-39-67" name="__codelineno-39-67" href="#__codelineno-39-67"></a>                     /gene=&quot;NAC1&quot;
+<a id="__codelineno-39-68" name="__codelineno-39-68" href="#__codelineno-39-68"></a>                     /gene_synonym=&quot;NC1; SlNAC1&quot;
+<a id="__codelineno-39-69" name="__codelineno-39-69" href="#__codelineno-39-69"></a>                     /inference=&quot;alignment:Splign:2.1.0&quot;
+<a id="__codelineno-39-70" name="__codelineno-39-70" href="#__codelineno-39-70"></a>     exon            603..1302
+<a id="__codelineno-39-71" name="__codelineno-39-71" href="#__codelineno-39-71"></a>                     /gene=&quot;NAC1&quot;
+<a id="__codelineno-39-72" name="__codelineno-39-72" href="#__codelineno-39-72"></a>                     /gene_synonym=&quot;NC1; SlNAC1&quot;
+<a id="__codelineno-39-73" name="__codelineno-39-73" href="#__codelineno-39-73"></a>                     /inference=&quot;alignment:Splign:2.1.0&quot;
+<a id="__codelineno-39-74" name="__codelineno-39-74" href="#__codelineno-39-74"></a>ORIGIN      
+<a id="__codelineno-39-75" name="__codelineno-39-75" href="#__codelineno-39-75"></a>        1 gtcaaagaaa ctgaaactaa cacaaagcag gagcaggagc agcaacaaac agagagaaga
+<a id="__codelineno-39-76" name="__codelineno-39-76" href="#__codelineno-39-76"></a>       61 aaacagagga agataagagg aaaatttatc gaattcgaat cgagagaaaa ggggaagtga
+<a id="__codelineno-39-77" name="__codelineno-39-77" href="#__codelineno-39-77"></a>      121 agttgcgaag agtgagaatt tcaaaggaaa tgaacaaagg agcaaacgga aatcagcaat
+<a id="__codelineno-39-78" name="__codelineno-39-78" href="#__codelineno-39-78"></a>      181 tggagttacc ggcgggattc agattccatc cgacagacga cgaattggtg cagcactatc
+<a id="__codelineno-39-79" name="__codelineno-39-79" href="#__codelineno-39-79"></a>     ....
+<a id="__codelineno-39-80" name="__codelineno-39-80" href="#__codelineno-39-80"></a>     1081 attgagtgtg atccatgaca ttttctttgt tctttggtgg tgtaggtcaa ctttttatta
+<a id="__codelineno-39-81" name="__codelineno-39-81" href="#__codelineno-39-81"></a>     1141 agtagtttag agaagtacaa aatgctagtc aaatttggtg ggctacagca caaatgagcc
+<a id="__codelineno-39-82" name="__codelineno-39-82" href="#__codelineno-39-82"></a>     1201 ttgataagca tagccaaaga gtcgtataga agggcttatt attattgtaa ggtatgtaaa
+<a id="__codelineno-39-83" name="__codelineno-39-83" href="#__codelineno-39-83"></a>     1261 aacaaatgaa aatttgttaa tatcaagtta tcattcttca aaaaaaaaa
+</code></pre></div>
+Existe un método ya visto para poder <strong>acceder a esta información</strong> de forma individual: utilizar el módulo <em>Bio.SeqIO</em>.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1">1</a></span>
+<span class="normal"><a href="#__codelineno-40-2">2</a></span>
+<span class="normal"><a href="#__codelineno-40-3">3</a></span>
+<span class="normal"><a href="#__codelineno-40-4">4</a></span>
+<span class="normal"><a href="#__codelineno-40-5">5</a></span>
+<span class="normal"><a href="#__codelineno-40-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Entrez</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="n">Entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;victorfernandezramirez1@hotmail.com&quot;</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a><span class="n">busqueda</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">efetch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;nucleotide&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;NM_001247553&quot;</span><span class="p">,</span> <span class="n">rettype</span><span class="o">=</span><span class="s2">&quot;gb&quot;</span><span class="p">,</span> <span class="n">retmode</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5"></a><span class="n">registro</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">busqueda</span><span class="p">,</span> <span class="s2">&quot;genbank&quot;</span><span class="p">)</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6"></a><span class="n">busqueda</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+Ahora podremos acceder de forma individual a la distinta información almacenada en la variable <em>registro</em>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1">1</a></span>
+<span class="normal"><a href="#__codelineno-41-2">2</a></span>
+<span class="normal"><a href="#__codelineno-41-3">3</a></span>
+<span class="normal"><a href="#__codelineno-41-4">4</a></span>
+<span class="normal"><a href="#__codelineno-41-5">5</a></span>
+<span class="normal"><a href="#__codelineno-41-6">6</a></span>
+<span class="normal"><a href="#__codelineno-41-7">7</a></span>
+<span class="normal"><a href="#__codelineno-41-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a>&gt;&gt;&gt; print(registro.id)
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a>NM_001247553.3
+<a id="__codelineno-41-3" name="__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4"></a>&gt;&gt;&gt; print(registro.description)
+<a id="__codelineno-41-5" name="__codelineno-41-5"></a>print(registro.description)
+<a id="__codelineno-41-6" name="__codelineno-41-6"></a>
+<a id="__codelineno-41-7" name="__codelineno-41-7"></a>&gt;&gt;&gt; print(registro.seq)
+<a id="__codelineno-41-8" name="__codelineno-41-8"></a>GTCAAAGAAACTGAAACTAA...GTTATCATTCTTCAAAAAAAAAA
+</code></pre></div></td></tr></table></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Recomendación</p>
+<p>Este apartado es fundamental que lo practique, ya que en unos simples comandos puede realizar una búsqueda en PubMed y acceder a la secuencia nucleotídica de un gen problema para trabajar con ella...¡y todo desde Python!</p>
+</div>
+<h2 id="resumen"><strong>Resumen</strong></h2>
+<p>En este apartado se le ha enseñado una serie de funcionalidades de Biopython que seguro que le serán de ayuda, pudiendo trabajar a su antojo con archivos FASTA desde la terminal de Python. </p>
+<p>No obstante, debe saber que Biopython permite realizar <strong>funciones muy avanzadas</strong>, como trabajar con archivos de secuenciación (filtrado, indexado..), realizar alineamientos múltiples (basado en herramientas como MUSCLE o ClustalW) o análisis de motivos de secuencias. </p>
+<p>Si quiere profundizar en sus conocimientos sobre el paquete Biopython, le recomendamos que acceda al <em><a href="http://biopython.org/DIST/docs/tutorial/Tutorial.html#sec371">libro de cocina</a></em> de Biopython.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Volver al principio
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
+      
+        
+        <a href="../10_Ej_complementarios/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Ejercicios complementarios" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Ejercicios complementarios
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../AcercaDe/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Acerca de" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Acerca de
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2021-2022 Víctor J. Fernández. Todos los derechos reservados.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/Fac_CienciasUCO?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23Z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://uco.es/" target="_blank" rel="noopener" title="uco.es" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/school/facultadcienciasuco/?originalSubdomain=es" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://es.python.org/" target="_blank" rel="noopener" title="es.python.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "search.suggest", "search.highlight", "search.share", null], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7f366e99.min.js"></script>
+      
+    
+  </body>
+</html>
